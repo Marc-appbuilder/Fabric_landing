@@ -390,62 +390,71 @@
             -webkit-user-select: none;
         }
 
-        @media (max-width: 768px) {
-            .hamburger {
-                display: flex;
-            }
-
-            .nav-links {
-                display: none !important;
-            }
-
-            .cta-button {
-                display: none;
-            }
-
-            .hero {
-                min-height: auto;
-                position: relative;
-                padding-bottom: 3rem;
-            }
-
-            .hero-content {
-                position: static;
-                padding: 2rem 1.5rem;
-                max-width: 100%;
-                margin: 0;
-                width: 100%;
-                display: block;
-                text-align: center;
-            }
-
-            .hero-content svg {
-                position: relative;
-                top: auto;
-                left: auto;
-                max-width: 80px;
-                width: 80px;
-                height: auto;
-                margin: 0 auto 1.5rem auto;
-            }
-
-            .hero-tagline {
-                font-size: 1.4rem;
-                margin: 0 0 1rem 0;
-            }
-
-            .hero-description {
-                font-size: 0.95rem;
-                max-width: 100%;
-                margin-bottom: 1rem;
-                line-height: 1.5;
-            }
-
-            .hero-carousel {
-                min-height: 250px;
-                max-height: 350px;
-            }
-        }
+@media (max-width: 768px) {
+    .hamburger {
+        display: flex;
+    }
+    .nav-links {
+        display: none !important;
+    }
+    .cta-button {
+        display: none;
+    }
+    .hero {
+        min-height: 100vh;
+        position: relative;
+        display: flex;
+        flex-direction: column;
+    }
+    .hero-overlay {
+        z-index: 2;
+    }
+    .hero-carousel {
+        position: absolute;
+        inset: 0;
+        width: 100%;
+        height: 100%;
+        z-index: 1;
+    }
+    .hero-content {
+        position: absolute;
+        z-index: 30;
+        top: 0;
+        left: 0;
+        right: 0;
+        bottom: 0;
+        padding: 6rem 1.5rem 3rem;
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        width: 100%;
+    }
+    .hero-content svg {
+        position: relative;
+        top: auto;
+        left: auto;
+        max-width: 160px;
+        width: 160px;
+        height: auto;
+        margin: 0 auto 1.5rem;
+    }
+    .hero-tagline {
+        font-size: 1.6rem;
+        margin: 0 0 0.5rem 0;
+    }
+    .hero h1 {
+        font-size: clamp(2.5rem, 8vw, 4rem);
+        justify-content: center;
+    }
+    .hero-description {
+        font-size: 0.95rem;
+        max-width: 100%;
+        margin-bottom: 1.5rem;
+        line-height: 1.5;
+    }
+}
 
         .hero-tagline {
             font-family: 'Caveat', cursive;
