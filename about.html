@@ -1085,37 +1085,52 @@
                 display: none; /* Remove complex borders on mobile */
             }
 
-/* Story cards mobile */
-.story-card {
-    display: block !important;
-    width: 100%;
-}
-.story-card.story-right {
+            /* Story cards mobile */
+            .story-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+            }
+
+            .story-card.story-right {
+                direction: ltr;
+            }
+
+            .story-image {
+                transform: none !important; /* No rotation on mobile */
+            }
+
+            .story-image img {
+                height: 300px;
+            }
+
+            .team-stories {
+                gap: 3rem;
+            }
+
+            .story-card {
+                grid-template-columns: 1fr;
+                gap: 2rem;
+           }
+            .story-card.story-right {
     direction: ltr;
-}
-.story-image,
-.story-content {
-    display: block;
-    width: 100% !important;
-    max-width: 100% !important;
-}
-.story-image {
-    transform: none !important;
-    margin-bottom: 2rem;
-}
-.story-image img {
-    height: 300px;
-}
-.team-stories {
-    gap: 3rem;
-}
-.story-content {
+            }
+            .story-image {
+               transform: none !important;
+            }
+            .story-image img {
+                height: 300px;
+            }
+            .team-stories {
+                gap: 3rem;
+            }
+            .story-content {
     padding: 1.5rem;
-}
-.story-content p {
-    font-size: 1rem;
-    line-height: 1.7;
-}
+    width: 100%;
+            }
+            .story-content p {
+                font-size: 1rem;
+                line-height: 1.7;
+            }
 
             /* Values */
             .values-grid {
