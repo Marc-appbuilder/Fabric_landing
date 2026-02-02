@@ -1348,6 +1348,17 @@
             }
             .features-title span[style] {
                 display: none;
+
+        /* Landscape mode - ensure logo shows */
+        @media (max-width: 768px) and (orientation: landscape) {
+            .hero-content svg {
+                display: block !important;
+                max-width: 60vw;
+                height: auto;
+                visibility: visible !important;
+                opacity: 1 !important;
+            }
+        }
         }
 
         /* Small mobile */
