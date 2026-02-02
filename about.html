@@ -1205,6 +1205,16 @@
                 padding: 3rem 1rem;
             }
 
+
+        /* Portrait mode fix for story cards - remove double padding */
+        @media (max-width: 768px) and (orientation: portrait) {
+            .about-container {
+                padding: 0 !important;
+            }
+            .story-content {
+                padding: 1.5rem;
+            }
+        }
             .values-grid {
                 grid-template-columns: 1fr;
                 row-gap: 2.5rem;
