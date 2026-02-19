@@ -312,6 +312,179 @@
             margin-top: auto;
         }
 
+        /* ── Apps Section ── */
+        .apps-section {
+            margin-bottom: 0;
+            padding-bottom: 4rem;
+        }
+
+        .apps-section-header {
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .section-label-handwritten {
+            font-family: 'Caveat', cursive;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--coral);
+            display: block;
+            margin-bottom: 0.5rem;
+        }
+
+        .apps-section-title {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--stone-900);
+            margin-bottom: 0.75rem;
+        }
+
+        .apps-section-subtitle {
+            font-size: 1.05rem;
+            color: var(--stone-600);
+            max-width: 540px;
+            margin: 0 auto;
+            line-height: 1.7;
+        }
+
+        .apps-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+            gap: 2rem;
+        }
+
+        .app-card {
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .app-card:hover {
+            transform: translateY(-6px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+        }
+
+        .app-card--charity { background: linear-gradient(140deg, #1c1917 0%, #2d2926 100%); }
+        .app-card--community { background: linear-gradient(140deg, #1a2f4e 0%, #1e3a5f 100%); }
+
+        .app-card-inner {
+            padding: 2.5rem;
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            height: 100%;
+        }
+
+        .app-card-top {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+        }
+
+        .app-icon {
+            width: 52px;
+            height: 52px;
+            border-radius: 14px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.5rem;
+        }
+
+        .app-icon--charity { background: rgba(244,114,97,0.2); }
+        .app-icon--community { background: rgba(255,255,255,0.15); }
+
+        .app-badge {
+            display: inline-block;
+            padding: 0.25rem 0.85rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .app-badge--soon {
+            background: rgba(255,255,255,0.18);
+            color: white;
+            border: 1px solid rgba(255,255,255,0.25);
+        }
+
+        .app-name {
+            font-size: 1.6rem;
+            font-weight: 800;
+            color: white;
+            line-height: 1.2;
+            margin-top: 0.25rem;
+        }
+
+        .app-tagline {
+            font-size: 0.95rem;
+            color: rgba(255,255,255,0.75);
+            line-height: 1.65;
+        }
+
+        .app-features {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 0.5rem;
+            margin: 0.5rem 0;
+        }
+
+        .app-features li {
+            font-size: 0.875rem;
+            color: rgba(255,255,255,0.8);
+            padding-left: 1.25rem;
+            position: relative;
+            line-height: 1.5;
+        }
+
+        .app-features li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            font-weight: 700;
+            color: var(--coral);
+        }
+
+        .app-cta {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            padding: 0.875rem 1.5rem;
+            border-radius: 9999px;
+            font-weight: 700;
+            font-size: 0.9rem;
+            text-decoration: none;
+            margin-top: 0.75rem;
+            transition: all 0.25s;
+            width: fit-content;
+        }
+
+        .app-cta--charity {
+            background: var(--coral);
+            color: white;
+        }
+        .app-cta--charity:hover { opacity: 0.9; transform: translateX(3px); }
+
+        .app-cta--community {
+            background: white;
+            color: #1a2f4e;
+        }
+        .app-cta--community:hover { opacity: 0.92; transform: translateX(3px); }
+
+        .section-divider {
+            border: none;
+            border-top: 2px solid var(--stone-200);
+            margin: 0 0 4rem;
+        }
+
+        @media (max-width: 600px) {
+            .app-card-inner { padding: 2rem 1.5rem; }
+            .apps-grid { grid-template-columns: 1fr; }
+        }
+
         /* ── Notify Banner ── */
         .notify-banner {
             background: white;
@@ -392,6 +565,11 @@
             text-decoration: none;
         }
         .site-footer a:hover { color: white; }
+        .site-footer .company-info {
+            margin-top: 0.75rem;
+            font-size: 0.75rem;
+            color: rgba(255,255,255,0.3);
+        }
 
         @media (max-width: 600px) {
             .resources-grid { grid-template-columns: 1fr; }
@@ -429,12 +607,82 @@
 
     <!-- Page Hero -->
     <div class="page-hero">
-        <span class="page-hero-label">Tools that will help you</span>
+        <span class="page-hero-label">For the work that matters</span>
         <h1>Resources</h1>
         <p>Guides, courses, and useful things to help you build and strengthen your community work.</p>
     </div>
 
     <div class="resources-content">
+
+        <!-- Our Tools & Apps -->
+        <div class="apps-section">
+            <div class="apps-section-header">
+                <span class="section-label-handwritten">Built by Fabric</span>
+                <h2 class="apps-section-title">Our Tools &amp; Apps</h2>
+                <p class="apps-section-subtitle">Two platforms designed to strengthen the people and organisations holding communities together.</p>
+            </div>
+            <div class="apps-grid">
+
+                <!-- Charity Builder -->
+                <div class="app-card app-card--charity">
+                    <div class="app-card-inner">
+                        <div class="app-card-top">
+                            <div class="app-icon app-icon--charity">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M4 13L15 4L26 13" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
+                                    <rect x="6" y="13" width="18" height="13" rx="1.5" stroke="white" stroke-width="1.8"/>
+                                    <path d="M11 26V19.5C11 18.9 11.5 18.5 12 18.5H18C18.5 18.5 19 18.9 19 19.5V26" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                                    <line x1="6" y1="26" x2="24" y2="26" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="app-badge app-badge--soon">Coming soon</span>
+                        </div>
+                        <h3 class="app-name">Charity Builder</h3>
+                        <p class="app-tagline">You are the Fabric that holds our communities together. But that shouldn't mean carrying everything alone.</p>
+                        <ul class="app-features">
+                            <li>Governance framework builder</li>
+                            <li>Strategy &amp; business planning</li>
+                            <li>Ethical recruitment &amp; team management</li>
+                            <li>2,000+ UK funders — grant search &amp; AI writer</li>
+                            <li>Impact &amp; outcomes designer</li>
+                        </ul>
+                        <a href="#" class="app-cta app-cta--charity">Explore Charity Builder →</a>
+                    </div>
+                </div>
+
+                <!-- Community Builder -->
+                <div class="app-card app-card--community">
+                    <div class="app-card-inner">
+                        <div class="app-card-top">
+                            <div class="app-icon app-icon--community">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <circle cx="15" cy="8" r="3.5" stroke="white" stroke-width="1.8"/>
+                                    <circle cx="6" cy="22" r="3.5" stroke="white" stroke-width="1.8"/>
+                                    <circle cx="24" cy="22" r="3.5" stroke="white" stroke-width="1.8"/>
+                                    <line x1="15" y1="11.5" x2="9.5" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                                    <line x1="15" y1="11.5" x2="20.5" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                                    <line x1="9.5" y1="22" x2="20.5" y2="22" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
+                                </svg>
+                            </div>
+                            <span class="app-badge app-badge--soon">Coming soon</span>
+                        </div>
+                        <h3 class="app-name">Community Builder</h3>
+                        <p class="app-tagline">A shared space for people building connection, belonging, and resilience in their communities.</p>
+                        <ul class="app-features">
+                            <li>Map local need and community assets</li>
+                            <li>Find people working on what you care about</li>
+                            <li>See what's already happening in your area</li>
+                            <li>Reduce duplication, surface gaps</li>
+                            <li>Free to explore — no account required</li>
+                        </ul>
+                        <a href="#" class="app-cta app-cta--community">Explore Community Builder →</a>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+
+        <div class="section-divider"></div>
 
         <!-- Category 1: Free Guides & PDFs -->
         <div class="resource-category">
@@ -564,6 +812,7 @@
 
     <footer class="site-footer">
         <p>© 2026 Fabric &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+        <p class="company-info">FABRIC - CENTER FOR CHANGE LTD &nbsp;·&nbsp; Company No. 16910147 &nbsp;·&nbsp; Registered in England &amp; Wales &nbsp;·&nbsp; 7 Riversdale, Wadebridge, PL27 7NP</p>
     </footer>
 
     <script>
