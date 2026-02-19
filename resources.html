@@ -1,0 +1,594 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resources – Fabric</title>
+    <link rel="icon" type="image/svg+xml" href="favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="manifest" href="site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        :root {
+            --sage-green: #a8d5ba;
+            --coral: #F47261;
+            --teal: #0d9488;
+            --stone-50: #fafaf9;
+            --stone-200: #e7e5e4;
+            --stone-600: #57534e;
+            --stone-900: #1c1917;
+        }
+
+        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+
+        body {
+            font-family: 'Inter', sans-serif;
+            line-height: 1.6;
+            color: var(--stone-900);
+            background: var(--stone-50);
+            overflow-x: hidden;
+        }
+
+        * { max-width: 100%; }
+        img { max-width: 100%; height: auto; }
+        button, a { -webkit-tap-highlight-color: rgba(0,0,0,0); }
+
+        /* ── Navigation ── */
+        nav {
+            position: fixed;
+            top: 0; left: 0; right: 0;
+            z-index: 1000;
+            background: rgba(255,255,255,0.98);
+            backdrop-filter: blur(20px);
+            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
+        }
+
+        .nav-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            padding: 0 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            height: 80px;
+        }
+
+        .logo {
+            font-weight: 700;
+            font-size: 1.5rem;
+            color: var(--stone-900);
+            text-decoration: none;
+        }
+
+        .nav-links {
+            display: flex;
+            gap: 2rem;
+            list-style: none;
+        }
+
+        .nav-links a {
+            text-decoration: none;
+            font-weight: 500;
+            font-size: 0.95rem;
+            color: var(--stone-600);
+            transition: color 0.2s;
+        }
+
+        .nav-links a:hover { color: var(--stone-900); }
+        .nav-links a.active { color: var(--coral); }
+
+        .cta-button {
+            padding: 0.75rem 1.75rem;
+            background: var(--coral);
+            color: white;
+            border-radius: 9999px;
+            font-weight: 600;
+            font-size: 0.95rem;
+            border: none;
+            cursor: pointer;
+            text-decoration: none;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .cta-button:hover { transform: translateY(-2px); opacity: 0.9; }
+
+        .hamburger {
+            display: none;
+            flex-direction: column;
+            gap: 6px;
+            cursor: pointer;
+            background: none;
+            border: none;
+            padding: 0.5rem;
+        }
+        .hamburger span {
+            width: 25px; height: 3px;
+            background: var(--stone-900);
+            border-radius: 2px;
+            transition: all 0.3s;
+        }
+        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
+        .hamburger.active span:nth-child(2) { opacity: 0; }
+        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
+
+        .mobile-menu {
+            display: none;
+            position: fixed;
+            top: 80px; left: 0; right: 0;
+            background: white;
+            flex-direction: column;
+            padding: 1rem 2rem 2rem;
+            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+            z-index: 999;
+        }
+        .mobile-menu.active { display: flex; }
+        .mobile-menu a {
+            text-decoration: none;
+            color: var(--stone-900);
+            font-weight: 500;
+            font-size: 1.05rem;
+            padding: 0.875rem 0;
+            border-bottom: 1px solid var(--stone-200);
+        }
+        .mobile-menu a:last-child { border-bottom: none; }
+        .mobile-menu a:hover { color: var(--coral); }
+
+        @media (max-width: 768px) {
+            .hamburger { display: flex; }
+            .nav-links { display: none !important; }
+            .cta-button { display: none; }
+            .nav-container { padding: 0 1.5rem; }
+        }
+
+        /* ── Page Hero ── */
+        .page-hero {
+            padding: 8rem 2rem 5rem;
+            background: linear-gradient(160deg, #f0f9f4 0%, #fafaf9 60%, #fff5f3 100%);
+            text-align: center;
+        }
+
+        .page-hero-label {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--coral);
+            margin-bottom: 0.75rem;
+            display: block;
+        }
+
+        .page-hero h1 {
+            font-size: clamp(2.5rem, 6vw, 4rem);
+            font-weight: 800;
+            color: var(--stone-900);
+            margin-bottom: 1rem;
+        }
+
+        .page-hero p {
+            font-size: 1.15rem;
+            color: var(--stone-600);
+            max-width: 600px;
+            margin: 0 auto;
+            line-height: 1.7;
+            font-weight: 300;
+        }
+
+        /* ── Content ── */
+        .resources-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 5rem 2rem 7rem;
+        }
+
+        /* ── Category ── */
+        .resource-category {
+            margin-bottom: 5rem;
+        }
+
+        .category-header {
+            display: flex;
+            align-items: center;
+            gap: 1rem;
+            margin-bottom: 2rem;
+            padding-bottom: 1.25rem;
+            border-bottom: 2px solid var(--stone-200);
+        }
+
+        .category-icon {
+            width: 44px;
+            height: 44px;
+            border-radius: 12px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 1.3rem;
+            flex-shrink: 0;
+        }
+
+        .category-icon.green { background: #e8f5ee; }
+        .category-icon.coral { background: #fff0ee; }
+        .category-icon.teal  { background: #e6f4f2; }
+
+        .category-header h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--stone-900);
+        }
+        .category-header p {
+            font-size: 0.9rem;
+            color: var(--stone-600);
+            margin-top: 0.15rem;
+        }
+
+        .resources-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+            gap: 1.5rem;
+        }
+
+        /* ── Resource Card ── */
+        .resource-card {
+            background: white;
+            border-radius: 16px;
+            padding: 1.75rem;
+            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
+            border: 1px solid var(--stone-200);
+            display: flex;
+            flex-direction: column;
+            gap: 1rem;
+            transition: transform 0.2s, box-shadow 0.2s;
+            position: relative;
+        }
+        .resource-card:not(.coming-soon):hover {
+            transform: translateY(-4px);
+            box-shadow: 0 8px 30px rgba(0,0,0,0.09);
+        }
+
+        .resource-card.coming-soon {
+            opacity: 0.65;
+        }
+
+        .resource-card-top {
+            display: flex;
+            align-items: flex-start;
+            justify-content: space-between;
+            gap: 0.75rem;
+        }
+
+        .resource-type-badge {
+            display: inline-block;
+            padding: 0.2rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            white-space: nowrap;
+        }
+
+        .badge-pdf     { background: #fff0ee; color: var(--coral); }
+        .badge-course  { background: #e6f4f2; color: var(--teal); }
+        .badge-link    { background: #e8f5ee; color: #1a7a4c; }
+        .badge-soon    { background: var(--stone-200); color: var(--stone-600); }
+
+        .resource-card h3 {
+            font-size: 1rem;
+            font-weight: 700;
+            color: var(--stone-900);
+            line-height: 1.4;
+        }
+
+        .resource-card p {
+            font-size: 0.9rem;
+            color: var(--stone-600);
+            line-height: 1.65;
+            flex: 1;
+        }
+
+        .resource-card-action {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.4rem;
+            font-size: 0.875rem;
+            font-weight: 600;
+            color: var(--teal);
+            text-decoration: none;
+            margin-top: auto;
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--stone-200);
+            transition: gap 0.2s;
+        }
+        .resource-card-action:hover { gap: 0.65rem; }
+
+        .coming-soon-label {
+            font-size: 0.8rem;
+            font-weight: 600;
+            color: var(--stone-600);
+            padding-top: 0.5rem;
+            border-top: 1px solid var(--stone-200);
+            margin-top: auto;
+        }
+
+        /* ── Notify Banner ── */
+        .notify-banner {
+            background: white;
+            border-radius: 20px;
+            padding: 3rem;
+            text-align: center;
+            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
+            border: 1px solid var(--stone-200);
+            margin-top: 2rem;
+        }
+
+        .notify-banner .label {
+            font-family: 'Caveat', cursive;
+            font-size: 1.75rem;
+            font-weight: 600;
+            color: var(--coral);
+            display: block;
+            margin-bottom: 0.75rem;
+        }
+
+        .notify-banner p {
+            font-size: 1rem;
+            color: var(--stone-600);
+            max-width: 480px;
+            margin: 0 auto 1.75rem;
+            line-height: 1.7;
+        }
+
+        .notify-form {
+            display: flex;
+            gap: 0.75rem;
+            max-width: 420px;
+            margin: 0 auto;
+            flex-wrap: wrap;
+            justify-content: center;
+        }
+
+        .notify-form input {
+            flex: 1;
+            min-width: 200px;
+            padding: 0.875rem 1.25rem;
+            border: 1px solid var(--stone-200);
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-family: 'Inter', sans-serif;
+            color: var(--stone-900);
+            background: var(--stone-50);
+            outline: none;
+            transition: border-color 0.2s;
+        }
+        .notify-form input:focus { border-color: var(--teal); }
+
+        .notify-form button {
+            padding: 0.875rem 1.75rem;
+            background: var(--coral);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-size: 0.95rem;
+            font-weight: 600;
+            font-family: 'Inter', sans-serif;
+            cursor: pointer;
+            transition: all 0.3s;
+            white-space: nowrap;
+        }
+        .notify-form button:hover { opacity: 0.9; transform: translateY(-2px); }
+
+        /* ── Site Footer ── */
+        .site-footer {
+            background: var(--stone-900);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.875rem;
+        }
+        .site-footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+        .site-footer a:hover { color: white; }
+
+        @media (max-width: 600px) {
+            .resources-grid { grid-template-columns: 1fr; }
+            .notify-banner { padding: 2rem 1.5rem; }
+        }
+    </style>
+</head>
+<body>
+
+    <nav>
+        <div class="nav-container">
+            <a href="index.html" class="logo">Fabric</a>
+            <ul class="nav-links">
+                <li><a href="index.html#for-you">Who it's for</a></li>
+                <li><a href="index.html#features">Features</a></li>
+                <li><a href="resources.html" class="active">Resources</a></li>
+                <li><a href="blog.html">Blog</a></li>
+                <li><a href="about.html">About</a></li>
+            </ul>
+            <a href="index.html#get-started" class="cta-button">Get Started</a>
+            <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
+                <span></span><span></span><span></span>
+            </button>
+        </div>
+    </nav>
+
+    <div class="mobile-menu" id="mobileMenu">
+        <a href="index.html#for-you">Who it's for</a>
+        <a href="index.html#features">Features</a>
+        <a href="resources.html">Resources</a>
+        <a href="blog.html">Blog</a>
+        <a href="about.html">About</a>
+        <a href="index.html#get-started" style="background: var(--coral); color: white; padding: 0.75rem 1rem; border-radius: 9999px; text-align: center; border-bottom: none; margin-top: 0.5rem;">Get Started</a>
+    </div>
+
+    <!-- Page Hero -->
+    <div class="page-hero">
+        <span class="page-hero-label">Tools that will help you</span>
+        <h1>Resources</h1>
+        <p>Guides, courses, and useful things to help you build and strengthen your community work.</p>
+    </div>
+
+    <div class="resources-content">
+
+        <!-- Category 1: Free Guides & PDFs -->
+        <div class="resource-category">
+            <div class="category-header">
+                <div class="category-icon green">📄</div>
+                <div>
+                    <h2>Free Guides &amp; PDFs</h2>
+                    <p>Practical guides you can download and use straight away</p>
+                </div>
+            </div>
+            <div class="resources-grid">
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Getting Your Governance Right: A Starter Guide</h3>
+                        <span class="resource-type-badge badge-pdf">PDF</span>
+                    </div>
+                    <p>A plain-English walkthrough of the governance basics every new charity or community group needs to get right from the start.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Writing Your First Funding Bid</h3>
+                        <span class="resource-type-badge badge-pdf">PDF</span>
+                    </div>
+                    <p>Step by step through a compelling funding application — what funders actually look for and the common mistakes to avoid.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Safeguarding Essentials for Small Organisations</h3>
+                        <span class="resource-type-badge badge-pdf">PDF</span>
+                    </div>
+                    <p>Understanding your safeguarding responsibilities without drowning in jargon. Built for small teams doing meaningful work.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Category 2: Courses & Workshops -->
+        <div class="resource-category">
+            <div class="category-header">
+                <div class="category-icon coral">🎓</div>
+                <div>
+                    <h2>Courses &amp; Workshops</h2>
+                    <p>Structured learning for community leaders and organisers</p>
+                </div>
+            </div>
+            <div class="resources-grid">
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Building a Board That Works</h3>
+                        <span class="resource-type-badge badge-course">Course</span>
+                    </div>
+                    <p>How to recruit, induct and get the best from your trustees — whether you're starting out or improving an existing board.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Community Organising Fundamentals</h3>
+                        <span class="resource-type-badge badge-course">Course</span>
+                    </div>
+                    <p>The foundations of turning local energy into lasting community action — from idea to organisation.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Impact Measurement Without the Jargon</h3>
+                        <span class="resource-type-badge badge-course">Course</span>
+                    </div>
+                    <p>A practical short course on measuring and communicating the difference your work makes — in a way that actually resonates.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Category 3: Useful Links & Tools -->
+        <div class="resource-category">
+            <div class="category-header">
+                <div class="category-icon teal">🔗</div>
+                <div>
+                    <h2>Useful Links &amp; Tools</h2>
+                    <p>Trusted resources from across the sector we think are worth your time</p>
+                </div>
+            </div>
+            <div class="resources-grid">
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Sector Tools &amp; Directories</h3>
+                        <span class="resource-type-badge badge-link">Links</span>
+                    </div>
+                    <p>A curated list of the most useful sector resources — funding finders, governance tools, policy banks, and more.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+                <div class="resource-card coming-soon">
+                    <div class="resource-card-top">
+                        <h3>Recommended Reading</h3>
+                        <span class="resource-type-badge badge-link">Links</span>
+                    </div>
+                    <p>Books, articles and reports on community building, social change, and sustainable leadership that we keep coming back to.</p>
+                    <span class="coming-soon-label">Coming soon</span>
+                </div>
+
+            </div>
+        </div>
+
+        <!-- Notify Banner -->
+        <div class="notify-banner">
+            <span class="label">Be the first to know</span>
+            <p>We're adding new resources regularly. Drop your email and we'll let you know when something lands that's worth your time.</p>
+            <form class="notify-form" onsubmit="handleNotify(event)">
+                <input type="email" placeholder="your@email.com" required>
+                <button type="submit">Notify me</button>
+            </form>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <p>© 2026 Fabric &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
+    </footer>
+
+    <script>
+        const hamburger = document.getElementById('hamburgerBtn');
+        const mobileMenu = document.getElementById('mobileMenu');
+        hamburger.addEventListener('click', () => {
+            hamburger.classList.toggle('active');
+            mobileMenu.classList.toggle('active');
+        });
+        document.querySelectorAll('.mobile-menu a').forEach(link => {
+            link.addEventListener('click', () => {
+                hamburger.classList.remove('active');
+                mobileMenu.classList.remove('active');
+            });
+        });
+
+        function handleNotify(e) {
+            e.preventDefault();
+            const btn = e.target.querySelector('button');
+            btn.textContent = 'Done! We'll be in touch.';
+            btn.style.background = 'var(--teal)';
+            btn.disabled = true;
+            e.target.querySelector('input').disabled = true;
+        }
+    </script>
+
+</body>
+</html>
