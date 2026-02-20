@@ -1238,7 +1238,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html#about">About</a></li>
             </ul>
-            <button class="cta-button">Get Started</button>
+            <button class="cta-button" data-waitlist>Subscribe</button>
         </div>
     </nav>
 
@@ -1412,7 +1412,7 @@ Fabric is here to make community action easier to start, fairer to sustain, and 
             <h2 class="section-title">Join The Fabric</h2>
             <p style="font-size: 1.2rem; color: var(--stone-600); margin-bottom: 2rem;">Become part of a community building the social fabric that holds places together</p>
             
-            <a href="#" class="hero-cta" style="display: inline-block;">Get Started</a>
+            <a href="#" class="hero-cta" data-waitlist style="display: inline-block;">Subscribe</a>
 
             <p class="pricing-note" style="margin-top: 2rem;">
                 Free to join with tons of community connection and tools for free.<br>
@@ -1514,6 +1514,39 @@ Fabric is here to make community action easier to start, fairer to sustain, and 
         document.querySelectorAll('.story-card').forEach((el, i) => addReveal(el, i * 0.12));
         document.querySelectorAll('.value-flip-card').forEach((el, i) => addReveal(el, (i % 4) * 0.1));
         document.querySelectorAll('.about-container, .download-container, .section-title, .section-label-handwritten').forEach(el => addReveal(el, 0));
+
+        // Subscribe modal
+        const waitlistModal = document.getElementById('waitlistModal');
+        function openModal() {
+            waitlistModal.style.cssText = 'display:flex; position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,0.55); z-index:2000; align-items:center; justify-content:center; padding:1rem;';
+        }
+        function closeModal() { waitlistModal.style.display = 'none'; }
+        document.querySelectorAll('[data-waitlist]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+        document.getElementById('closeWaitlist').addEventListener('click', closeModal);
+        waitlistModal.addEventListener('click', (e) => { if (e.target === waitlistModal) closeModal(); });
+        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            try {
+                const resp = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                if (resp.ok) { form.style.display = 'none'; document.getElementById('waitlistSuccess').style.display = 'block'; }
+            } catch(err) {}
+        });
     </script>
+
+    <div id="waitlistModal" style="display:none">
+        <div style="background:white; border-radius:2rem; padding:4rem 3rem 3rem; max-width:520px; width:90%; position:relative; text-align:center; box-shadow:0 30px 80px rgba(0,0,0,0.25); overflow:hidden; font-family:'Inter',sans-serif;">
+            <div style="position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,#a8d5ba,#F47261);"></div>
+            <button id="closeWaitlist" style="position:absolute; top:1.25rem; right:1.25rem; background:#e7e5e4; border:none; border-radius:50%; width:2rem; height:2rem; cursor:pointer; font-size:1.1rem; color:#57534e; display:flex; align-items:center; justify-content:center;">×</button>
+            <h3 style="font-family:'Caveat',cursive; font-size:2.75rem; font-weight:600; margin:0 0 0.75rem; color:#1c1917;">Stay in the loop</h3>
+            <p style="color:#57534e; margin:0 auto 2rem; font-size:1rem; line-height:1.7; max-width:360px;">Be the first to know when Fabric launches. Drop your email and we'll keep you posted — no spam, just the good stuff.</p>
+            <form id="waitlistForm" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                <input type="email" name="email" placeholder="your@email.com" required style="width:100%; padding:1rem 1.5rem; border:2px solid #e7e5e4; border-radius:9999px; font-size:1rem; margin-bottom:0.75rem; outline:none; font-family:'Inter',sans-serif; color:#1c1917; background:#fafaf9; box-sizing:border-box;">
+                <button type="submit" style="width:100%; padding:1rem 2rem; background:#F47261; color:white; border:none; border-radius:9999px; font-size:1rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; box-shadow:0 10px 30px rgba(244,114,97,0.4);">Count me in →</button>
+            </form>
+            <p style="margin-top:1rem; font-size:0.8rem; color:#57534e;">We respect your inbox. Unsubscribe any time.</p>
+            <p id="waitlistSuccess" style="display:none; color:#0d9488; font-weight:600; font-size:1.2rem; margin-top:1rem;">You're in! We'll be in touch.</p>
+        </div>
+    </div>
 </body>
 </html>
