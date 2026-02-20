@@ -434,22 +434,24 @@
         document.querySelectorAll('.post-card').forEach((el, i) => addReveal(el, i * 0.12));
         document.querySelectorAll('.coming-soon-note, .section-title, .posts-section > h1, .posts-section > p').forEach(el => addReveal(el, 0));
 
-        // Subscribe modal
-        const waitlistModal = document.getElementById('waitlistModal');
-        function openModal() {
-            waitlistModal.style.cssText = 'display:flex; position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,0.55); z-index:2000; align-items:center; justify-content:center; padding:1rem;';
-        }
-        function closeModal() { waitlistModal.style.display = 'none'; }
-        document.querySelectorAll('[data-waitlist]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
-        document.getElementById('closeWaitlist').addEventListener('click', closeModal);
-        waitlistModal.addEventListener('click', (e) => { if (e.target === waitlistModal) closeModal(); });
-        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
-            e.preventDefault();
-            const form = e.target;
-            try {
-                const resp = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-                if (resp.ok) { form.style.display = 'none'; document.getElementById('waitlistSuccess').style.display = 'block'; }
-            } catch(err) {}
+        // Subscribe modal — deferred so modal HTML is in DOM first
+        document.addEventListener('DOMContentLoaded', function() {
+            const waitlistModal = document.getElementById('waitlistModal');
+            function openModal() {
+                waitlistModal.style.cssText = 'display:flex; position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,0.55); z-index:2000; align-items:center; justify-content:center; padding:1rem;';
+            }
+            function closeModal() { waitlistModal.style.display = 'none'; }
+            document.querySelectorAll('[data-waitlist]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
+            document.getElementById('closeWaitlist').addEventListener('click', closeModal);
+            waitlistModal.addEventListener('click', (e) => { if (e.target === waitlistModal) closeModal(); });
+            document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+                e.preventDefault();
+                const form = e.target;
+                try {
+                    const resp = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
+                    if (resp.ok) { form.style.display = 'none'; document.getElementById('waitlistSuccess').style.display = 'block'; }
+                } catch(err) {}
+            });
         });
     </script>
 
