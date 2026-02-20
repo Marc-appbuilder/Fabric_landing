@@ -1871,47 +1871,35 @@
             currentSlide = n;
         }
 
+        function restartAutoplay() {
+            clearInterval(autoplayInterval);
+            autoplayInterval = setInterval(() => {
+                showSlide((currentSlide + 1) % totalSlides);
+            }, 5000);
+        }
+
         // Autoplay carousel every 5 seconds
         let autoplayInterval = setInterval(() => {
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
+            showSlide((currentSlide + 1) % totalSlides);
         }, 5000);
 
         // Previous button
         document.getElementById('prevBtn')?.addEventListener('click', () => {
-            clearInterval(autoplayInterval);
-            currentSlide = (currentSlide - 1 + totalSlides) % totalSlides;
-            showSlide(currentSlide);
-            // Restart autoplay
-            autoplayInterval = setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
-            }, 5000);
+            showSlide((currentSlide - 1 + totalSlides) % totalSlides);
+            restartAutoplay();
         });
 
         // Next button
         document.getElementById('nextBtn')?.addEventListener('click', () => {
-            clearInterval(autoplayInterval);
-            currentSlide = (currentSlide + 1) % totalSlides;
-            showSlide(currentSlide);
-            // Restart autoplay
-            autoplayInterval = setInterval(() => {
-                currentSlide = (currentSlide + 1) % totalSlides;
-                showSlide(currentSlide);
-            }, 5000);
+            showSlide((currentSlide + 1) % totalSlides);
+            restartAutoplay();
         });
 
         // Dot click handlers
         dots.forEach((dot, index) => {
             dot.addEventListener('click', () => {
-                clearInterval(autoplayInterval);
-                currentSlide = index;
-                showSlide(currentSlide);
-                // Restart autoplay
-                autoplayInterval = setInterval(() => {
-                    currentSlide = (currentSlide + 1) % totalSlides;
-                    showSlide(currentSlide);
-                }, 5000);
+                showSlide(index);
+                restartAutoplay();
             });
         });
 
