@@ -1472,17 +1472,6 @@ Fabric is here to make community action easier to start, fairer to sustain, and 
             });
         });
 
-        // All CTA buttons
-        document.querySelectorAll('.cta-button, .hero-cta, .impact-cta').forEach(button => {
-            button.addEventListener('click', (e) => {
-                e.preventDefault();
-                document.querySelector('.download-section').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
-            });
-        });
-
         // Value flip cards
         document.querySelectorAll('.value-flip-card').forEach(card => {
             card.addEventListener('click', function(e) {
