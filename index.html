@@ -230,11 +230,12 @@
 
         .hero-carousel {
             position: absolute;
-            inset: 0;
+            top: 0; right: 0; bottom: 0; left: 0;
             width: 100%;
             height: 100%;
             overflow: hidden;
             z-index: 1;
+            background: #1c1917;
         }
 
         .carousel-slides {
@@ -245,15 +246,17 @@
 
         .carousel-slide {
             position: absolute;
-            inset: 0;
+            top: 0; right: 0; bottom: 0; left: 0;
             opacity: 0;
-            transition: opacity 0.8s ease-in-out;
+            transition: opacity 1.4s ease-in-out;
             width: 100%;
             height: 100%;
+            z-index: 0;
         }
 
         .carousel-slide.active {
             opacity: 1;
+            z-index: 1;
         }
 
         .carousel-slide img {
@@ -1599,7 +1602,7 @@
                     <img src="hero1.jpg" alt="Community gathering">
                 </div>
 <div class="carousel-slide">
-    <img src="picbox.jpg" alt="Community fire gathering" style="margin-left: 2px;">
+    <img src="picbox2.jpg" alt="Community fire gathering">
 </div>
             </div>
             <div class="carousel-dots">
@@ -1837,13 +1840,35 @@
         const totalSlides = slides.length;
 
         function showSlide(n) {
-            // Remove active class from all slides and dots
-            slides.forEach(slide => slide.classList.remove('active'));
-            dots.forEach(dot => dot.classList.remove('active'));
+            const prev = currentSlide;
+            if (n === prev) return;
 
-            // Add active class to current slide and dot
+            // Bring new slide to front and fade it in over the top of the old one
+            slides[n].style.zIndex = '2';
             slides[n].classList.add('active');
+
+            // Old slide stays at z-index 1 — visible beneath while new fades in
+            slides[prev].style.zIndex = '1';
+            slides[prev].classList.remove('active');
+
+            // All other slides hidden behind
+            slides.forEach((s, i) => {
+                if (i !== n && i !== prev) {
+                    s.style.zIndex = '0';
+                    s.classList.remove('active');
+                }
+            });
+
+            dots.forEach(dot => dot.classList.remove('active'));
             dots[n].classList.add('active');
+
+            // After transition, reset z-index hierarchy
+            setTimeout(() => {
+                slides[prev].style.zIndex = '0';
+                slides[n].style.zIndex = '1';
+            }, 1400);
+
+            currentSlide = n;
         }
 
         // Autoplay carousel every 5 seconds
@@ -1964,46 +1989,58 @@
             });
         });
 
-        // ── Scroll reveal ──
-        // Feature cards: staggered by position in row
-        document.querySelectorAll('.feature-card-new').forEach((card, i) => {
-            card.classList.add('reveal');
-            card.style.transitionDelay = (i % 3 * 0.13) + 's';
-        });
-
-        // Everything else that should animate in
-        [
-            '.section-label-handwritten',
-            '.section-title',
-            '.for-you-text',
-            '.impact-content h2',
-            '.impact-content p',
-            '.impact-cta',
-            '.download-container',
-            '.about-container',
-            '.pricing-note',
-            '.story-card',
-            '.value-bubble',
-            '.learn-more-btn'
-        ].forEach(sel => {
-            document.querySelectorAll(sel).forEach((el, i) => {
-                el.classList.add('reveal');
-                if (sel === '.story-card' || sel === '.value-bubble') {
-                    el.style.transitionDelay = (i * 0.1) + 's';
-                }
-            });
-        });
-
-        const revealObserver = new IntersectionObserver((entries) => {
+        // ── Scroll reveal — fully inline JS so caching can't break it ──
+        const scrollObserver = new IntersectionObserver((entries) => {
             entries.forEach(entry => {
                 if (entry.isIntersecting) {
-                    entry.target.classList.add('visible');
-                    revealObserver.unobserve(entry.target);
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    scrollObserver.unobserve(entry.target);
                 }
             });
-        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
 
-        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
+        function addReveal(el, delay) {
+            // Only animate elements below the fold
+            if (el.getBoundingClientRect().top >= window.innerHeight * 0.95) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1) ' + delay + 's, transform 0.8s cubic-bezier(0.16,1,0.3,1) ' + delay + 's';
+                scrollObserver.observe(el);
+            }
+        }
+
+        document.querySelectorAll('.feature-card-new').forEach((el, i) => addReveal(el, (i % 3) * 0.12));
+
+        [
+            ['.section-label-handwritten', 0],
+            ['.section-title', 0],
+            ['.for-you-text', 0],
+            ['.impact-content h2', 0],
+            ['.impact-content p', 0.1],
+            ['.impact-cta', 0.2],
+            ['.download-container', 0],
+            ['.about-container', 0],
+            ['.pricing-note', 0.1],
+            ['.learn-more-btn', 0.1]
+        ].forEach(([sel, delay]) => {
+            document.querySelectorAll(sel).forEach(el => addReveal(el, delay));
+        });
+
+        // Story cards and value bubbles stagger one by one
+        document.querySelectorAll('.story-card, .value-bubble').forEach((el, i) => addReveal(el, i * 0.1));
+
+        // Hero entrance — always plays
+        const heroContent = document.querySelector('.hero-content');
+        if (heroContent) {
+            heroContent.style.opacity = '0';
+            heroContent.style.transform = 'translateY(35px)';
+            heroContent.style.transition = 'opacity 1.1s cubic-bezier(0.16,1,0.3,1) 0.3s, transform 1.1s cubic-bezier(0.16,1,0.3,1) 0.3s';
+            requestAnimationFrame(() => requestAnimationFrame(() => {
+                heroContent.style.opacity = '1';
+                heroContent.style.transform = 'translateY(0)';
+            }));
+        }
     </script>
 </body>
 </html>
