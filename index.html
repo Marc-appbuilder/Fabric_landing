@@ -1712,7 +1712,7 @@
     </section>
 
     <!-- Waitlist Modal -->
-    <div id="waitlistModal" class="waitlist-modal">
+    <div id="waitlistModal" class="waitlist-modal" style="display:none">
         <div class="waitlist-modal-inner">
             <button class="waitlist-modal-close" id="closeWaitlist">×</button>
             <h3>Subscribe</h3>
@@ -1833,8 +1833,10 @@
         // Smooth scrolling
         document.querySelectorAll('a[href^="#"]').forEach(anchor => {
             anchor.addEventListener('click', function (e) {
+                const href = this.getAttribute('href');
+                if (!href || href === '#' || this.hasAttribute('data-waitlist')) return;
                 e.preventDefault();
-                const target = document.querySelector(this.getAttribute('href'));
+                const target = document.querySelector(href);
                 if (target) {
                     target.scrollIntoView({ behavior: 'smooth', block: 'start' });
                 }
@@ -1844,22 +1846,27 @@
         // Waitlist modal
         const waitlistModal = document.getElementById('waitlistModal');
 
+        function openModal() {
+            waitlistModal.style.display = 'flex';
+            mobileMenu.classList.remove('active');
+            hamburgerBtn.classList.remove('active');
+        }
+
+        function closeModal() {
+            waitlistModal.style.display = 'none';
+        }
+
         document.querySelectorAll('[data-waitlist]').forEach(el => {
             el.addEventListener('click', (e) => {
                 e.preventDefault();
-                waitlistModal.classList.add('open');
-                // Close mobile menu if open
-                mobileMenu.classList.remove('active');
-                hamburgerBtn.classList.remove('active');
+                openModal();
             });
         });
 
-        document.getElementById('closeWaitlist').addEventListener('click', () => {
-            waitlistModal.classList.remove('open');
-        });
+        document.getElementById('closeWaitlist').addEventListener('click', closeModal);
 
         waitlistModal.addEventListener('click', (e) => {
-            if (e.target === waitlistModal) waitlistModal.classList.remove('open');
+            if (e.target === waitlistModal) closeModal();
         });
 
         document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
