@@ -1390,6 +1390,99 @@
                 row-gap: 2.5rem;
             }
         }
+        /* Waitlist Modal */
+        .waitlist-modal {
+            display: none;
+            position: fixed;
+            inset: 0;
+            background: rgba(0,0,0,0.55);
+            z-index: 2000;
+            align-items: center;
+            justify-content: center;
+            padding: 1rem;
+        }
+
+        .waitlist-modal.open {
+            display: flex;
+        }
+
+        .waitlist-modal-inner {
+            background: white;
+            border-radius: 1.5rem;
+            padding: 3rem 2.5rem;
+            max-width: 480px;
+            width: 100%;
+            position: relative;
+            text-align: center;
+        }
+
+        .waitlist-modal-close {
+            position: absolute;
+            top: 1rem;
+            right: 1.25rem;
+            background: none;
+            border: none;
+            font-size: 1.75rem;
+            cursor: pointer;
+            color: var(--stone-600);
+            line-height: 1;
+            padding: 0.25rem;
+        }
+
+        .waitlist-modal-inner h3 {
+            font-size: 1.75rem;
+            font-weight: 700;
+            margin-bottom: 0.75rem;
+            color: var(--stone-900);
+        }
+
+        .waitlist-modal-inner .waitlist-sub {
+            color: var(--stone-600);
+            margin-bottom: 2rem;
+            font-size: 1rem;
+        }
+
+        #waitlistForm input[type="email"] {
+            width: 100%;
+            padding: 0.9rem 1.25rem;
+            border: 2px solid var(--stone-200);
+            border-radius: 9999px;
+            font-size: 1rem;
+            margin-bottom: 1rem;
+            outline: none;
+            font-family: 'Inter', sans-serif;
+            color: var(--stone-900);
+        }
+
+        #waitlistForm input[type="email"]:focus {
+            border-color: var(--coral);
+        }
+
+        #waitlistForm button[type="submit"] {
+            width: 100%;
+            padding: 1rem 2rem;
+            background: var(--coral);
+            color: white;
+            border: none;
+            border-radius: 9999px;
+            font-size: 1rem;
+            font-weight: 600;
+            cursor: pointer;
+            font-family: 'Inter', sans-serif;
+            transition: all 0.3s;
+            box-shadow: 0 10px 30px rgba(244, 114, 97, 0.35);
+        }
+
+        #waitlistForm button[type="submit"]:hover {
+            background: #e66d59;
+            transform: translateY(-2px);
+        }
+
+        #waitlistSuccess {
+            color: var(--teal);
+            font-weight: 600;
+            font-size: 1.1rem;
+        }
     </style>
 </head>
 <body>
@@ -1404,7 +1497,7 @@
                 <li><a href="blog.html">Blog</a></li>
                 <li><a href="about.html">About</a></li>
             </ul>
-            <button class="cta-button">Get Started</button>
+            <button class="cta-button" data-waitlist>Subscribe</button>
             <button class="hamburger" id="hamburgerBtn">
                 <span></span>
                 <span></span>
@@ -1420,7 +1513,7 @@
         <a href="resources.html">Resources</a>
         <a href="blog.html">Blog</a>
         <a href="about.html">About</a>
-        <a href="#" style="background: var(--coral); color: white; padding: 0.75rem 1rem; border-radius: 9999px; text-align: center; border-bottom: none;">Get Started</a>
+        <a href="#" data-waitlist style="background: var(--coral); color: white; padding: 0.75rem 1rem; border-radius: 9999px; text-align: center; border-bottom: none;">Subscribe</a>
     </div>
 
     <!-- Hero Section -->
@@ -1460,9 +1553,6 @@
             <p class="hero-description">
                 A community for people making places work and people feel like they belong
             </p>
-            <button class="hero-cta">
-                Get the App →
-            </button>
         </div>
     </section>
 
@@ -1579,7 +1669,7 @@
         <div class="impact-content">
             <h2>Community Fabric</h2>
             <p>When connections weaken, loneliness grows and communities fragment. Fabric exists to fuel the growth of society by supporting the everyday acts of connection and care that hold us together.</p>
-            <button class="impact-cta">Join The Movement</button>
+            <button class="impact-cta" data-waitlist>Join The Movement</button>
         </div>
     </section>
 
@@ -1612,7 +1702,7 @@
             <h2 class="section-title">Join The Fabric</h2>
             <p style="font-size: 1.2rem; color: var(--stone-600); margin-bottom: 2rem;">Become part of a community building the social fabric that holds places together</p>
             
-            <a href="#" class="hero-cta" style="display: inline-block;">Get Started</a>
+            <a href="#" class="hero-cta" data-waitlist style="display: inline-block;">Subscribe</a>
 
             <p class="pricing-note" style="margin-top: 2rem;">
                 Free to join with tons of community connection and tools for free.<br>
@@ -1620,6 +1710,20 @@
             </p>
         </div>
     </section>
+
+    <!-- Waitlist Modal -->
+    <div id="waitlistModal" class="waitlist-modal">
+        <div class="waitlist-modal-inner">
+            <button class="waitlist-modal-close" id="closeWaitlist">×</button>
+            <h3>Subscribe</h3>
+            <p class="waitlist-sub">We're building something for community builders like you. Drop your email and we'll let you know when we're ready.</p>
+            <form id="waitlistForm" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                <input type="email" name="email" placeholder="your@email.com" required>
+                <button type="submit">Count me in →</button>
+            </form>
+            <p id="waitlistSuccess" style="display:none;">Thanks! We'll be in touch soon.</p>
+        </div>
+    </div>
 
     <!-- Footer -->
     <footer>
@@ -1737,15 +1841,42 @@
             });
         });
 
-        // All CTA buttons
-        document.querySelectorAll('.cta-button, .hero-cta, .impact-cta').forEach(button => {
-            button.addEventListener('click', (e) => {
+        // Waitlist modal
+        const waitlistModal = document.getElementById('waitlistModal');
+
+        document.querySelectorAll('[data-waitlist]').forEach(el => {
+            el.addEventListener('click', (e) => {
                 e.preventDefault();
-                document.querySelector('.download-section').scrollIntoView({ 
-                    behavior: 'smooth', 
-                    block: 'start' 
-                });
+                waitlistModal.classList.add('open');
+                // Close mobile menu if open
+                mobileMenu.classList.remove('active');
+                hamburgerBtn.classList.remove('active');
             });
+        });
+
+        document.getElementById('closeWaitlist').addEventListener('click', () => {
+            waitlistModal.classList.remove('open');
+        });
+
+        waitlistModal.addEventListener('click', (e) => {
+            if (e.target === waitlistModal) waitlistModal.classList.remove('open');
+        });
+
+        document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
+            e.preventDefault();
+            const form = e.target;
+            const data = new FormData(form);
+            try {
+                const resp = await fetch(form.action, {
+                    method: 'POST',
+                    body: data,
+                    headers: { 'Accept': 'application/json' }
+                });
+                if (resp.ok) {
+                    form.style.display = 'none';
+                    document.getElementById('waitlistSuccess').style.display = 'block';
+                }
+            } catch(err) {}
         });
 
         // Value flip cards
