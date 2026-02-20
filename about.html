@@ -1490,6 +1490,30 @@ Fabric is here to make community action easier to start, fairer to sustain, and 
                 this.classList.toggle('flipped');
             });
         });
+
+        // Scroll reveal
+        const scrollObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.style.opacity = '1';
+                    entry.target.style.transform = 'translateY(0)';
+                    scrollObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+        function addReveal(el, delay) {
+            if (el.getBoundingClientRect().top >= window.innerHeight * 0.95) {
+                el.style.opacity = '0';
+                el.style.transform = 'translateY(40px)';
+                el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1) ' + delay + 's, transform 0.8s cubic-bezier(0.16,1,0.3,1) ' + delay + 's';
+                scrollObserver.observe(el);
+            }
+        }
+
+        document.querySelectorAll('.story-card').forEach((el, i) => addReveal(el, i * 0.12));
+        document.querySelectorAll('.value-flip-card').forEach((el, i) => addReveal(el, (i % 4) * 0.1));
+        document.querySelectorAll('.about-container, .download-container, .section-title, .section-label-handwritten').forEach(el => addReveal(el, 0));
     </script>
 </body>
 </html>
