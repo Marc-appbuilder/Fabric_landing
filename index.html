@@ -1526,6 +1526,31 @@
             font-weight: 600;
             font-size: 1.2rem;
         }
+
+        /* ── Hero entrance ── */
+        @keyframes heroFadeUp {
+            from { opacity: 0; transform: translateY(40px); }
+            to   { opacity: 1; transform: translateY(0); }
+        }
+        .hero-content {
+            animation: heroFadeUp 1.1s cubic-bezier(0.16, 1, 0.3, 1) 0.2s both;
+        }
+
+        /* ── Scroll reveal ── */
+        .reveal {
+            opacity: 0;
+            transform: translateY(40px);
+            transition: opacity 0.75s cubic-bezier(0.16, 1, 0.3, 1),
+                        transform 0.75s cubic-bezier(0.16, 1, 0.3, 1);
+        }
+        .reveal.visible {
+            opacity: 1;
+            transform: translateY(0);
+        }
+        @media (prefers-reduced-motion: reduce) {
+            .reveal { opacity: 1; transform: none; }
+            .hero-content { animation: none; }
+        }
     </style>
 </head>
 <body>
@@ -1938,6 +1963,47 @@
                 this.classList.toggle('flipped');
             });
         });
+
+        // ── Scroll reveal ──
+        // Feature cards: staggered by position in row
+        document.querySelectorAll('.feature-card-new').forEach((card, i) => {
+            card.classList.add('reveal');
+            card.style.transitionDelay = (i % 3 * 0.13) + 's';
+        });
+
+        // Everything else that should animate in
+        [
+            '.section-label-handwritten',
+            '.section-title',
+            '.for-you-text',
+            '.impact-content h2',
+            '.impact-content p',
+            '.impact-cta',
+            '.download-container',
+            '.about-container',
+            '.pricing-note',
+            '.story-card',
+            '.value-bubble',
+            '.learn-more-btn'
+        ].forEach(sel => {
+            document.querySelectorAll(sel).forEach((el, i) => {
+                el.classList.add('reveal');
+                if (sel === '.story-card' || sel === '.value-bubble') {
+                    el.style.transitionDelay = (i * 0.1) + 's';
+                }
+            });
+        });
+
+        const revealObserver = new IntersectionObserver((entries) => {
+            entries.forEach(entry => {
+                if (entry.isIntersecting) {
+                    entry.target.classList.add('visible');
+                    revealObserver.unobserve(entry.target);
+                }
+            });
+        }, { threshold: 0.12, rootMargin: '0px 0px -40px 0px' });
+
+        document.querySelectorAll('.reveal').forEach(el => revealObserver.observe(el));
     </script>
 </body>
 </html>
