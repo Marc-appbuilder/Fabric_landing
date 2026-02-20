@@ -1413,30 +1413,53 @@
 
         .waitlist-modal-inner {
             background: white;
-            border-radius: 1.5rem;
-            padding: 3rem 2.5rem;
-            max-width: 480px;
+            border-radius: 2rem;
+            padding: 4rem 3rem 3rem;
+            max-width: 520px;
             width: 100%;
             position: relative;
             text-align: center;
+            box-shadow: 0 30px 80px rgba(0,0,0,0.25);
+            overflow: hidden;
+        }
+
+        .waitlist-accent {
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            height: 5px;
+            background: linear-gradient(90deg, var(--sage-green), var(--coral));
         }
 
         .waitlist-modal-close {
             position: absolute;
-            top: 1rem;
+            top: 1.25rem;
             right: 1.25rem;
-            background: none;
+            background: var(--stone-200);
             border: none;
-            font-size: 1.75rem;
+            border-radius: 50%;
+            width: 2rem;
+            height: 2rem;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             cursor: pointer;
             color: var(--stone-600);
+            font-size: 1.1rem;
             line-height: 1;
-            padding: 0.25rem;
+            transition: background 0.2s;
+        }
+
+        .waitlist-modal-close:hover {
+            background: var(--stone-900);
+            color: white;
         }
 
         .waitlist-modal-inner h3 {
-            font-size: 1.75rem;
-            font-weight: 700;
+            font-family: 'Caveat', cursive;
+            font-size: 2.75rem;
+            font-weight: 600;
             margin-bottom: 0.75rem;
             color: var(--stone-900);
         }
@@ -1445,22 +1468,29 @@
             color: var(--stone-600);
             margin-bottom: 2rem;
             font-size: 1rem;
+            line-height: 1.7;
+            max-width: 360px;
+            margin-left: auto;
+            margin-right: auto;
         }
 
         #waitlistForm input[type="email"] {
             width: 100%;
-            padding: 0.9rem 1.25rem;
+            padding: 1rem 1.5rem;
             border: 2px solid var(--stone-200);
             border-radius: 9999px;
             font-size: 1rem;
-            margin-bottom: 1rem;
+            margin-bottom: 0.75rem;
             outline: none;
             font-family: 'Inter', sans-serif;
             color: var(--stone-900);
+            background: var(--stone-50);
+            transition: border-color 0.2s;
         }
 
         #waitlistForm input[type="email"]:focus {
             border-color: var(--coral);
+            background: white;
         }
 
         #waitlistForm button[type="submit"] {
@@ -1475,18 +1505,26 @@
             cursor: pointer;
             font-family: 'Inter', sans-serif;
             transition: all 0.3s;
-            box-shadow: 0 10px 30px rgba(244, 114, 97, 0.35);
+            box-shadow: 0 10px 30px rgba(244, 114, 97, 0.4);
+            letter-spacing: 0.01em;
         }
 
         #waitlistForm button[type="submit"]:hover {
             background: #e66d59;
             transform: translateY(-2px);
+            box-shadow: 0 15px 40px rgba(244, 114, 97, 0.5);
+        }
+
+        .waitlist-note {
+            margin-top: 1rem;
+            font-size: 0.8rem;
+            color: var(--stone-600);
         }
 
         #waitlistSuccess {
             color: var(--teal);
             font-weight: 600;
-            font-size: 1.1rem;
+            font-size: 1.2rem;
         }
     </style>
 </head>
@@ -1719,14 +1757,16 @@
     <!-- Waitlist Modal -->
     <div id="waitlistModal" class="waitlist-modal" style="display:none">
         <div class="waitlist-modal-inner">
+            <div class="waitlist-accent"></div>
             <button class="waitlist-modal-close" id="closeWaitlist">×</button>
-            <h3>Subscribe</h3>
-            <p class="waitlist-sub">We're building something for community builders like you. Drop your email and we'll let you know when we're ready.</p>
+            <h3>Stay in the loop</h3>
+            <p class="waitlist-sub">Be the first to know when Fabric launches. Drop your email and we'll keep you posted — no spam, just the good stuff.</p>
             <form id="waitlistForm" action="https://formspree.io/f/mpqjjjvd" method="POST">
                 <input type="email" name="email" placeholder="your@email.com" required>
                 <button type="submit">Count me in →</button>
             </form>
-            <p id="waitlistSuccess" style="display:none;">Thanks! We'll be in touch soon.</p>
+            <p class="waitlist-note">We respect your inbox. Unsubscribe any time.</p>
+            <p id="waitlistSuccess" style="display:none;">You're in! We'll be in touch.</p>
         </div>
     </div>
 
