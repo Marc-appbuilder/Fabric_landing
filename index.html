@@ -1112,6 +1112,138 @@
         }
 
         /* Download Section */
+        /* ── Blog Teaser Section ── */
+        .blog-teaser-section {
+            padding: 6rem 3rem;
+            background: white;
+        }
+
+        .blog-teaser-container {
+            max-width: 1000px;
+            margin: 0 auto;
+        }
+
+        .blog-teaser-label {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--coral);
+            display: block;
+            text-align: center;
+            margin-bottom: 0.5rem;
+        }
+
+        .blog-teaser-heading {
+            font-size: clamp(1.75rem, 4vw, 2.5rem);
+            font-weight: 800;
+            color: var(--stone-900);
+            text-align: center;
+            margin-bottom: 3rem;
+        }
+
+        .blog-teaser-card {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 0;
+            border-radius: 24px;
+            overflow: hidden;
+            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
+            text-decoration: none;
+            color: inherit;
+            transition: transform 0.25s, box-shadow 0.25s;
+        }
+        .blog-teaser-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.14);
+        }
+
+        .blog-teaser-left {
+            background: linear-gradient(140deg, #1c1917 0%, #2d2926 100%);
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .blog-teaser-tag {
+            display: inline-block;
+            padding: 0.3rem 0.9rem;
+            background: rgba(244,114,97,0.25);
+            color: var(--coral);
+            border-radius: 9999px;
+            font-size: 0.75rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: fit-content;
+            margin-bottom: 1.5rem;
+        }
+
+        .blog-teaser-title {
+            font-size: clamp(1.3rem, 2.5vw, 1.75rem);
+            font-weight: 800;
+            color: white;
+            line-height: 1.25;
+            margin-bottom: 1.25rem;
+        }
+
+        .blog-teaser-meta {
+            font-size: 0.82rem;
+            color: rgba(255,255,255,0.45);
+        }
+
+        .blog-teaser-right {
+            background: var(--stone-50);
+            padding: 3.5rem;
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        .blog-teaser-excerpt {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--stone-600);
+            flex: 1;
+            margin-bottom: 2rem;
+        }
+
+        .blog-teaser-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1rem;
+        }
+
+        .blog-teaser-read {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            font-weight: 700;
+            font-size: 0.95rem;
+            color: var(--teal);
+            transition: gap 0.2s;
+        }
+        .blog-teaser-card:hover .blog-teaser-read { gap: 0.85rem; }
+
+        .blog-teaser-all {
+            display: block;
+            text-align: center;
+            margin-top: 2rem;
+            font-size: 0.95rem;
+            font-weight: 600;
+            color: var(--stone-600);
+            text-decoration: none;
+            transition: color 0.2s;
+        }
+        .blog-teaser-all:hover { color: var(--stone-900); }
+
+        @media (max-width: 700px) {
+            .blog-teaser-card { grid-template-columns: 1fr; }
+            .blog-teaser-left, .blog-teaser-right { padding: 2.5rem 2rem; }
+        }
+
         .download-section {
             padding: 6rem 3rem;
         }
@@ -1765,6 +1897,30 @@
                     Learn More About Us →
                 </a>
             </div>
+        </div>
+    </section>
+
+    <!-- Blog Teaser -->
+    <section class="blog-teaser-section">
+        <div class="blog-teaser-container">
+            <span class="blog-teaser-label">Latest thinking</span>
+            <h2 class="blog-teaser-heading">From the Blog</h2>
+            <a href="blog/when-good-leaders-feel-alone.html" class="blog-teaser-card">
+                <div class="blog-teaser-left">
+                    <div>
+                        <span class="blog-teaser-tag">Community</span>
+                        <h3 class="blog-teaser-title">When Good Leaders Feel Like They're Carrying It Alone</h3>
+                    </div>
+                    <span class="blog-teaser-meta">19 February 2026 &nbsp;·&nbsp; 6 min read</span>
+                </div>
+                <div class="blog-teaser-right">
+                    <p class="blog-teaser-excerpt">A phone call from an old colleague running a local boxing club. If you walked into that space on a training night, you would see energy, focus, and impact in its most practical form. What you would not see is the leaking roof, the funding applications that didn't land, or the quiet exhaustion behind the scenes.</p>
+                    <div class="blog-teaser-footer">
+                        <span class="blog-teaser-read">Read the post →</span>
+                    </div>
+                </div>
+            </a>
+            <a href="blog.html" class="blog-teaser-all">View all posts →</a>
         </div>
     </section>
 
