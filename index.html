@@ -554,19 +554,60 @@
         .for-you-section {
             background: white;
             border-radius: 40px;
-            padding: 5rem 4rem 2rem;
+            padding: 5rem 4rem 3rem;
             box-shadow: 0 20px 60px rgba(0,0,0,0.08);
             text-align: center;
         }
 
-        .for-you-text {
+        .for-you-roles {
+            margin: 2.5rem auto;
+            max-width: 800px;
+        }
+
+        .for-you-prefix {
+            display: block;
             font-size: 1.2rem;
             color: var(--stone-600);
-            line-height: 1.9;
-            margin-bottom: 2rem;
-            max-width: 900px;
-            margin-left: auto;
-            margin-right: auto;
+            margin-bottom: 0.6rem;
+            font-weight: 400;
+        }
+
+        .for-you-rotating {
+            position: relative;
+            height: 3.5rem;
+            overflow: hidden;
+        }
+
+        .for-you-role {
+            position: absolute;
+            width: 100%;
+            font-size: clamp(1.6rem, 3.5vw, 2.2rem);
+            font-weight: 700;
+            color: var(--coral);
+            opacity: 0;
+            transform: translateY(18px);
+            transition: opacity 0.5s ease, transform 0.5s ease;
+            line-height: 1.2;
+        }
+
+        .for-you-role.active {
+            opacity: 1;
+            transform: translateY(0);
+        }
+
+        .for-you-mission {
+            font-family: 'Caveat', cursive;
+            font-size: clamp(1.5rem, 3vw, 2rem);
+            color: var(--stone-900);
+            max-width: 780px;
+            margin: 2rem auto 0;
+            line-height: 1.65;
+            font-weight: 500;
+        }
+
+        @media (max-width: 768px) {
+            .for-you-rotating { height: 5rem; }
+            .for-you-mission { font-size: 1.4rem; }
         }
 
         /* Features Section */
@@ -1718,17 +1759,21 @@
     <section id="for-you" class="for-you-section">
         <p class="section-label-handwritten">This is for you</p>
         <h2 class="section-title">The fabric that holds our communities together</h2>
-        
-        <p class="for-you-text">
-            You're a community organiser, a neighbour who rallied people together, a creative who began the arts festival, someone starting something that matters. Maybe you're behind the local boxing club, the street party, the beach clean up, the walking group that quietly holds your community together.
-        </p>
 
-        <p class="for-you-text">
-            Whether you're just getting started or you've been doing this for years. Big or small, alone or with others.
-        </p>
+        <div class="for-you-roles">
+            <span class="for-you-prefix">You might be</span>
+            <div class="for-you-rotating">
+                <span class="for-you-role active">a community organiser</span>
+                <span class="for-you-role">a charity leader</span>
+                <span class="for-you-role">a creative start up</span>
+                <span class="for-you-role">the person behind the boxing club</span>
+                <span class="for-you-role">a beach clean organiser</span>
+                <span class="for-you-role">a walking group leader</span>
+            </div>
+        </div>
 
-        <p class="for-you-text">
-            The small things are often the most transformational.
+        <p class="for-you-mission">
+            Fabric exists to support people like you, using ethical technology to make community action easier; more visible, effective and sustainable.
         </p>
     </section>
 
@@ -1920,6 +1965,15 @@
     </footer>
 
     <script>
+        // Rotating roles
+        const roles = document.querySelectorAll('.for-you-role');
+        let currentRole = 0;
+        setInterval(() => {
+            roles[currentRole].classList.remove('active');
+            currentRole = (currentRole + 1) % roles.length;
+            roles[currentRole].classList.add('active');
+        }, 2500);
+
         // Hamburger menu functionality
         const hamburgerBtn = document.getElementById('hamburgerBtn');
         const mobileMenu = document.getElementById('mobileMenu');
