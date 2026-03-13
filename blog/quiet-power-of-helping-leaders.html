@@ -200,6 +200,24 @@
             flex-wrap: wrap;
         }
 
+        /* ── Featured Image ── */
+        .post-featured-image {
+            max-width: 860px;
+            margin: -2rem auto 0;
+            padding: 0 2rem;
+        }
+        .post-featured-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .post-featured-image img { height: 240px; border-radius: 12px; }
+        }
+
         /* ── Article Body ── */
         .article-wrapper {
             max-width: 720px;
@@ -414,6 +432,11 @@
             <span>·</span>
             <span>7 min read</span>
         </div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="post-featured-image">
+        <img src="../hands.jpg" alt="Hands working together in community">
     </div>
 
     <!-- Article -->
