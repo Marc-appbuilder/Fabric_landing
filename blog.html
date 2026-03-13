@@ -207,8 +207,27 @@
         }
 
         .post-card-accent {
-            height: 6px;
-            background: linear-gradient(90deg, var(--sage-green), var(--teal));
+            display: none;
+        }
+
+        .post-card-thumb {
+            width: 100%;
+            height: 220px;
+            overflow: hidden;
+            flex-shrink: 0;
+        }
+
+        .post-card-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            transition: transform 0.4s ease;
+            display: block;
+        }
+
+        .post-card:hover .post-card-thumb img {
+            transform: scale(1.05);
         }
 
         .post-card-body {
@@ -358,7 +377,7 @@
 
             <!-- Post 1 -->
             <a href="blog/quiet-power-of-helping-leaders.html" class="post-card">
-                <div class="post-card-accent"></div>
+                <div class="post-card-thumb"><img src="comm3.jpg" alt="Community leadership"></div>
                 <div class="post-card-body">
                     <span class="post-card-tag">Leadership</span>
                     <h2>The Quiet Power of Helping Other Leaders</h2>
@@ -372,7 +391,7 @@
 
             <!-- Post 2 -->
             <a href="blog/when-good-leaders-feel-alone.html" class="post-card">
-                <div class="post-card-accent" style="background: linear-gradient(90deg, var(--coral), #f4a261);"></div>
+                <div class="post-card-thumb"><img src="comm7.jpg" alt="Community leaders"></div>
                 <div class="post-card-body">
                     <span class="post-card-tag" style="background: #fff0ee; color: var(--coral);">Community</span>
                     <h2>When Good Leaders Feel Like They're Carrying It Alone</h2>
@@ -386,7 +405,7 @@
 
             <!-- Post 3 -->
             <a href="blog/funders-ai-grant-applications.html" class="post-card">
-                <div class="post-card-accent" style="background: linear-gradient(90deg, var(--teal), var(--sage-green));"></div>
+                <div class="post-card-thumb"><img src="comm9.jpg" alt="Funding community work"></div>
                 <div class="post-card-body">
                     <span class="post-card-tag" style="background: #e6f7f5; color: var(--teal);">Funding</span>
                     <h2>Funders Should Not Penalise AI Supported Grant Applications</h2>
@@ -400,7 +419,7 @@
 
             <!-- Post 4 (newest) -->
             <a href="blog/designing-funding-systems.html" class="post-card">
-                <div class="post-card-accent" style="background: linear-gradient(90deg, var(--sage-green), var(--teal));"></div>
+                <div class="post-card-thumb"><img src="comm10.jpg" alt="Designing funding systems"></div>
                 <div class="post-card-body">
                     <span class="post-card-tag" style="background: #e6f7f5; color: var(--teal);">Funding</span>
                     <h2>Designing Funding Systems That Truly Widen Access</h2>

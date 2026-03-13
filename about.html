@@ -765,98 +765,34 @@
         }
 
         .value-flip-front {
-            background: 
-                radial-gradient(circle at 30% 40%, 
-                    rgba(244, 114, 97, 0.08) 0%,
-                    rgba(168, 213, 186, 0.25) 40%,
-                    rgba(250, 248, 245, 0.9) 70%,
-                    #fdfcfb 100%
-                );
-            border: 2px solid rgba(168, 213, 186, 0.3);
-            box-shadow: 
-                0 10px 40px rgba(168, 213, 186, 0.2),
-                0 4px 12px rgba(244, 114, 97, 0.08),
-                inset 0 1px 3px rgba(255, 255, 255, 0.8);
+            background: #a8d5ba;
+            border: 2px solid rgba(0,0,0,0.06);
+            box-shadow: 0 10px 40px rgba(0,0,0,0.12);
             transition: all 0.4s ease;
             overflow: hidden;
         }
 
-        /* Subtle texture overlay */
+        /* Subtle highlight overlay */
         .value-flip-front::before {
             content: '';
             position: absolute;
             inset: 0;
             border-radius: 50%;
-            background-image: 
-                radial-gradient(circle at 20% 80%, rgba(244, 114, 97, 0.06) 0%, transparent 50%),
-                radial-gradient(circle at 80% 20%, rgba(168, 213, 186, 0.18) 0%, transparent 50%),
-                radial-gradient(circle at 40% 40%, rgba(255, 255, 255, 0.3) 0%, transparent 30%);
-            opacity: 0.8;
+            background: radial-gradient(circle at 35% 30%, rgba(255,255,255,0.35) 0%, transparent 60%);
             pointer-events: none;
         }
 
-        /* Add organic variation to each circle - TONED DOWN coral */
-        .value-flip-card:nth-child(1) .value-flip-front {
-            background: 
-                radial-gradient(circle at 35% 35%, 
-                    rgba(244, 114, 97, 0.12) 0%,
-                    rgba(255, 245, 240, 0.7) 50%,
-                    #fffbf9 100%
-                );
-        }
-
-        .value-flip-card:nth-child(2) .value-flip-front {
-            background: 
-                radial-gradient(circle at 40% 30%, 
-                    rgba(244, 114, 97, 0.4) 0%,
-                    rgba(220, 245, 230, 0.7) 50%,
-                    #f5fbf8 100%
-                );
-        }
-
-        .value-flip-card:nth-child(3) .value-flip-front {
-            background: 
-                radial-gradient(circle at 30% 45%, 
-                    rgba(244, 114, 97, 0.1) 0%,
-                    rgba(255, 247, 243, 0.7) 50%,
-                    #fffcfa 100%
-                );
-        }
-
-        .value-flip-card:nth-child(4) .value-flip-front {
-            background: 
-                radial-gradient(circle at 45% 40%, 
-                    rgba(168, 213, 186, 0.38) 0%,
-                    rgba(215, 242, 225, 0.7) 50%,
-                    #f3faf6 100%
-                );
-        }
-
-        .value-flip-card:nth-child(5) .value-flip-front {
-            background: 
-                radial-gradient(circle at 35% 50%, 
-                    rgba(244, 114, 97, 0.11) 0%,
-                    rgba(255, 246, 242, 0.7) 50%,
-                    #fffbf8 100%
-                );
-        }
-
-        .value-flip-card:nth-child(6) .value-flip-front {
-            background: 
-                radial-gradient(circle at 40% 35%, 
-                    rgba(168, 213, 186, 0.36) 0%,
-                    rgba(218, 243, 228, 0.7) 50%,
-                    #f4faf7 100%
-                );
-        }
+        /* Distinct colour per circle */
+        .value-flip-card:nth-child(1) .value-flip-front { background: #a8d5ba; } /* sage green */
+        .value-flip-card:nth-child(2) .value-flip-front { background: #F47261; } /* coral */
+        .value-flip-card:nth-child(3) .value-flip-front { background: #0d9488; } /* teal */
+        .value-flip-card:nth-child(4) .value-flip-front { background: #f9c06a; } /* warm amber */
+        .value-flip-card:nth-child(5) .value-flip-front { background: #a8d5ba; } /* sage green */
+        .value-flip-card:nth-child(6) .value-flip-front { background: #F47261; } /* coral */
 
         .value-flip-card:hover .value-flip-front {
             transform: scale(1.05) rotate(-2deg);
-            border-color: rgba(244, 114, 97, 0.4);
-            box-shadow: 
-                0 20px 60px rgba(168, 213, 186, 0.25),
-                0 8px 20px rgba(244, 114, 97, 0.15),
-                inset 0 2px 5px rgba(255, 255, 255, 0.9);
+            box-shadow: 0 20px 60px rgba(0,0,0,0.2);
         }
 
         .value-bubble-content {
@@ -865,6 +801,10 @@
             font-weight: 500;
             color: var(--stone-900);
         }
+
+        /* White text on darker backgrounds */
+        .value-flip-card:nth-child(2) .value-bubble-content,
+        .value-flip-card:nth-child(3) .value-bubble-content { color: white; }
 
         .value-flip-back {
             background: linear-gradient(135deg, 
