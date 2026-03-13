@@ -597,7 +597,7 @@
 
         .features-grid-new {
             display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+            grid-template-columns: repeat(3, 1fr);
             gap: 2.5rem;
             margin-top: 4rem;
         }
@@ -1344,16 +1344,17 @@
 
             /* Features section mobile */
             .features-section-new {
-                padding: 4rem 1.5rem;
+                padding: 4rem 0;
+            }
+
+            .features-section-new .section-container {
+                padding: 0 1.5rem;
             }
 
             .features-grid-new {
                 grid-template-columns: 1fr;
-                gap: 2rem;
-            }
-
-            .feature-card-new {
-                padding: 2.5rem 2rem;
+                gap: 1.5rem;
+                padding: 0 1.5rem;
             }
 
             .feature-card-new::before {
@@ -1473,7 +1474,7 @@
             }
 
             .features-section-new {
-                padding: 3rem 1rem;
+                padding: 3rem 0;
             }
 
             .values-grid {
@@ -1777,7 +1778,7 @@
 
         <div class="feature-card-new">
             <div class="feature-card-img">
-                <img src="comm11.jpg" alt="Invest in yourself">
+                <img src="jessie.jpg" alt="Invest in yourself">
             </div>
             <div class="feature-card-body">
                 <h3>Invest in Yourself</h3>
