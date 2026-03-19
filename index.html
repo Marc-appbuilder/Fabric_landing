@@ -554,7 +554,7 @@
         .for-you-section {
             background: white;
             border-radius: 40px;
-            padding: 5rem 4rem 2rem;
+            padding: 4rem 4rem 2.5rem;
             box-shadow: 0 20px 60px rgba(0,0,0,0.08);
             text-align: center;
         }
@@ -572,7 +572,7 @@
         /* Features Section */
         /* New Features Section - Hand-drawn & Warm */
         .features-section-new {
-            padding: 3rem 2rem 3rem;
+            padding: 1.5rem 2rem 3rem;
             background: linear-gradient(180deg, #ffffff 0%, #fafaf9 100%);
         }
 
@@ -1094,91 +1094,86 @@
             margin-bottom: 3rem;
         }
 
-        .blog-teaser-card {
+        .blog-teaser-grid {
             display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 0;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 12px 40px rgba(0,0,0,0.1);
-            text-decoration: none;
-            color: inherit;
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-        .blog-teaser-card:hover {
-            transform: translateY(-5px);
-            box-shadow: 0 20px 60px rgba(0,0,0,0.14);
-        }
-
-        .blog-teaser-left {
-            background: linear-gradient(140deg, #1c1917 0%, #2d2926 100%);
-            padding: 3.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .blog-teaser-tag {
-            display: inline-block;
-            padding: 0.3rem 0.9rem;
-            background: rgba(244,114,97,0.25);
-            color: var(--coral);
-            border-radius: 9999px;
-            font-size: 0.75rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            width: fit-content;
-            margin-bottom: 1.5rem;
-        }
-
-        .blog-teaser-title {
-            font-size: clamp(1.3rem, 2.5vw, 1.75rem);
-            font-weight: 800;
-            color: white;
-            line-height: 1.25;
-            margin-bottom: 1.25rem;
-        }
-
-        .blog-teaser-meta {
-            font-size: 0.82rem;
-            color: rgba(255,255,255,0.45);
-        }
-
-        .blog-teaser-right {
-            background: var(--stone-50);
-            padding: 3.5rem;
-            display: flex;
-            flex-direction: column;
-            justify-content: space-between;
-        }
-
-        .blog-teaser-excerpt {
-            font-size: 1.05rem;
-            line-height: 1.85;
-            color: var(--stone-600);
-            flex: 1;
+            grid-template-columns: repeat(3, 1fr);
+            gap: 1.5rem;
             margin-bottom: 2rem;
         }
 
-        .blog-teaser-footer {
+        .blog-mini-card {
+            background: white;
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 8px 30px rgba(0,0,0,0.08);
+            text-decoration: none;
+            color: inherit;
             display: flex;
-            align-items: center;
-            justify-content: space-between;
-            flex-wrap: wrap;
-            gap: 1rem;
+            flex-direction: column;
+            transition: transform 0.25s, box-shadow 0.25s;
+            border: 1px solid var(--stone-200);
+        }
+        .blog-mini-card:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 16px 48px rgba(0,0,0,0.12);
         }
 
-        .blog-teaser-read {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            font-weight: 700;
-            font-size: 0.95rem;
-            color: var(--teal);
-            transition: gap 0.2s;
+        .blog-mini-thumb {
+            width: 100%;
+            height: 200px;
+            overflow: hidden;
+            flex-shrink: 0;
         }
-        .blog-teaser-card:hover .blog-teaser-read { gap: 0.85rem; }
+        .blog-mini-thumb img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            display: block;
+            transition: transform 0.4s ease;
+        }
+        .blog-mini-card:hover .blog-mini-thumb img { transform: scale(1.04); }
+
+        .blog-mini-body {
+            padding: 1.5rem 1.5rem 1.75rem;
+            flex: 1;
+            display: flex;
+            flex-direction: column;
+            gap: 0.75rem;
+        }
+
+        .blog-mini-tag {
+            display: inline-block;
+            padding: 0.25rem 0.75rem;
+            border-radius: 9999px;
+            font-size: 0.72rem;
+            font-weight: 700;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+            width: fit-content;
+            background: #fff0ee;
+            color: var(--coral);
+        }
+        .blog-mini-tag.teal { background: #e6f7f5; color: var(--teal); }
+
+        .blog-mini-title {
+            font-size: 1.05rem;
+            font-weight: 700;
+            color: var(--stone-900);
+            line-height: 1.35;
+            flex: 1;
+        }
+
+        .blog-mini-meta {
+            font-size: 0.8rem;
+            color: var(--stone-600);
+            margin-top: auto;
+        }
+
+        .blog-mini-read {
+            font-size: 0.88rem;
+            font-weight: 700;
+            color: var(--teal);
+        }
 
         .blog-teaser-all {
             display: block;
@@ -1192,9 +1187,11 @@
         }
         .blog-teaser-all:hover { color: var(--stone-900); }
 
-        @media (max-width: 700px) {
-            .blog-teaser-card { grid-template-columns: 1fr; }
-            .blog-teaser-left, .blog-teaser-right { padding: 2.5rem 2rem; }
+        @media (max-width: 900px) {
+            .blog-teaser-grid { grid-template-columns: repeat(2, 1fr); }
+        }
+        @media (max-width: 600px) {
+            .blog-teaser-grid { grid-template-columns: 1fr; }
         }
 
         .download-section {
@@ -1717,14 +1714,13 @@
     <!-- For You Section -->
     <section id="for-you" class="for-you-section">
         <p class="section-label-handwritten">This is for you</p>
-        <h2 class="section-title">The fabric that holds our communities together</h2>
 
         <p class="for-you-text">
             You might be a community organiser, a charity leader, a creative start up, the person behind the boxing club, beach clean organiser, or walking group leader.
         </p>
 
         <p class="for-you-text" style="font-size: 1.5rem; font-weight: 600; color: var(--stone-900); line-height: 1.7;">
-            Fabric exists to support people like you, using ethical technology to make community action easier; more visible, effective and sustainable.
+            Fabric exists to support people like you, using <a href="about.html#ethical-tech" style="color: var(--teal); text-decoration: underline; text-underline-offset: 3px;">ethical technology</a> to make community action easier; more visible, effective and sustainable.
         </p>
     </section>
 
@@ -1811,21 +1807,39 @@
         <div class="blog-teaser-container">
             <span class="blog-teaser-label">Latest thinking</span>
             <h2 class="blog-teaser-heading">From the Blog</h2>
-            <a href="blog/when-good-leaders-feel-alone.html" class="blog-teaser-card">
-                <div class="blog-teaser-left">
-                    <div>
-                        <span class="blog-teaser-tag">Community</span>
-                        <h3 class="blog-teaser-title">When Good Leaders Feel Like They're Carrying It Alone</h3>
+            <div class="blog-teaser-grid">
+
+                <a href="blog/designing-funding-systems.html" class="blog-mini-card">
+                    <div class="blog-mini-thumb"><img src="comm11.jpg" alt="Designing funding systems"></div>
+                    <div class="blog-mini-body">
+                        <span class="blog-mini-tag teal">Funding</span>
+                        <p class="blog-mini-title">Designing Funding Systems That Truly Widen Access</p>
+                        <span class="blog-mini-meta">20 February 2026 &nbsp;·&nbsp; 6 min read</span>
+                        <span class="blog-mini-read">Read →</span>
                     </div>
-                    <span class="blog-teaser-meta">19 February 2026 &nbsp;·&nbsp; 6 min read</span>
-                </div>
-                <div class="blog-teaser-right">
-                    <p class="blog-teaser-excerpt">A phone call from an old colleague running a local boxing club. If you walked into that space on a training night, you would see energy, focus, and impact in its most practical form. What you would not see is the leaking roof, the funding applications that didn't land, or the quiet exhaustion behind the scenes.</p>
-                    <div class="blog-teaser-footer">
-                        <span class="blog-teaser-read">Read the post →</span>
+                </a>
+
+                <a href="blog/funders-ai-grant-applications.html" class="blog-mini-card">
+                    <div class="blog-mini-thumb"><img src="comm7.jpg" alt="AI and grant applications"></div>
+                    <div class="blog-mini-body">
+                        <span class="blog-mini-tag teal">Funding</span>
+                        <p class="blog-mini-title">Funders Should Not Penalise AI Supported Grant Applications</p>
+                        <span class="blog-mini-meta">12 February 2026 &nbsp;·&nbsp; 5 min read</span>
+                        <span class="blog-mini-read">Read →</span>
                     </div>
-                </div>
-            </a>
+                </a>
+
+                <a href="blog/when-good-leaders-feel-alone.html" class="blog-mini-card">
+                    <div class="blog-mini-thumb"><img src="comm10.jpg" alt="Community leaders"></div>
+                    <div class="blog-mini-body">
+                        <span class="blog-mini-tag">Community</span>
+                        <p class="blog-mini-title">When Good Leaders Feel Like They're Carrying It Alone</p>
+                        <span class="blog-mini-meta">4 February 2026 &nbsp;·&nbsp; 6 min read</span>
+                        <span class="blog-mini-read">Read →</span>
+                    </div>
+                </a>
+
+            </div>
             <a href="blog.html" class="blog-teaser-all">View all posts →</a>
         </div>
     </section>
