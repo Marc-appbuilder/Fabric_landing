@@ -1194,6 +1194,37 @@
             .blog-teaser-grid { grid-template-columns: 1fr; }
         }
 
+        .contact-section {
+            padding: 2rem 3rem;
+            background: var(--stone-50);
+        }
+
+        .contact-container {
+            max-width: 700px;
+            margin: 0 auto;
+            background: white;
+            padding: 4rem 3rem;
+            border-radius: 40px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.08);
+            text-align: center;
+        }
+
+        .contact-email-link {
+            display: inline-block;
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--teal);
+            text-decoration: none;
+            border-bottom: 2px solid var(--teal);
+            padding-bottom: 2px;
+            transition: color 0.2s, border-color 0.2s;
+            letter-spacing: -0.01em;
+        }
+        .contact-email-link:hover {
+            color: var(--coral);
+            border-color: var(--coral);
+        }
+
         .download-section {
             padding: 2rem 3rem 6rem;
         }
@@ -1720,7 +1751,7 @@
         </p>
 
         <p class="for-you-text" style="font-size: 1.5rem; font-weight: 600; color: var(--stone-900); line-height: 1.7;">
-            Fabric exists to support people like you, using <a href="about.html#ethical-tech" style="color: var(--teal); text-decoration: underline; text-underline-offset: 3px;">ethical technology</a> to make community action easier; more visible, effective and sustainable.
+            Fabric exists to support people like you, using ethical technology to make community action easier; more visible, effective and sustainable.
         </p>
     </section>
 
@@ -1867,6 +1898,20 @@
             <div style="text-align: center;">
                 <a href="about.html" class="learn-more-btn">
                     Learn More About Us →
+                </a>
+            </div>
+        </div>
+    </section>
+
+    <!-- Contact Section -->
+    <section class="contact-section">
+        <div class="contact-container">
+            <p class="section-label-handwritten" style="color: var(--coral); margin-bottom: 1rem;">Get in touch</p>
+            <h2 class="section-title" style="text-align: center; margin-bottom: 1rem;">Say hello</h2>
+            <p style="font-size: 1.1rem; color: var(--stone-600); text-align: center; margin-bottom: 2rem; max-width: 500px; margin-left: auto; margin-right: auto; line-height: 1.7;">Whether you have a question, want to collaborate, or just want to share what you're building — we'd love to hear from you.</p>
+            <div style="text-align: center;">
+                <a href="mailto:hello@communityfabric.co" class="contact-email-link">
+                    hello@communityfabric.co
                 </a>
             </div>
         </div>
