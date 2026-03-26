@@ -393,6 +393,15 @@
 
         .app-icon--charity { background: rgba(244,114,97,0.2); }
         .app-icon--community { background: rgba(255,255,255,0.15); }
+        .app-icon--canewquay { background: rgba(168,213,186,0.2); }
+
+        .app-card--canewquay { background: linear-gradient(140deg, #1a3028 0%, #2a4a3a 100%); }
+
+        a.app-card {
+            text-decoration: none;
+            display: block;
+            cursor: pointer;
+        }
 
         .app-badge {
             display: inline-block;
@@ -400,8 +409,13 @@
             border-radius: 9999px;
             font-size: 0.72rem;
             font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
+            letter-spacing: 0.03em;
+        }
+
+        .app-badge--live {
+            background: rgba(168,213,186,0.25);
+            color: #a8d5ba;
+            border: 1px solid rgba(168,213,186,0.35);
         }
 
         .app-badge--soon {
@@ -619,12 +633,12 @@
             <div class="apps-section-header">
                 <span class="section-label-handwritten">Built by Fabric</span>
                 <h2 class="apps-section-title">Our Tools &amp; Apps</h2>
-                <p class="apps-section-subtitle">Two platforms designed to strengthen the people and organisations holding communities together.</p>
+                <p class="apps-section-subtitle">Innovative tools to help communities thrive — here's a few of our products</p>
             </div>
             <div class="apps-grid">
 
                 <!-- Charity Builder -->
-                <div class="app-card app-card--charity">
+                <a href="https://www.charitybuilder.co.uk" target="_blank" rel="noopener" class="app-card app-card--charity">
                     <div class="app-card-inner">
                         <div class="app-card-top">
                             <div class="app-icon app-icon--charity">
@@ -635,7 +649,7 @@
                                     <line x1="6" y1="26" x2="24" y2="26" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
                                 </svg>
                             </div>
-                            <span class="app-badge app-badge--soon">Coming soon</span>
+                            <span class="app-badge app-badge--live">Visit site →</span>
                         </div>
                         <h3 class="app-name">Charity Builder</h3>
                         <p class="app-tagline">You are the Fabric that holds our communities together. But that shouldn't mean carrying everything alone.</p>
@@ -646,12 +660,11 @@
                             <li>2,000+ UK funders — grant search &amp; AI writer</li>
                             <li>Impact &amp; outcomes designer</li>
                         </ul>
-                        <p style="margin-top:1.5rem; font-size:0.85rem; color:rgba(255,255,255,0.45); letter-spacing:0.05em; text-transform:uppercase;">Coming soon — we'll let you know when it's ready</p>
                     </div>
-                </div>
+                </a>
 
                 <!-- Community Builder -->
-                <div class="app-card app-card--community">
+                <a href="https://www.communitybuilder.uk" target="_blank" rel="noopener" class="app-card app-card--community">
                     <div class="app-card-inner">
                         <div class="app-card-top">
                             <div class="app-icon app-icon--community">
@@ -664,7 +677,7 @@
                                     <line x1="9.5" y1="22" x2="20.5" y2="22" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
                                 </svg>
                             </div>
-                            <span class="app-badge app-badge--soon">Coming soon</span>
+                            <span class="app-badge app-badge--live">Visit site →</span>
                         </div>
                         <h3 class="app-name">Community Builder</h3>
                         <p class="app-tagline">A shared space for people building connection, belonging, and resilience in their communities.</p>
@@ -675,9 +688,31 @@
                             <li>Reduce duplication, surface gaps</li>
                             <li>Free to explore — no account required</li>
                         </ul>
-                        <p style="margin-top:1.5rem; font-size:0.85rem; color:rgba(255,255,255,0.45); letter-spacing:0.05em; text-transform:uppercase;">Coming soon — we'll let you know when it's ready</p>
                     </div>
-                </div>
+                </a>
+
+                <!-- Canew Quay -->
+                <a href="https://canewquay.com" target="_blank" rel="noopener" class="app-card app-card--canewquay">
+                    <div class="app-card-inner">
+                        <div class="app-card-top">
+                            <div class="app-icon app-icon--canewquay">
+                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
+                                    <path d="M15 4C11.13 4 8 7.13 8 11C8 16.25 15 26 15 26C15 26 22 16.25 22 11C22 7.13 18.87 4 15 4Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
+                                    <circle cx="15" cy="11" r="2.5" stroke="white" stroke-width="1.8"/>
+                                </svg>
+                            </div>
+                            <span class="app-badge app-badge--live">Visit site →</span>
+                        </div>
+                        <h3 class="app-name">Canew Quay</h3>
+                        <p class="app-tagline">A place-based platform connecting people to the communities, events, and opportunities around them.</p>
+                        <ul class="app-features">
+                            <li>Discover what's on in your area</li>
+                            <li>Connect with local groups and initiatives</li>
+                            <li>Place-based community engagement</li>
+                            <li>Built for neighbourhoods that care</li>
+                        </ul>
+                    </div>
+                </a>
 
             </div>
         </div>
