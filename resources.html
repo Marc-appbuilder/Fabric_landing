@@ -358,10 +358,31 @@
             overflow: hidden;
             box-shadow: 0 8px 32px rgba(0,0,0,0.1);
             transition: transform 0.25s, box-shadow 0.25s;
+            display: flex;
+            flex-direction: column;
         }
         .app-card:hover {
             transform: translateY(-6px);
             box-shadow: 0 16px 48px rgba(0,0,0,0.14);
+        }
+
+        .app-card-image {
+            width: 100%;
+            height: 210px;
+            overflow: hidden;
+            flex-shrink: 0;
+            position: relative;
+        }
+        .app-card-image img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            object-position: center;
+            display: block;
+            transition: transform 0.5s ease;
+        }
+        .app-card:hover .app-card-image img {
+            transform: scale(1.05);
         }
 
         .app-card--charity { background: linear-gradient(140deg, #1c1917 0%, #2d2926 100%); }
@@ -639,6 +660,7 @@
 
                 <!-- Charity Builder -->
                 <a href="https://www.charitybuilder.co.uk" target="_blank" rel="noopener" class="app-card app-card--charity">
+                    <div class="app-card-image"><img src="char.jpeg" alt="Charity Builder"></div>
                     <div class="app-card-inner">
                         <div class="app-card-top">
                             <div class="app-icon app-icon--charity">
@@ -665,6 +687,7 @@
 
                 <!-- Community Builder -->
                 <a href="https://www.communitybuilder.uk" target="_blank" rel="noopener" class="app-card app-card--community">
+                    <div class="app-card-image"><img src="cbuilder.jpeg" alt="Community Builder"></div>
                     <div class="app-card-inner">
                         <div class="app-card-top">
                             <div class="app-icon app-icon--community">
@@ -693,6 +716,7 @@
 
                 <!-- Canew Quay -->
                 <a href="https://canewquay.com" target="_blank" rel="noopener" class="app-card app-card--canewquay">
+                    <div class="app-card-image"><img src="can.jpeg" alt="Community Action Newquay"></div>
                     <div class="app-card-inner">
                         <div class="app-card-top">
                             <div class="app-icon app-icon--canewquay">
