@@ -3,734 +3,161 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Resources – Fabric</title>
+    <title>Digital Tools &amp; Resources — Community Fabric CIC</title>
+    <meta name="description" content="Discover tools and resources to make changemaking easier — Charity Builder, Community Builder, Community Action Newquay, and free guides for grassroots leaders.">
+    <link rel="icon" type="image/png" href="favicon-96x96.png" sizes="96x96">
     <link rel="icon" type="image/svg+xml" href="favicon.svg">
-    <link rel="icon" type="image/png" sizes="96x96" href="favicon-96x96.png">
-    <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
-    <link rel="icon" type="image/x-icon" href="favicon.ico">
+    <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="styles.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --sage-green: #a8d5ba;
-            --coral: #F47261;
-            --teal: #0d9488;
-            --stone-50: #fafaf9;
-            --stone-200: #e7e5e4;
-            --stone-600: #57534e;
-            --stone-900: #1c1917;
-        }
-
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--stone-900);
-            background: var(--stone-50);
-            overflow-x: hidden;
-        }
-
-        * { max-width: 100%; }
-        img { max-width: 100%; height: auto; }
-        button, a { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-
-        /* ── Navigation ── */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--stone-900);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--stone-600);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--stone-900); }
-        .nav-links a.active { color: var(--coral); }
-
-        .cta-button {
-            padding: 0.75rem 1.75rem;
-            background: var(--coral);
-            color: white;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-        .cta-button:hover { transform: translateY(-2px); opacity: 0.9; }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-        .hamburger span {
-            width: 25px; height: 3px;
-            background: var(--stone-900);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px; left: 0; right: 0;
-            background: white;
-            flex-direction: column;
-            padding: 1rem 2rem 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            text-decoration: none;
-            color: var(--stone-900);
-            font-weight: 500;
-            font-size: 1.05rem;
-            padding: 0.875rem 0;
-            border-bottom: 1px solid var(--stone-200);
-        }
-        .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu a:hover { color: var(--coral); }
-
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .nav-links { display: none !important; }
-            .cta-button { display: none; }
-            .nav-container { padding: 0 1.5rem; }
-        }
-
-        /* ── Page Hero ── */
-        .page-hero {
-            padding: 8rem 2rem 2.5rem;
-            background: linear-gradient(160deg, #f0f9f4 0%, #fafaf9 60%, #fff5f3 100%);
-            text-align: center;
-        }
-
-        .page-hero-label {
-            font-family: 'Caveat', cursive;
-            font-size: 2rem;
-            font-weight: 600;
-            color: var(--coral);
-            margin-bottom: 0.75rem;
-            display: block;
-        }
-
-        .page-hero h1 {
-            font-size: clamp(2.5rem, 6vw, 4rem);
-            font-weight: 800;
-            color: var(--stone-900);
-            margin-bottom: 1rem;
-        }
-
-        .page-hero p {
-            font-size: 1.15rem;
-            color: var(--stone-600);
-            max-width: 600px;
-            margin: 0 auto;
-            line-height: 1.7;
-            font-weight: 300;
-        }
-
-        /* ── Content ── */
-        .resources-content {
-            max-width: 1200px;
-            margin: 0 auto;
-            padding: 2.5rem 2rem 7rem;
-        }
-
-        /* ── Category ── */
-        .resource-category {
-            margin-bottom: 5rem;
-        }
-
-        .category-header {
-            display: flex;
-            align-items: center;
-            gap: 1rem;
-            margin-bottom: 2rem;
-            padding-bottom: 1.25rem;
-            border-bottom: 2px solid var(--stone-200);
-        }
-
-        .category-icon {
-            width: 44px;
-            height: 44px;
-            border-radius: 12px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.3rem;
-            flex-shrink: 0;
-        }
-
-        .category-icon.green { background: #e8f5ee; }
-        .category-icon.coral { background: #fff0ee; }
-        .category-icon.teal  { background: #e6f4f2; }
-
-        .category-header h2 {
-            font-size: 1.4rem;
-            font-weight: 700;
-            color: var(--stone-900);
-        }
-        .category-header p {
-            font-size: 0.9rem;
-            color: var(--stone-600);
-            margin-top: 0.15rem;
-        }
-
-        .resources-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
-            gap: 1.5rem;
-        }
-
-        /* ── Resource Card ── */
-        .resource-card {
-            background: white;
-            border-radius: 16px;
-            padding: 1.75rem;
-            box-shadow: 0 2px 12px rgba(0,0,0,0.05);
-            border: 1px solid var(--stone-200);
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            transition: transform 0.2s, box-shadow 0.2s;
-            position: relative;
-        }
-        .resource-card:not(.coming-soon):hover {
-            transform: translateY(-4px);
-            box-shadow: 0 8px 30px rgba(0,0,0,0.09);
-        }
-
-        .resource-card.coming-soon {
-            opacity: 0.65;
-        }
-
-        .resource-card-top {
-            display: flex;
-            align-items: flex-start;
-            justify-content: space-between;
-            gap: 0.75rem;
-        }
-
-        .resource-type-badge {
-            display: inline-block;
-            padding: 0.2rem 0.75rem;
-            border-radius: 9999px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            text-transform: uppercase;
-            letter-spacing: 0.05em;
-            white-space: nowrap;
-        }
-
-        .badge-pdf     { background: #fff0ee; color: var(--coral); }
-        .badge-course  { background: #e6f4f2; color: var(--teal); }
-        .badge-link    { background: #e8f5ee; color: #1a7a4c; }
-        .badge-soon    { background: var(--stone-200); color: var(--stone-600); }
-
-        .resource-card h3 {
-            font-size: 1rem;
-            font-weight: 700;
-            color: var(--stone-900);
-            line-height: 1.4;
-        }
-
-        .resource-card p {
-            font-size: 0.9rem;
-            color: var(--stone-600);
-            line-height: 1.65;
-            flex: 1;
-        }
-
-        .resource-card-action {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.4rem;
-            font-size: 0.875rem;
-            font-weight: 600;
-            color: var(--teal);
-            text-decoration: none;
-            margin-top: auto;
-            padding-top: 0.5rem;
-            border-top: 1px solid var(--stone-200);
-            transition: gap 0.2s;
-        }
-        .resource-card-action:hover { gap: 0.65rem; }
-
-        .coming-soon-label {
-            font-size: 0.8rem;
-            font-weight: 600;
-            color: var(--stone-600);
-            padding-top: 0.5rem;
-            border-top: 1px solid var(--stone-200);
-            margin-top: auto;
-        }
-
-        /* ── Apps Section ── */
-        .apps-section {
-            margin-bottom: 0;
-            padding-bottom: 4rem;
-        }
-
-        .apps-section-header {
-            text-align: center;
-            margin-bottom: 3rem;
-        }
-
-        .section-label-handwritten {
-            font-family: 'Caveat', cursive;
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--coral);
-            display: block;
-            margin-bottom: 0.5rem;
-        }
-
-        .apps-section-title {
-            font-size: clamp(1.75rem, 4vw, 2.5rem);
-            font-weight: 800;
-            color: var(--stone-900);
-            margin-bottom: 0.75rem;
-        }
-
-        .apps-section-subtitle {
-            font-size: 1.05rem;
-            color: var(--stone-600);
-            max-width: 540px;
-            margin: 0 auto;
-            line-height: 1.7;
-        }
-
-        .apps-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2rem;
-        }
-
-        .app-card {
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 8px 32px rgba(0,0,0,0.1);
-            transition: transform 0.25s, box-shadow 0.25s;
-        }
-        .app-card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 16px 48px rgba(0,0,0,0.14);
-        }
-
-        .app-card--charity { background: linear-gradient(140deg, #1c1917 0%, #2d2926 100%); }
-        .app-card--community { background: linear-gradient(140deg, #1a2f4e 0%, #1e3a5f 100%); }
-
-        .app-card-inner {
-            padding: 2.5rem;
-            display: flex;
-            flex-direction: column;
-            gap: 1rem;
-            height: 100%;
-        }
-
-        .app-card-top {
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
-
-        .app-icon {
-            width: 52px;
-            height: 52px;
-            border-radius: 14px;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 1.5rem;
-        }
-
-        .app-icon--charity { background: rgba(244,114,97,0.2); }
-        .app-icon--community { background: rgba(255,255,255,0.15); }
-        .app-icon--canewquay { background: rgba(168,213,186,0.2); }
-
-        .app-card--canewquay { background: linear-gradient(140deg, #1a3028 0%, #2a4a3a 100%); }
-
-        a.app-card {
-            text-decoration: none;
-            display: block;
-            cursor: pointer;
-        }
-
-        .app-badge {
-            display: inline-block;
-            padding: 0.25rem 0.85rem;
-            border-radius: 9999px;
-            font-size: 0.72rem;
-            font-weight: 600;
-            letter-spacing: 0.03em;
-        }
-
-        .app-badge--live {
-            background: rgba(168,213,186,0.25);
-            color: #a8d5ba;
-            border: 1px solid rgba(168,213,186,0.35);
-        }
-
-        .app-badge--soon {
-            background: rgba(255,255,255,0.18);
-            color: white;
-            border: 1px solid rgba(255,255,255,0.25);
-        }
-
-        .app-name {
-            font-size: 1.6rem;
-            font-weight: 800;
-            color: white;
-            line-height: 1.2;
-            margin-top: 0.25rem;
-        }
-
-        .app-tagline {
-            font-size: 0.95rem;
-            color: rgba(255,255,255,0.75);
-            line-height: 1.65;
-        }
-
-        .app-features {
-            list-style: none;
-            display: flex;
-            flex-direction: column;
-            gap: 0.5rem;
-            margin: 0.5rem 0;
-        }
-
-        .app-features li {
-            font-size: 0.875rem;
-            color: rgba(255,255,255,0.8);
-            padding-left: 1.25rem;
-            position: relative;
-            line-height: 1.5;
-        }
-
-        .app-features li::before {
-            content: '✓';
-            position: absolute;
-            left: 0;
-            font-weight: 700;
-            color: var(--coral);
-        }
-
-        .app-cta {
-            display: inline-flex;
-            align-items: center;
-            gap: 0.5rem;
-            padding: 0.875rem 1.5rem;
-            border-radius: 9999px;
-            font-weight: 700;
-            font-size: 0.9rem;
-            text-decoration: none;
-            margin-top: 0.75rem;
-            transition: all 0.25s;
-            width: fit-content;
-        }
-
-        .app-cta--charity {
-            background: var(--coral);
-            color: white;
-        }
-        .app-cta--charity:hover { opacity: 0.9; transform: translateX(3px); }
-
-        .app-cta--community {
-            background: white;
-            color: #1a2f4e;
-        }
-        .app-cta--community:hover { opacity: 0.92; transform: translateX(3px); }
-
-        .section-divider {
-            border: none;
-            border-top: 2px solid var(--stone-200);
-            margin: 0 0 4rem;
-        }
-
-        @media (max-width: 600px) {
-            .app-card-inner { padding: 2rem 1.5rem; }
-            .apps-grid { grid-template-columns: 1fr; }
-        }
-
-        /* ── Notify Banner ── */
-        .notify-banner {
-            background: white;
-            border-radius: 20px;
-            padding: 3rem;
-            text-align: center;
-            box-shadow: 0 4px 20px rgba(0,0,0,0.06);
-            border: 1px solid var(--stone-200);
-            margin-top: 2rem;
-        }
-
-        .notify-banner .label {
-            font-family: 'Caveat', cursive;
-            font-size: 1.75rem;
-            font-weight: 600;
-            color: var(--coral);
-            display: block;
-            margin-bottom: 0.75rem;
-        }
-
-        .notify-banner p {
-            font-size: 1rem;
-            color: var(--stone-600);
-            max-width: 480px;
-            margin: 0 auto 1.75rem;
-            line-height: 1.7;
-        }
-
-        .notify-form {
-            display: flex;
-            gap: 0.75rem;
-            max-width: 420px;
-            margin: 0 auto;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .notify-form input {
-            flex: 1;
-            min-width: 200px;
-            padding: 0.875rem 1.25rem;
-            border: 1px solid var(--stone-200);
-            border-radius: 9999px;
-            font-size: 0.95rem;
-            font-family: 'Inter', sans-serif;
-            color: var(--stone-900);
-            background: var(--stone-50);
-            outline: none;
-            transition: border-color 0.2s;
-        }
-        .notify-form input:focus { border-color: var(--teal); }
-
-        .notify-form button {
-            padding: 0.875rem 1.75rem;
-            background: var(--coral);
-            color: white;
-            border: none;
-            border-radius: 9999px;
-            font-size: 0.95rem;
-            font-weight: 600;
-            font-family: 'Inter', sans-serif;
-            cursor: pointer;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-        .notify-form button:hover { opacity: 0.9; transform: translateY(-2px); }
-
-        /* ── Site Footer ── */
-        .site-footer {
-            background: var(--stone-900);
-            color: rgba(255,255,255,0.5);
-            text-align: center;
-            padding: 3rem 2rem;
-            font-size: 0.875rem;
-        }
-        .site-footer a {
-            color: rgba(255,255,255,0.7);
-            text-decoration: none;
-        }
-        .site-footer a:hover { color: white; }
-        .site-footer .company-info {
-            margin-top: 0.75rem;
-            font-size: 0.75rem;
-            color: rgba(255,255,255,0.3);
-        }
-
-        @media (max-width: 600px) {
-            .resources-grid { grid-template-columns: 1fr; }
-            .notify-banner { padding: 2rem 1.5rem; }
-        }
+        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
+        .app-card { border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.08); text-decoration: none; display: block; background-size: cover; background-position: center; }
+        .app-card--charity { background-image: linear-gradient(140deg, rgba(244,114,97,0.92) 0%, rgba(230,109,89,0.92) 100%), url('cbuilder1.png'); }
+        .app-card--community { background-image: linear-gradient(140deg, #0d9488 0%, #0b7a70 100%); }
+        .app-card--canewquay { background-image: linear-gradient(140deg, rgba(74,157,127,0.92) 0%, rgba(61,135,105,0.92) 100%), url('can1.png'); }
+        .app-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.12); }
+        .app-card-inner { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; height: 100%; }
+        .app-card-top { display: flex; align-items: center; justify-content: space-between; }
+        .app-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.2); }
+        .app-badge { display: inline-block; padding: 0.25rem 0.85rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
+        .app-name { font-size: 1.5rem; font-weight: 800; color: #fff; margin-top: 0.25rem; }
+        .app-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
+        .app-features { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin: 0.5rem 0; }
+        .app-features li { font-size: 0.875rem; color: rgba(255,255,255,0.85); padding-left: 1.25rem; position: relative; }
+        .app-features li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; }
+
+        .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--stone-200); }
+        .category-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
+        .category-icon.green { background: #eaf6ef; }
+        .category-icon.teal { background: #e6f7f5; }
+        .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
+        .resource-card { background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid var(--stone-200); display: flex; flex-direction: column; gap: 1rem; }
+        .resource-card.coming-soon { opacity: 0.65; }
+        .resource-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
+        .resource-type-badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
+        .badge-pdf { background: #fff0ee; color: var(--coral-dark); }
+        .badge-link { background: var(--stone-200); color: var(--stone-600); }
+        .resource-card-action { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--stone-200); }
+        .coming-soon-label { font-size: 0.8rem; font-weight: 700; color: var(--stone-600); padding-top: 0.5rem; border-top: 1px solid var(--stone-200); margin-top: auto; }
+        .resource-category { margin-bottom: 4rem; }
+        @media (max-width: 600px) { .resources-grid { grid-template-columns: 1fr; } }
     </style>
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="index.html" class="logo">Fabric</a>
-            <ul class="nav-links">
-                <li><a href="index.html#for-you">Who it's for</a></li>
-                <li><a href="index.html#features">Features</a></li>
-                <li><a href="resources.html" class="active">Resources</a></li>
-                <li><a href="blog.html">Blog</a></li>
-                <li><a href="about.html">About</a></li>
-            </ul>
-            <button class="cta-button" data-waitlist>Subscribe</button>
-            <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
+<header class="site-header">
+    <nav class="site-nav">
+        <a href="index.html" class="logo"><img src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
+        <ul class="nav-links">
+            <li><a href="about.html">About</a></li>
+            <li><a href="training.html">Training &amp; Coaching</a></li>
+            <li><a href="resources.html" class="active">Digital Tools</a></li>
+            <li><a href="impact.html">Impact &amp; Voice</a></li>
+            <li><a href="get-involved.html">Get Involved</a></li>
+        </ul>
+        <div class="nav-cta">
+            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Book a Call</a>
+            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="index.html#for-you">Who it's for</a>
-        <a href="index.html#features">Features</a>
-        <a href="resources.html">Resources</a>
-        <a href="blog.html">Blog</a>
+    <div class="mobile-menu">
         <a href="about.html">About</a>
-        <a href="#" data-waitlist style="background: var(--coral); color: white; padding: 0.75rem 1rem; border-radius: 9999px; display: flex; justify-content: center; align-items: center; border-bottom: none; margin-top: 0.5rem;">Subscribe</a>
+        <a href="training.html">Training &amp; Coaching</a>
+        <a href="resources.html">Digital Tools</a>
+        <a href="impact.html">Impact &amp; Voice</a>
+        <a href="get-involved.html">Get Involved</a>
+        <a href="get-involved.html#book-a-call">Book a Call</a>
     </div>
+</header>
 
-    <!-- Page Hero -->
-    <div class="page-hero">
-        <span class="page-hero-label">For the work that matters</span>
-        <h1>Resources</h1>
-        <p>Guides, courses, and useful things to help you build and strengthen your community work.</p>
+<section class="hero" style="padding-bottom:2rem;">
+    <div class="container text-center">
+        <span class="eyebrow">Digital Tools &amp; Resources</span>
+        <h1>Discover tools and resources to make changemaking easier.</h1>
     </div>
+</section>
 
-    <div class="resources-content">
-
-        <!-- Our Tools & Apps -->
-        <div class="apps-section">
-            <div class="apps-section-header">
-                <span class="section-label-handwritten">Built by Fabric</span>
-                <h2 class="apps-section-title">Our Tools &amp; Apps</h2>
-                <p class="apps-section-subtitle">Innovative tools to help communities thrive — here's a few of our products</p>
-            </div>
-            <div class="apps-grid">
-
-                <!-- Charity Builder -->
-                <a href="https://www.charitybuilder.co.uk" target="_blank" rel="noopener" class="app-card app-card--charity">
-                    <div class="app-card-inner">
-                        <div class="app-card-top">
-                            <div class="app-icon app-icon--charity">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M4 13L15 4L26 13" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/>
-                                    <rect x="6" y="13" width="18" height="13" rx="1.5" stroke="white" stroke-width="1.8"/>
-                                    <path d="M11 26V19.5C11 18.9 11.5 18.5 12 18.5H18C18.5 18.5 19 18.9 19 19.5V26" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                                    <line x1="6" y1="26" x2="24" y2="26" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <span class="app-badge app-badge--live">Visit site →</span>
-                        </div>
-                        <h3 class="app-name">Charity Builder</h3>
-                        <p class="app-tagline">You are the Fabric that holds our communities together. But that shouldn't mean carrying everything alone.</p>
-                        <ul class="app-features">
-                            <li>Governance framework builder</li>
-                            <li>Strategy &amp; business planning</li>
-                            <li>Ethical recruitment &amp; team management</li>
-                            <li>2,000+ UK funders — grant search &amp; AI writer</li>
-                            <li>Impact &amp; outcomes designer</li>
-                        </ul>
-                    </div>
-                </a>
-
-                <!-- Community Builder -->
-                <a href="https://www.communitybuilder.uk" target="_blank" rel="noopener" class="app-card app-card--community">
-                    <div class="app-card-inner">
-                        <div class="app-card-top">
-                            <div class="app-icon app-icon--community">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <circle cx="15" cy="8" r="3.5" stroke="white" stroke-width="1.8"/>
-                                    <circle cx="6" cy="22" r="3.5" stroke="white" stroke-width="1.8"/>
-                                    <circle cx="24" cy="22" r="3.5" stroke="white" stroke-width="1.8"/>
-                                    <line x1="15" y1="11.5" x2="9.5" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                                    <line x1="15" y1="11.5" x2="20.5" y2="18.5" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                                    <line x1="9.5" y1="22" x2="20.5" y2="22" stroke="white" stroke-width="1.8" stroke-linecap="round"/>
-                                </svg>
-                            </div>
-                            <span class="app-badge app-badge--live">Visit site →</span>
-                        </div>
-                        <h3 class="app-name">Community Builder</h3>
-                        <p class="app-tagline">A shared space for people building connection, belonging, and resilience in their communities.</p>
-                        <ul class="app-features">
-                            <li>Map local need and community assets</li>
-                            <li>Find people working on what you care about</li>
-                            <li>See what's already happening in your area</li>
-                            <li>Reduce duplication, surface gaps</li>
-                            <li>Free to explore — no account required</li>
-                        </ul>
-                    </div>
-                </a>
-
-                <!-- Canew Quay -->
-                <a href="https://canewquay.com" target="_blank" rel="noopener" class="app-card app-card--canewquay">
-                    <div class="app-card-inner">
-                        <div class="app-card-top">
-                            <div class="app-icon app-icon--canewquay">
-                                <svg width="30" height="30" viewBox="0 0 30 30" fill="none" xmlns="http://www.w3.org/2000/svg">
-                                    <path d="M15 4C11.13 4 8 7.13 8 11C8 16.25 15 26 15 26C15 26 22 16.25 22 11C22 7.13 18.87 4 15 4Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/>
-                                    <circle cx="15" cy="11" r="2.5" stroke="white" stroke-width="1.8"/>
-                                </svg>
-                            </div>
-                            <span class="app-badge app-badge--live">Visit site →</span>
-                        </div>
-                        <h3 class="app-name">Community Action Newquay (CAN)</h3>
-                        <p class="app-tagline">Community Action Newquay brings together the people, organisations, and ideas that make our town special. Together, we CAN build a stronger Newquay.</p>
-                        <ul class="app-features">
-                            <li>Free digital platform for the whole community</li>
-                            <li>Connect surf clubs, food banks, businesses &amp; neighbourhood groups</li>
-                            <li>Find local events and discover organisations</li>
-                            <li>Share ideas and collaborate with fellow residents</li>
-                            <li>All in one place, all for free</li>
-                        </ul>
-                    </div>
-                </a>
-
-            </div>
+<section id="tools">
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">Built by Fabric</span>
+            <h2>Our Tools &amp; Apps</h2>
+            <p>Innovative tools to help communities thrive — here's a few of our products.</p>
         </div>
+        <div class="apps-grid">
 
-        <div class="section-divider"></div>
+            <a href="https://www.charitybuilder.co.uk" target="_blank" rel="noopener" class="app-card app-card--charity">
+                <div class="app-card-inner">
+                    <div class="app-card-top">
+                        <div class="app-icon">
+                            <svg width="26" height="26" viewBox="0 0 30 30" fill="none"><path d="M4 13L15 4L26 13" stroke="white" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"/><rect x="6" y="13" width="18" height="13" rx="1.5" stroke="white" stroke-width="1.8"/></svg>
+                        </div>
+                        <span class="app-badge">Visit site →</span>
+                    </div>
+                    <h3 class="app-name">Charity Builder</h3>
+                    <p class="app-tagline">You are the fabric that holds our communities together. But that shouldn't mean carrying everything alone.</p>
+                    <ul class="app-features">
+                        <li>Governance framework builder</li>
+                        <li>Strategy &amp; business planning</li>
+                        <li>2,000+ UK funders — grant search &amp; AI writer</li>
+                    </ul>
+                </div>
+            </a>
 
-        <!-- Category 1: Free Guides & PDFs -->
+            <a href="https://www.communitybuilder.uk" target="_blank" rel="noopener" class="app-card app-card--community">
+                <div class="app-card-inner">
+                    <div class="app-card-top">
+                        <div class="app-icon">
+                            <svg width="26" height="26" viewBox="0 0 30 30" fill="none"><circle cx="15" cy="8" r="3.5" stroke="white" stroke-width="1.8"/><circle cx="6" cy="22" r="3.5" stroke="white" stroke-width="1.8"/><circle cx="24" cy="22" r="3.5" stroke="white" stroke-width="1.8"/></svg>
+                        </div>
+                        <span class="app-badge">Visit site →</span>
+                    </div>
+                    <h3 class="app-name">Community Builder</h3>
+                    <p class="app-tagline">A shared space for people building connection, belonging, and resilience in their communities.</p>
+                    <ul class="app-features">
+                        <li>Map local need and community assets</li>
+                        <li>Find people working on what you care about</li>
+                        <li>Free to explore — no account required</li>
+                    </ul>
+                </div>
+            </a>
+
+            <a href="https://canewquay.com" target="_blank" rel="noopener" class="app-card app-card--canewquay">
+                <div class="app-card-inner">
+                    <div class="app-card-top">
+                        <div class="app-icon">
+                            <svg width="26" height="26" viewBox="0 0 30 30" fill="none"><path d="M15 4C11.13 4 8 7.13 8 11C8 16.25 15 26 15 26C15 26 22 16.25 22 11C22 7.13 18.87 4 15 4Z" stroke="white" stroke-width="1.8" stroke-linejoin="round"/></svg>
+                        </div>
+                        <span class="app-badge">Visit site →</span>
+                    </div>
+                    <h3 class="app-name">Community Action Newquay (CAN)</h3>
+                    <p class="app-tagline">Bringing together the people, organisations, and ideas that make Newquay special.</p>
+                    <ul class="app-features">
+                        <li>Free digital platform for the whole community</li>
+                        <li>Connect surf clubs, food banks, businesses &amp; groups</li>
+                        <li>All in one place, all for free</li>
+                    </ul>
+                </div>
+            </a>
+
+        </div>
+    </div>
+</section>
+
+<section class="bg-tint" id="guides">
+    <div class="container">
         <div class="resource-category">
             <div class="category-header">
                 <div class="category-icon green">📄</div>
                 <div>
-                    <h2>Free Guides &amp; PDFs</h2>
-                    <p>Practical guides you can download and use straight away</p>
+                    <h2 style="margin:0;">Free Guides &amp; Toolkits</h2>
+                    <p style="margin:0;">Practical guides you can download and use straight away</p>
                 </div>
             </div>
             <div class="resources-grid">
-
                 <div class="resource-card">
                     <div class="resource-card-top">
                         <h3>Getting Your Governance Right: A Starter Guide</h3>
@@ -739,7 +166,6 @@
                     <p>A plain-English walkthrough of the governance basics every new charity or community group needs to get right from the start.</p>
                     <a class="resource-card-action" href="Governance &amp; Leadership Resources.pdf" download>Download PDF →</a>
                 </div>
-
                 <div class="resource-card">
                     <div class="resource-card-top">
                         <h3>Writing Your First Funding Bid</h3>
@@ -748,7 +174,6 @@
                     <p>Step by step through a compelling funding application — what funders actually look for and the common mistakes to avoid.</p>
                     <a class="resource-card-action" href="Funding.pdf" download>Download PDF →</a>
                 </div>
-
                 <div class="resource-card">
                     <div class="resource-card-top">
                         <h3>Safeguarding Essentials for Small Organisations</h3>
@@ -757,21 +182,18 @@
                     <p>Understanding your safeguarding responsibilities without drowning in jargon. Built for small teams doing meaningful work.</p>
                     <a class="resource-card-action" href="Operational tools.pdf" download>Download PDF →</a>
                 </div>
-
             </div>
         </div>
 
-        <!-- Category 2: Useful Links -->
-        <div class="resource-category">
+        <div class="resource-category" style="margin-bottom:0;">
             <div class="category-header">
                 <div class="category-icon teal">🔗</div>
                 <div>
-                    <h2>Useful Links</h2>
-                    <p>Trusted resources from across the sector we think are worth your time</p>
+                    <h2 style="margin:0;">Useful Links</h2>
+                    <p style="margin:0;">Trusted resources from across the sector we think are worth your time</p>
                 </div>
             </div>
             <div class="resources-grid">
-
                 <div class="resource-card coming-soon">
                     <div class="resource-card-top">
                         <h3>Sector Tools &amp; Directories</h3>
@@ -780,7 +202,6 @@
                     <p>A curated list of the most useful sector resources — funding finders, governance tools, policy banks, and more.</p>
                     <span class="coming-soon-label">Coming soon</span>
                 </div>
-
                 <div class="resource-card coming-soon">
                     <div class="resource-card-top">
                         <h3>Recommended Reading</h3>
@@ -789,109 +210,45 @@
                     <p>Books, articles and reports on community building, social change, and sustainable leadership that we keep coming back to.</p>
                     <span class="coming-soon-label">Coming soon</span>
                 </div>
-
             </div>
         </div>
-
-        <!-- Notify Banner -->
-        <div class="notify-banner">
-            <span class="label">Be the first to know</span>
-            <p>We're adding new resources regularly. Drop your email and we'll let you know when something lands that's worth your time.</p>
-            <form class="notify-form" onsubmit="handleNotify(event)">
-                <input type="email" placeholder="your@email.com" required>
-                <button type="submit">Notify me</button>
-            </form>
-        </div>
-
     </div>
+</section>
 
-    <footer class="site-footer">
-        <p>© 2026 Fabric &nbsp;·&nbsp; <a href="about.html">About</a> &nbsp;·&nbsp; <a href="index.html">Home</a></p>
-        <p class="company-info">FABRIC - CENTER FOR CHANGE LTD &nbsp;·&nbsp; Company No. 16910147 &nbsp;·&nbsp; Registered in England &amp; Wales &nbsp;·&nbsp; 7 Riversdale, Wadebridge, PL27 7NP</p>
-    </footer>
-
-    <script>
-        const hamburger = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-
-        function handleNotify(e) {
-            e.preventDefault();
-            const btn = e.target.querySelector('button');
-            btn.textContent = "Done! We'll be in touch.";
-            btn.style.background = 'var(--teal)';
-            btn.disabled = true;
-            e.target.querySelector('input').disabled = true;
-        }
-
-        // Scroll reveal
-        const scrollObserver = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.opacity = '1';
-                    entry.target.style.transform = 'translateY(0)';
-                    scrollObserver.unobserve(entry.target);
-                }
-            });
-        }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
-
-        function addReveal(el, delay) {
-            if (el.getBoundingClientRect().top >= window.innerHeight * 0.95) {
-                el.style.opacity = '0';
-                el.style.transform = 'translateY(40px)';
-                el.style.transition = 'opacity 0.8s cubic-bezier(0.16,1,0.3,1) ' + delay + 's, transform 0.8s cubic-bezier(0.16,1,0.3,1) ' + delay + 's';
-                scrollObserver.observe(el);
-            }
-        }
-
-        document.querySelectorAll('.app-card').forEach((el, i) => addReveal(el, i * 0.1));
-        document.querySelectorAll('.resource-card').forEach((el, i) => addReveal(el, (i % 3) * 0.12));
-        document.querySelectorAll('.resource-category, .notify-banner, .section-title, .section-label-handwritten').forEach(el => addReveal(el, 0));
-
-        // Subscribe modal — deferred so modal HTML is in DOM first
-        document.addEventListener('DOMContentLoaded', function() {
-            const waitlistModal = document.getElementById('waitlistModal');
-            function openModal() {
-                waitlistModal.style.cssText = 'display:flex; position:fixed; top:0; right:0; bottom:0; left:0; background:rgba(0,0,0,0.55); z-index:2000; align-items:center; justify-content:center; padding:1rem;';
-            }
-            function closeModal() { waitlistModal.style.display = 'none'; }
-            document.querySelectorAll('[data-waitlist]').forEach(el => el.addEventListener('click', (e) => { e.preventDefault(); openModal(); }));
-            document.getElementById('closeWaitlist').addEventListener('click', closeModal);
-            waitlistModal.addEventListener('click', (e) => { if (e.target === waitlistModal) closeModal(); });
-            document.getElementById('waitlistForm').addEventListener('submit', async (e) => {
-                e.preventDefault();
-                const form = e.target;
-                try {
-                    const resp = await fetch(form.action, { method: 'POST', body: new FormData(form), headers: { 'Accept': 'application/json' } });
-                    if (resp.ok) { form.style.display = 'none'; document.getElementById('waitlistSuccess').style.display = 'block'; }
-                } catch(err) {}
-            });
-        });
-    </script>
-
-    <div id="waitlistModal" style="display:none">
-        <div style="background:white; border-radius:2rem; padding:4rem 3rem 3rem; max-width:520px; width:90%; position:relative; text-align:center; box-shadow:0 30px 80px rgba(0,0,0,0.25); overflow:hidden; font-family:'Inter',sans-serif;">
-            <div style="position:absolute; top:0; left:0; right:0; height:5px; background:linear-gradient(90deg,#a8d5ba,#F47261);"></div>
-            <button id="closeWaitlist" style="position:absolute; top:1.25rem; right:1.25rem; background:#e7e5e4; border:none; border-radius:50%; width:2rem; height:2rem; cursor:pointer; font-size:1.1rem; color:#57534e; display:flex; align-items:center; justify-content:center;">×</button>
-            <h3 style="font-family:'Caveat',cursive; font-size:2.75rem; font-weight:600; margin:0 0 0.75rem; color:#1c1917;">Stay in the loop</h3>
-            <p style="color:#57534e; margin:0 auto 2rem; font-size:1rem; line-height:1.7; max-width:360px;">Be the first to know when Fabric launches. Drop your email and we'll keep you posted — no spam, just the good stuff.</p>
-            <form id="waitlistForm" action="https://formspree.io/f/mpqjjjvd" method="POST">
-                <input type="email" name="email" placeholder="your@email.com" required style="width:100%; padding:1rem 1.5rem; border:2px solid #e7e5e4; border-radius:9999px; font-size:1rem; margin-bottom:0.75rem; outline:none; font-family:'Inter',sans-serif; color:#1c1917; background:#fafaf9; box-sizing:border-box;">
-                <button type="submit" style="width:100%; padding:1rem 2rem; background:#F47261; color:white; border:none; border-radius:9999px; font-size:1rem; font-weight:600; cursor:pointer; font-family:'Inter',sans-serif; box-shadow:0 10px 30px rgba(244,114,97,0.4);">Count me in →</button>
-            </form>
-            <p style="margin-top:1rem; font-size:0.8rem; color:#57534e;">We respect your inbox. Unsubscribe any time.</p>
-            <p id="waitlistSuccess" style="display:none; color:#0d9488; font-weight:600; font-size:1.2rem; margin-top:1rem;">You're in! We'll be in touch.</p>
+<footer class="site-footer">
+    <div class="container">
+        <div class="footer-grid">
+            <div>
+                <div class="footer-logo">Community Fabric</div>
+                <p style="color:#a8a29e;font-size:0.9rem;max-width:32ch;">Strengthening the social fabric of communities by supporting leaders, enabling action and organising for change.</p>
+            </div>
+            <div>
+                <h4>Quick Links</h4>
+                <ul>
+                    <li><a href="training.html">Training</a></li>
+                    <li><a href="resources.html">Tools</a></li>
+                    <li><a href="resources.html#guides">Resources</a></li>
+                    <li><a href="blog.html">Blog</a></li>
+                </ul>
+            </div>
+            <div>
+                <h4>Stay in the loop</h4>
+                <p style="color:#a8a29e;font-size:0.9rem;">No spam. Just useful updates.</p>
+                <form class="newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-success">Thanks — you're on the list.</p>
+                <p style="color:#a8a29e;font-size:0.85rem;">hello@communityfabric.co</p>
+            </div>
+        </div>
+        <div class="footer-bottom">
+            <span>© 2026 Community Fabric CIC. Building stronger communities together.</span>
+            <span>FABRIC – CENTRE FOR COMMUNITY CHANGE · Company No. 16910147 · Registered in England &amp; Wales · 7 Riversdale, Wadebridge, PL27 7NP</span>
         </div>
     </div>
+</footer>
 
+<script src="site.js"></script>
 </body>
 </html>

@@ -1,0 +1,8 @@
+<svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" role="img" aria-label="Community Fabric yarn ball motif">
+  <circle cx="50" cy="50" r="46" fill="#F47261"/>
+  <path d="M10 40 C 40 20, 60 20, 90 40" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.55"/>
+  <path d="M8 55 C 35 75, 65 75, 92 55" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.55"/>
+  <path d="M20 15 C 35 45, 65 55, 85 85" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M80 15 C 65 45, 35 55, 15 85" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.4"/>
+  <path d="M50 4 C 40 35, 40 65, 50 96" stroke="#ffffff" stroke-width="3" fill="none" opacity="0.35"/>
+</svg>

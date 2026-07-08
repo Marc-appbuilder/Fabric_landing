@@ -3,148 +3,15 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>The Quiet Power of Helping Other Leaders – Fabric Blog</title>
+    <title>The Quiet Power of Helping Other Leaders — Community Fabric CIC</title>
     <link rel="icon" type="image/svg+xml" href="../favicon.svg">
     <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
     <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
     <link rel="icon" type="image/x-icon" href="../favicon.ico">
     <link rel="manifest" href="../site.webmanifest">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@400;500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
     <style>
-        * { margin: 0; padding: 0; box-sizing: border-box; }
-
-        :root {
-            --sage-green: #a8d5ba;
-            --coral: #F47261;
-            --teal: #0d9488;
-            --stone-50: #fafaf9;
-            --stone-200: #e7e5e4;
-            --stone-600: #57534e;
-            --stone-900: #1c1917;
-        }
-
-        html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
-
-        body {
-            font-family: 'Inter', sans-serif;
-            line-height: 1.6;
-            color: var(--stone-900);
-            background: var(--stone-50);
-            overflow-x: hidden;
-        }
-
-        * { max-width: 100%; }
-        img { max-width: 100%; height: auto; }
-        button, a { -webkit-tap-highlight-color: rgba(0,0,0,0); }
-
-        /* ── Navigation ── */
-        nav {
-            position: fixed;
-            top: 0; left: 0; right: 0;
-            z-index: 1000;
-            background: rgba(255,255,255,0.98);
-            backdrop-filter: blur(20px);
-            box-shadow: 0 1px 3px rgba(0,0,0,0.05);
-        }
-
-        .nav-container {
-            max-width: 1400px;
-            margin: 0 auto;
-            padding: 0 3rem;
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-            height: 80px;
-        }
-
-        .logo {
-            font-weight: 700;
-            font-size: 1.5rem;
-            color: var(--stone-900);
-            text-decoration: none;
-        }
-
-        .nav-links {
-            display: flex;
-            gap: 2rem;
-            list-style: none;
-        }
-
-        .nav-links a {
-            text-decoration: none;
-            font-weight: 500;
-            font-size: 0.95rem;
-            color: var(--stone-600);
-            transition: color 0.2s;
-        }
-
-        .nav-links a:hover { color: var(--stone-900); }
-        .nav-links a.active { color: var(--coral); }
-
-        .cta-button {
-            padding: 0.75rem 1.75rem;
-            background: var(--coral);
-            color: white;
-            border-radius: 9999px;
-            font-weight: 600;
-            font-size: 0.95rem;
-            border: none;
-            cursor: pointer;
-            text-decoration: none;
-            transition: all 0.3s;
-            white-space: nowrap;
-        }
-        .cta-button:hover { transform: translateY(-2px); opacity: 0.9; }
-
-        .hamburger {
-            display: none;
-            flex-direction: column;
-            gap: 6px;
-            cursor: pointer;
-            background: none;
-            border: none;
-            padding: 0.5rem;
-        }
-        .hamburger span {
-            width: 25px; height: 3px;
-            background: var(--stone-900);
-            border-radius: 2px;
-            transition: all 0.3s;
-        }
-        .hamburger.active span:nth-child(1) { transform: rotate(45deg) translate(10px, 10px); }
-        .hamburger.active span:nth-child(2) { opacity: 0; }
-        .hamburger.active span:nth-child(3) { transform: rotate(-45deg) translate(7px, -7px); }
-
-        .mobile-menu {
-            display: none;
-            position: fixed;
-            top: 80px; left: 0; right: 0;
-            background: white;
-            flex-direction: column;
-            gap: 0;
-            padding: 1rem 2rem 2rem;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.1);
-            z-index: 999;
-        }
-        .mobile-menu.active { display: flex; }
-        .mobile-menu a {
-            text-decoration: none;
-            color: var(--stone-900);
-            font-weight: 500;
-            font-size: 1.05rem;
-            padding: 0.875rem 0;
-            border-bottom: 1px solid var(--stone-200);
-        }
-        .mobile-menu a:last-child { border-bottom: none; }
-        .mobile-menu a:hover { color: var(--coral); }
-
-        @media (max-width: 768px) {
-            .hamburger { display: flex; }
-            .nav-links { display: none !important; }
-            .cta-button { display: none; }
-            .nav-container { padding: 0 1.5rem; }
-        }
-
         /* ── Post Hero ── */
         .post-hero {
             padding: 8rem 2rem 5rem;
@@ -392,31 +259,30 @@
 </head>
 <body>
 
-    <nav>
-        <div class="nav-container">
-            <a href="../index.html" class="logo">Fabric</a>
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="../index.html" class="logo"><img src="../yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
             <ul class="nav-links">
-                <li><a href="../index.html#for-you">Who it's for</a></li>
-                <li><a href="../index.html#features">Features</a></li>
-                <li><a href="../resources.html">Resources</a></li>
-                <li><a href="../blog.html" class="active">Blog</a></li>
                 <li><a href="../about.html">About</a></li>
+                <li><a href="../training.html">Training &amp; Coaching</a></li>
+                <li><a href="../resources.html">Digital Tools</a></li>
+                <li><a href="../impact.html">Impact &amp; Voice</a></li>
+                <li><a href="../get-involved.html">Get Involved</a></li>
             </ul>
-            <a href="../index.html#get-started" class="cta-button">Get Started</a>
-            <button class="hamburger" id="hamburgerBtn" aria-label="Open menu">
-                <span></span><span></span><span></span>
-            </button>
+            <div class="nav-cta">
+                <a href="../get-involved.html#book-a-call" class="btn btn-secondary">Book a Call</a>
+                <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+        <div class="mobile-menu">
+            <a href="../about.html">About</a>
+            <a href="../training.html">Training &amp; Coaching</a>
+            <a href="../resources.html">Digital Tools</a>
+            <a href="../impact.html">Impact &amp; Voice</a>
+            <a href="../get-involved.html">Get Involved</a>
+            <a href="../get-involved.html#book-a-call">Book a Call</a>
         </div>
-    </nav>
-
-    <div class="mobile-menu" id="mobileMenu">
-        <a href="../index.html#for-you">Who it's for</a>
-        <a href="../index.html#features">Features</a>
-        <a href="../resources.html">Resources</a>
-        <a href="../blog.html">Blog</a>
-        <a href="../about.html">About</a>
-        <a href="../index.html#get-started" style="background: var(--coral); color: white; padding: 0.75rem 1rem; border-radius: 9999px; text-align: center; border-bottom: none; margin-top: 0.5rem;">Get Started</a>
-    </div>
+    </header>
 
     <!-- Post Hero -->
     <div class="post-hero">
@@ -565,24 +431,40 @@
     </div>
 
     <footer class="site-footer">
-        <p>© 2026 Fabric &nbsp;·&nbsp; <a href="../about.html">About</a> &nbsp;·&nbsp; <a href="../index.html">Home</a></p>
-        <p class="company-info">FABRIC - CENTER FOR CHANGE LTD &nbsp;·&nbsp; Company No. 16910147 &nbsp;·&nbsp; Registered in England &amp; Wales &nbsp;·&nbsp; 7 Riversdale, Wadebridge, PL27 7NP</p>
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Community Fabric</div>
+                    <p style="color:#a8a29e;font-size:0.9rem;max-width:32ch;">Strengthening the social fabric of communities by supporting leaders, enabling action and organising for change.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../training.html">Training</a></li>
+                        <li><a href="../resources.html">Tools</a></li>
+                        <li><a href="../resources.html#guides">Resources</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Stay in the loop</h4>
+                    <p style="color:#a8a29e;font-size:0.9rem;">No spam. Just useful updates.</p>
+                    <form class="newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                        <input type="email" name="email" placeholder="Your email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="form-success">Thanks — you're on the list.</p>
+                    <p style="color:#a8a29e;font-size:0.85rem;">hello@communityfabric.co</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Community Fabric CIC. Building stronger communities together.</span>
+                <span>FABRIC – CENTRE FOR COMMUNITY CHANGE · Company No. 16910147 · Registered in England &amp; Wales · 7 Riversdale, Wadebridge, PL27 7NP</span>
+            </div>
+        </div>
     </footer>
 
-    <script>
-        const hamburger = document.getElementById('hamburgerBtn');
-        const mobileMenu = document.getElementById('mobileMenu');
-        hamburger.addEventListener('click', () => {
-            hamburger.classList.toggle('active');
-            mobileMenu.classList.toggle('active');
-        });
-        document.querySelectorAll('.mobile-menu a').forEach(link => {
-            link.addEventListener('click', () => {
-                hamburger.classList.remove('active');
-                mobileMenu.classList.remove('active');
-            });
-        });
-    </script>
+    <script src="../site.js"></script>
 
 </body>
 </html>
