@@ -43,7 +43,11 @@
         .resource-card-action { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--stone-200); }
         .coming-soon-label { font-size: 0.8rem; font-weight: 700; color: var(--stone-600); padding-top: 0.5rem; border-top: 1px solid var(--stone-200); margin-top: auto; }
         .resource-category { margin-bottom: 4rem; }
-        @media (max-width: 600px) { .resources-grid { grid-template-columns: 1fr; } }
+        @media (max-width: 600px) {
+            .resources-grid { grid-template-columns: 1fr; }
+            .apps-grid { grid-template-columns: 1fr; }
+            .app-card-inner { padding: 2rem 1.5rem; }
+        }
     </style>
 </head>
 <body>

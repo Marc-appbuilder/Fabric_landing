@@ -21,7 +21,7 @@
 
 * { box-sizing: border-box; }
 
-html { scroll-behavior: smooth; }
+html { scroll-behavior: smooth; overflow-x: hidden; width: 100%; }
 
 body {
     margin: 0;
@@ -31,6 +31,8 @@ body {
     line-height: 1.6;
     font-size: 1rem;
     -webkit-font-smoothing: antialiased;
+    overflow-x: hidden;
+    width: 100%;
 }
 
 h1, h2, h3, h4 {
@@ -339,9 +341,10 @@ footer.site-footer {
 .footer-grid a { color: #d6d3d1; text-decoration: none; font-size: 0.92rem; }
 .footer-grid a:hover { color: #fff; }
 .footer-logo { font-weight: 800; font-size: 1.15rem; color: #fff; margin-bottom: 0.75rem; }
-.newsletter-form { display: flex; gap: 0.5rem; margin: 1rem 0 0.5rem; }
+.newsletter-form { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1rem 0 0.5rem; }
 .newsletter-form input {
-    flex: 1;
+    flex: 1 1 160px;
+    min-width: 0;
     padding: 0.7rem 1rem;
     border-radius: 9999px;
     border: 1px solid #4a4540;
@@ -349,6 +352,7 @@ footer.site-footer {
     color: #fff;
     font-size: 0.9rem;
 }
+.newsletter-form button { flex-shrink: 0; }
 .newsletter-form input::placeholder { color: #a8a29e; }
 .newsletter-note { font-size: 0.8rem; color: #a8a29e; }
 .footer-bottom {
@@ -432,7 +436,7 @@ footer.site-footer {
     text-align: center;
     padding: 1.25rem;
 }
-.flip-card-front { background: var(--stone-50); border: 1px solid var(--stone-200); font-weight: 700; font-size: 1.1rem; }
+.flip-card-front { background: #ffffff; border: 1px solid var(--stone-200); border-top: 4px solid var(--coral); box-shadow: 0 2px 10px rgba(28,25,23,0.06); font-weight: 700; font-size: 1.1rem; }
 .flip-card-back { background: var(--coral); color: #fff; transform: rotateY(180deg); font-size: 0.9rem; }
 
 .breadcrumb { font-size: 0.85rem; color: var(--stone-600); margin-bottom: 1rem; }
