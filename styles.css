@@ -227,7 +227,7 @@ section { padding: 4rem 0; }
 
 .card {
     background: #fff;
-    border: 1px solid var(--stone-200);
+    border: 1px solid rgba(28,25,23,0.06);
     border-radius: var(--radius);
     padding: 2rem;
     text-decoration: none;
@@ -235,7 +235,10 @@ section { padding: 4rem 0; }
     display: block;
     transition: box-shadow 0.15s ease, transform 0.15s ease;
 }
-.card:hover { box-shadow: 0 12px 30px rgba(28,25,23,0.08); transform: translateY(-2px); }
+.card:hover { box-shadow: 0 12px 30px rgba(28,25,23,0.1); transform: translateY(-2px); }
+.card:nth-child(3n+1) { background: #fff0ee; }
+.card:nth-child(3n+2) { background: #e6f7f5; }
+.card:nth-child(3n) { background: #eaf6ef; }
 .card .icon-badge {
     width: 52px;
     height: 52px;
@@ -247,15 +250,19 @@ section { padding: 4rem 0; }
 }
 .card .card-link { color: var(--coral-dark); font-weight: 600; font-size: 0.95rem; }
 
-.icon-badge.coral { background: #fff0ee; color: var(--coral-dark); }
-.icon-badge.teal { background: #e6f7f5; color: var(--teal); }
-.icon-badge.sage { background: #eaf6ef; color: var(--sage-dark); }
+.icon-badge.coral { background: var(--coral); color: #fff; }
+.icon-badge.teal { background: var(--teal); color: #fff; }
+.icon-badge.sage { background: var(--sage-dark); color: #fff; }
 
 /* Problem statement gaps */
 .gap-card {
     text-align: center;
-    padding: 1.5rem;
+    padding: 1.75rem 1.5rem;
+    border-radius: var(--radius);
 }
+.gap-card:nth-child(3n+1) { background: #fff0ee; }
+.gap-card:nth-child(3n+2) { background: #e6f7f5; }
+.gap-card:nth-child(3n) { background: #eaf6ef; }
 .gap-card .gap-number {
     font-family: var(--font-heading);
     font-size: 2.2rem;
@@ -263,14 +270,19 @@ section { padding: 4rem 0; }
     color: var(--coral);
     margin-bottom: 0.5rem;
 }
+.gap-card:nth-child(3n+2) .gap-number { color: var(--teal); }
+.gap-card:nth-child(3n) .gap-number { color: var(--sage-dark); }
 
 /* Program cards */
 .program-card {
-    background: var(--stone-50);
+    background: #fff;
     border-radius: var(--radius);
     padding: 2rem;
     border: 1px solid var(--stone-200);
+    border-top: 4px solid var(--coral);
 }
+.program-card:nth-child(3n+2) { border-top-color: var(--teal); }
+.program-card:nth-child(3n) { border-top-color: var(--sage-dark); }
 .program-card .duration {
     display: inline-block;
     font-size: 0.8rem;
@@ -416,7 +428,7 @@ footer.site-footer {
 .team-card { text-align: center; }
 
 /* Flip values cards (reused from prior about page) */
-.flip-card { perspective: 1000px; height: 180px; cursor: pointer; }
+.flip-card { perspective: 1000px; height: 100px; cursor: pointer; }
 .flip-card-inner {
     position: relative;
     width: 100%;
@@ -453,3 +465,5 @@ footer.site-footer {
 .text-center { text-align: center; }
 .mt-2 { margin-top: 2rem; }
 .small-note { font-size: 0.85rem; color: var(--stone-600); }
+.section-compact { padding: 2.5rem 0; }
+.text-block { max-width: 700px; margin: 0; }
