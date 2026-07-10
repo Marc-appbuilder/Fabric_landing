@@ -271,10 +271,11 @@ nav.site-nav {
     .photo-header { min-height: 280px; }
 }
 
-/* Content-heavy heroes (Home, Training): on narrow screens the tall text
-   stack forces background-size:cover to crop the photo down to a sliver.
-   Below 640px, drop the overlay and show the photo as a normal block
-   above plain text instead. */
+/* Home hero has enough text (2 paragraphs + 3 buttons) that on narrow
+   screens the tall box forces background-size:cover to crop the photo
+   down to a sliver. Below 640px, drop the overlay and show the photo as
+   a normal block above plain text instead. Kept to Home only — every
+   other page (including Training) stays full-bleed like the rest. */
 .mobile-hero-img { display: none; }
 @media (max-width: 640px) {
     .hero-stack-mobile.photo-header { background-image: none !important; min-height: auto !important; align-items: stretch; padding: 0; }
@@ -286,6 +287,12 @@ nav.site-nav {
     .hero-stack-mobile.photo-header .btn-secondary { background: transparent; color: var(--stone-900); border-color: var(--stone-200); }
     .hero-stack-mobile.photo-header .btn-secondary:hover { border-color: var(--stone-900); }
     .mobile-hero-img { display: block; width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem; }
+}
+
+/* Training's photo crops tightly on narrow screens too — bias left so the
+   coach stays in frame instead of showing an empty middle strip. */
+@media (max-width: 640px) {
+    .training-hero-photo { background-position: 20% 15% !important; }
 }
 
 /* Yarn motif (stand-in illustration until a real logo asset is supplied) */
