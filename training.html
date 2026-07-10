@@ -13,11 +13,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .training-card { border-top: 4px solid var(--coral); padding-top: 1.5rem; }
-        .training-meta { display: flex; flex-wrap: wrap; gap: 1.5rem; margin: 1rem 0; font-size: 0.9rem; color: var(--stone-600); }
-        .training-meta strong { color: var(--stone-900); display: block; font-size: 0.85rem; }
-        .training-block { padding: 3rem 0; border-bottom: 1px solid var(--stone-200); }
-        .training-block:last-of-type { border-bottom: none; }
+        .programme-card {
+            border-radius: var(--radius);
+            padding: 2.5rem;
+            margin-bottom: 2rem;
+            display: grid;
+            grid-template-columns: auto 1fr;
+            gap: 1.75rem;
+        }
+        .programme-card:last-child { margin-bottom: 0; }
+        .programme-card .icon-badge { width: 56px; height: 56px; margin-bottom: 0; }
+        .programme-card:nth-of-type(3n+1) { background: #fff0ee; }
+        .programme-card:nth-of-type(3n+2) { background: #e6f7f5; }
+        .programme-card:nth-of-type(3n) { background: #eaf6ef; }
+        .programme-meta {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 0.6rem;
+            margin: 1.25rem 0 1.5rem;
+        }
+        .programme-meta span {
+            background: rgba(255,255,255,0.7);
+            border-radius: 9999px;
+            padding: 0.4rem 0.9rem;
+            font-size: 0.85rem;
+            color: var(--stone-900);
+        }
+        .programme-meta strong { font-weight: 700; }
+        @media (max-width: 640px) {
+            .programme-card { grid-template-columns: 1fr; padding: 1.75rem; }
+        }
     </style>
 </head>
 <body>
@@ -71,61 +96,75 @@
     </div>
 </section>
 
+<section>
 <div class="container">
 
-<div class="training-block" id="division">
-    <span class="eyebrow">Programme</span>
-    <h2>Tackling Narratives of Division</h2>
-    <p><strong>What it's for:</strong> Community leaders and organisers working in places where mistrust, misinformation or division are making it harder to bring people together.</p>
-    <p><strong>What you'll learn:</strong> How to listen deeply, build relationships across difference, and organise around shared concerns rather than allowing frustration to be turned against other communities.</p>
-    <div class="training-meta">
-        <div><strong>Format</strong>In-person or online workshops</div>
-        <div><strong>Who leads it</strong>John Page, Community Organising Lead</div>
-        <div><strong>Next cohort</strong>Contact us for upcoming dates</div>
+<div class="programme-card" id="division">
+    <div class="icon-badge coral"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+    <div>
+        <span class="eyebrow">Programme</span>
+        <h2>Tackling Narratives of Division</h2>
+        <p><strong>What it's for:</strong> Community leaders and organisers working in places where mistrust, misinformation or division are making it harder to bring people together.</p>
+        <p><strong>What you'll learn:</strong> How to listen deeply, build relationships across difference, and organise around shared concerns rather than allowing frustration to be turned against other communities.</p>
+        <div class="programme-meta">
+            <span><strong>Format:</strong> In-person or online workshops</span>
+            <span><strong>Who leads it:</strong> John Page, Community Organising Lead</span>
+            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+        </div>
+        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
     </div>
-    <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
 </div>
 
-<div class="training-block" id="organising">
-    <span class="eyebrow">Programme</span>
-    <h2>Community Organising Training</h2>
-    <p><strong>What it's for:</strong> Anyone organising informally or formally in their community — residents' groups, mutual aid, campaigns, faith groups and local networks.</p>
-    <p><strong>What you'll learn:</strong> Core organising skills — one-to-ones, building power, running effective meetings, and turning shared concerns into sustained action.</p>
-    <div class="training-meta">
-        <div><strong>Format</strong>5-day intensive or modular</div>
-        <div><strong>Who leads it</strong>John Page, Community Organising Lead</div>
-        <div><strong>Next cohort</strong>Contact us for upcoming dates</div>
+<div class="programme-card" id="organising">
+    <div class="icon-badge teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+    <div>
+        <span class="eyebrow">Programme</span>
+        <h2>Community Organising Training</h2>
+        <p><strong>What it's for:</strong> Anyone organising informally or formally in their community — residents' groups, mutual aid, campaigns, faith groups and local networks.</p>
+        <p><strong>What you'll learn:</strong> Core organising skills — one-to-ones, building power, running effective meetings, and turning shared concerns into sustained action.</p>
+        <div class="programme-meta">
+            <span><strong>Format:</strong> 5-day intensive or modular</span>
+            <span><strong>Who leads it:</strong> John Page, Community Organising Lead</span>
+            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+        </div>
+        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
     </div>
-    <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
 </div>
 
-<div class="training-block" id="coaching">
-    <span class="eyebrow">Programme</span>
-    <h2>Leadership Coaching &amp; Training</h2>
-    <p><strong>What it's for:</strong> Community leaders, charity directors and volunteers who want space to reflect, solve problems and avoid burnout.</p>
-    <p><strong>What you'll learn:</strong> Sustainable leadership practice, strategic thinking, and how to move from ambition to action without losing yourself in the process.</p>
-    <div class="training-meta">
-        <div><strong>Format</strong>Ongoing monthly modules</div>
-        <div><strong>Who leads it</strong>Anna Joy Rickard, Leadership Development Lead</div>
-        <div><strong>Next cohort</strong>Contact us for upcoming dates</div>
+<div class="programme-card" id="coaching">
+    <div class="icon-badge sage"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
+    <div>
+        <span class="eyebrow">Programme</span>
+        <h2>Leadership Coaching &amp; Training</h2>
+        <p><strong>What it's for:</strong> Community leaders, charity directors and volunteers who want space to reflect, solve problems and avoid burnout.</p>
+        <p><strong>What you'll learn:</strong> Sustainable leadership practice, strategic thinking, and how to move from ambition to action without losing yourself in the process.</p>
+        <div class="programme-meta">
+            <span><strong>Format:</strong> Ongoing monthly modules</span>
+            <span><strong>Who leads it:</strong> Anna Joy Rickard, Leadership Development Lead</span>
+            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+        </div>
+        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
     </div>
-    <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
 </div>
 
-<div class="training-block" id="digital-skills">
-    <span class="eyebrow">Programme</span>
-    <h2>Digital Skills Training</h2>
-    <p><strong>What it's for:</strong> Leaders and volunteers who want to reduce tech friction and use digital tools with confidence and care.</p>
-    <p><strong>What you'll learn:</strong> Using social media effectively, using AI ethically, managing people digitally, managing data safely, and building income with tech — including hands-on use of Community Builder, Charity Builder and Policy Finder.</p>
-    <div class="training-meta">
-        <div><strong>Format</strong>5-day intensive</div>
-        <div><strong>Who leads it</strong>Jessie Joe Jacobs, Digital Lead</div>
-        <div><strong>Next cohort</strong>Contact us for upcoming dates</div>
+<div class="programme-card" id="digital-skills">
+    <div class="icon-badge coral"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
+    <div>
+        <span class="eyebrow">Programme</span>
+        <h2>Digital Skills Training</h2>
+        <p><strong>What it's for:</strong> Leaders and volunteers who want to reduce tech friction and use digital tools with confidence and care.</p>
+        <p><strong>What you'll learn:</strong> Using social media effectively, using AI ethically, managing people digitally, managing data safely, and building income with tech — including hands-on use of Community Builder, Charity Builder and Policy Finder.</p>
+        <div class="programme-meta">
+            <span><strong>Format:</strong> 5-day intensive</span>
+            <span><strong>Who leads it:</strong> Jessie Joe Jacobs, Digital Lead</span>
+            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+        </div>
+        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
     </div>
-    <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
 </div>
 
 </div>
+</section>
 
 <section class="bg-tint" id="commission">
     <div class="container text-center" style="max-width:600px;">
