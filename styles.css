@@ -271,6 +271,23 @@ nav.site-nav {
     .photo-header { min-height: 280px; }
 }
 
+/* Content-heavy heroes (Home, Training): on narrow screens the tall text
+   stack forces background-size:cover to crop the photo down to a sliver.
+   Below 640px, drop the overlay and show the photo as a normal block
+   above plain text instead. */
+.mobile-hero-img { display: none; }
+@media (max-width: 640px) {
+    .hero-stack-mobile.photo-header { background-image: none !important; min-height: auto !important; align-items: stretch; padding: 0; }
+    .hero-stack-mobile.photo-header::before { display: none; }
+    .hero-stack-mobile .container { padding-top: 1.5rem; }
+    .hero-stack-mobile .script-tag { color: var(--coral-dark); }
+    .hero-stack-mobile h1 { color: var(--stone-900); }
+    .hero-stack-mobile .subhead { color: var(--stone-600); }
+    .hero-stack-mobile.photo-header .btn-secondary { background: transparent; color: var(--stone-900); border-color: var(--stone-200); }
+    .hero-stack-mobile.photo-header .btn-secondary:hover { border-color: var(--stone-900); }
+    .mobile-hero-img { display: block; width: 100%; height: 200px; object-fit: cover; border-radius: var(--radius); margin-bottom: 1.5rem; }
+}
+
 /* Yarn motif (stand-in illustration until a real logo asset is supplied) */
 .yarn-motif {
     width: 56px;
