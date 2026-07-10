@@ -247,6 +247,8 @@ nav.site-nav {
 .photo-header .script-tag { color: #fff; }
 .photo-header h1 { color: #fff; margin-bottom: 0.5rem; }
 .photo-header .subhead { color: rgba(255,255,255,0.88); max-width: 56ch; }
+.photo-header .btn-secondary { background: rgba(255,255,255,0.12); color: #fff; border-color: rgba(255,255,255,0.5); }
+.photo-header .btn-secondary:hover { border-color: #fff; }
 @media (max-width: 640px) {
     .photo-header { min-height: 280px; }
 }
