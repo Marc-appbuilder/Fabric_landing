@@ -13,8 +13,11 @@
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .involved-block { padding: 3rem 0; border-bottom: 1px solid var(--stone-200); }
-        .involved-block:last-of-type { border-bottom: none; }
+        .grid-2 { display: grid; grid-template-columns: repeat(2, 1fr); gap: 1.75rem; }
+        @media (max-width: 760px) { .grid-2 { grid-template-columns: 1fr; } }
+        .contact-panel { display: grid; grid-template-columns: 1fr 1.1fr; gap: 3rem; align-items: start; }
+        @media (max-width: 860px) { .contact-panel { grid-template-columns: 1fr; } }
+        .contact-form-card { background: #fff; border-radius: var(--radius); padding: 2rem; box-shadow: 0 12px 34px rgba(28,25,23,0.08); }
     </style>
 </head>
 <body>
@@ -52,56 +55,82 @@
     </div>
 </section>
 
-<div class="container">
-
-    <div class="involved-block" id="explore-training">
-        <h2>Explore Training</h2>
-        <p>Browse our Leadership &amp; Organising, Digital Skills and Coaching programmes.</p>
-        <a href="training.html" class="btn btn-primary">See Our Training Programs</a>
-    </div>
-
-    <div class="involved-block" id="book-a-call">
-        <h2>Book a Call</h2>
-        <p>Want to talk through what might be the right fit for you or your organisation? Email us and we'll find a time.</p>
-        <a href="mailto:hello@communityfabric.co?subject=Book%20a%20call" class="btn btn-primary">Email to Book a Call</a>
-        <p class="small-note mt-2">We'll add an online booking link here once it's set up — for now, email is the fastest way to reach us.</p>
-    </div>
-
-    <div class="involved-block" id="commission">
-        <h2>Commission Training</h2>
-        <p>We work with networks, funders and organisations to design bespoke training for their communities.</p>
-        <a href="get-involved.html#contact" class="btn btn-primary">Tell Us About Your Project</a>
-    </div>
-
-    <div class="involved-block" id="support">
-        <h2>Support Us / Donate</h2>
-        <p>Community Fabric CIC relies on partners and supporters who believe in strengthening the social fabric of the UK. Get in touch to find out how to support our work.</p>
-        <a href="mailto:hello@communityfabric.co?subject=Supporting%20Community%20Fabric" class="btn btn-primary">Get in Touch to Support Us</a>
-    </div>
-
-    <div class="involved-block" id="contact">
-        <h2>Contact</h2>
-        <p>Send us a message and we'll get back to you as soon as we can.</p>
-        <form class="contact-form" action="https://formspree.io/f/mpqjjjvd" method="POST" style="max-width:520px;">
-            <div class="form-field">
-                <label for="name">Name</label>
-                <input type="text" id="name" name="name" required>
+<section>
+    <div class="container">
+        <div class="section-head">
+            <span class="eyebrow">How to Get Involved</span>
+            <h2>Pick your path</h2>
+        </div>
+        <div class="grid-2">
+            <div class="card" id="explore-training">
+                <div class="icon-badge coral">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M6.5 2H20v20H6.5A2.5 2.5 0 0 1 4 19.5v-15A2.5 2.5 0 0 1 6.5 2z"/><path d="M4 19.5A2.5 2.5 0 0 1 6.5 17H20"/></svg>
+                </div>
+                <h3>Explore Training</h3>
+                <p>Browse our Leadership &amp; Organising, Digital Skills and Coaching programmes.</p>
+                <a href="training.html" class="card-link">See Our Training Programs →</a>
             </div>
-            <div class="form-field">
-                <label for="email">Email</label>
-                <input type="email" id="email" name="email" required>
-            </div>
-            <div class="form-field">
-                <label for="message">Message</label>
-                <textarea id="message" name="message" required></textarea>
-            </div>
-            <button type="submit" class="btn btn-primary">Send Message</button>
-            <p class="form-success">Thanks — we've got your message and will be in touch.</p>
-        </form>
-        <p class="small-note mt-2">Or email us directly at <a href="mailto:hello@communityfabric.co">hello@communityfabric.co</a></p>
-    </div>
 
-</div>
+            <div class="card" id="book-a-call">
+                <div class="icon-badge teal">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.9.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.91.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+                </div>
+                <h3>Book a Call</h3>
+                <p>Want to talk through what might be the right fit for you or your organisation? Email us and we'll find a time.</p>
+                <a href="mailto:hello@communityfabric.co?subject=Book%20a%20call" class="card-link">Email to Book a Call →</a>
+            </div>
+
+            <div class="card" id="commission">
+                <div class="icon-badge sage">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="7" width="20" height="14" rx="2"/><path d="M16 21V5a2 2 0 0 0-2-2h-4a2 2 0 0 0-2 2v16"/></svg>
+                </div>
+                <h3>Commission Training</h3>
+                <p>We work with networks, funders and organisations to design bespoke training for their communities.</p>
+                <a href="get-involved.html#contact" class="card-link">Tell Us About Your Project →</a>
+            </div>
+
+            <div class="card" id="support">
+                <div class="icon-badge coral">
+                    <svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M20.84 4.61a5.5 5.5 0 0 0-7.78 0L12 5.67l-1.06-1.06a5.5 5.5 0 0 0-7.78 7.78l1.06 1.06L12 21.23l7.78-7.78 1.06-1.06a5.5 5.5 0 0 0 0-7.78z"/></svg>
+                </div>
+                <h3>Support Us / Donate</h3>
+                <p>Community Fabric CIC relies on partners and supporters who believe in strengthening the social fabric of the UK.</p>
+                <a href="mailto:hello@communityfabric.co?subject=Supporting%20Community%20Fabric" class="card-link">Get in Touch to Support Us →</a>
+            </div>
+        </div>
+    </div>
+</section>
+
+<section class="bg-tint" id="contact">
+    <div class="container">
+        <div class="contact-panel">
+            <div>
+                <span class="eyebrow">Contact</span>
+                <h2>Send us a message</h2>
+                <p>Tell us a bit about what you're working on, and we'll get back to you as soon as we can.</p>
+                <p class="small-note">Or email us directly at <a href="mailto:hello@communityfabric.co">hello@communityfabric.co</a></p>
+            </div>
+            <div class="contact-form-card">
+                <form class="contact-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                    <div class="form-field">
+                        <label for="name">Name</label>
+                        <input type="text" id="name" name="name" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" name="email" required>
+                    </div>
+                    <div class="form-field">
+                        <label for="message">Message</label>
+                        <textarea id="message" name="message" required></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-primary">Send Message</button>
+                    <p class="form-success">Thanks — we've got your message and will be in touch.</p>
+                </form>
+            </div>
+        </div>
+    </div>
+</section>
 
 <footer class="site-footer">
     <div class="container">
