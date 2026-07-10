@@ -68,6 +68,37 @@ img { max-width: 100%; display: block; }
     margin-bottom: 0.75rem;
 }
 
+/* Handwritten accent (Caveat) — the "human" touch the old site had */
+.script-tag {
+    display: block;
+    font-family: 'Caveat', cursive;
+    font-size: 1.9rem;
+    font-weight: 600;
+    color: var(--coral-dark);
+    margin-bottom: 0.4rem;
+    line-height: 1;
+}
+
+/* "We are the Fabric" wordmark lockup — recreated crisp (no baked-in photo) */
+.fabric-lockup {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+    line-height: 1;
+}
+.fabric-lockup .script-part {
+    font-family: 'Caveat', cursive;
+    font-weight: 600;
+    font-size: 1.5em;
+    color: var(--stone-900);
+}
+.fabric-lockup .bold-part {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    color: var(--sage-dark);
+}
+.fabric-lockup .yarn-motif { width: 0.85em; height: 0.85em; }
+
 /* Buttons */
 .btn {
     display: inline-flex;
@@ -194,6 +225,30 @@ nav.site-nav {
 @media (max-width: 900px) {
     .hero-grid { grid-template-columns: 1fr; }
     .hero-media { order: -1; }
+}
+
+/* Full-bleed photo header — used on inner pages for a more human, editorial feel */
+.photo-header {
+    position: relative;
+    min-height: 340px;
+    display: flex;
+    align-items: flex-end;
+    background-size: cover;
+    background-position: center;
+    overflow: hidden;
+}
+.photo-header::before {
+    content: '';
+    position: absolute;
+    inset: 0;
+    background: linear-gradient(180deg, rgba(28,25,23,0.15) 0%, rgba(28,25,23,0.72) 100%);
+}
+.photo-header .container { position: relative; width: 100%; padding-bottom: 2.5rem; padding-top: 2.5rem; }
+.photo-header .script-tag { color: #fff; }
+.photo-header h1 { color: #fff; margin-bottom: 0.5rem; }
+.photo-header .subhead { color: rgba(255,255,255,0.88); max-width: 56ch; }
+@media (max-width: 640px) {
+    .photo-header { min-height: 280px; }
 }
 
 /* Yarn motif (stand-in illustration until a real logo asset is supplied) */
