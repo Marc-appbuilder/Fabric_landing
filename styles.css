@@ -227,6 +227,24 @@ nav.site-nav {
     .hero-media { order: -1; }
 }
 
+/* Two-column narrative + photo (About page mission sections) */
+.mission-grid {
+    display: grid;
+    grid-template-columns: 1.1fr 0.9fr;
+    gap: 3rem;
+    align-items: center;
+}
+.mission-media {
+    border-radius: var(--radius);
+    overflow: hidden;
+    aspect-ratio: 4/3;
+}
+.mission-media img { width: 100%; height: 100%; object-fit: cover; }
+@media (max-width: 860px) {
+    .mission-grid { grid-template-columns: 1fr; }
+    .mission-grid .mission-media { order: -1; }
+}
+
 /* Full-bleed photo header — used on inner pages for a more human, editorial feel */
 .photo-header {
     position: relative;
