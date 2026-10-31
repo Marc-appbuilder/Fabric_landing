@@ -43,6 +43,44 @@
         .resource-card-action { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--stone-200); }
         .coming-soon-label { font-size: 0.8rem; font-weight: 700; color: var(--stone-600); padding-top: 0.5rem; border-top: 1px solid var(--stone-200); margin-top: auto; }
         .resource-category { margin-bottom: 4rem; }
+        .games-section { border-top: 1px solid var(--stone-200); }
+        .games-section .section-head { max-width: 720px; }
+        .guru-feature { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; margin-bottom: 3rem; }
+        .guru-image img { border-radius: var(--radius); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
+        .guru-text h3 { font-size: 1.6rem; }
+        .guru-facts { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .guru-facts li { background: #eaf6ef; color: var(--stone-900); font-size: 0.85rem; padding: 0.35rem 0.85rem; border-radius: 9999px; }
+        .guru-fit { margin-bottom: 3rem; }
+        .guru-fit-head { max-width: 720px; margin-bottom: 1.75rem; }
+        .guru-fit-head h3 { font-size: 1.6rem; }
+        .guru-fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
+        .guru-fit-card { border-radius: var(--radius); padding: 1.75rem; }
+        .guru-fit-card:nth-child(1) { background: #fff0ee; }
+        .guru-fit-card:nth-child(2) { background: #e6f7f5; }
+        .guru-fit-card:nth-child(3) { background: #eaf6ef; }
+        .guru-fit-card .icon-badge { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
+        .guru-fit-card h4 { font-size: 1.1rem; margin-bottom: 0.4rem; }
+        .guru-fit-card p { margin: 0; font-size: 0.95rem; }
+        .evidence { background: var(--stone-900); border-radius: var(--radius); padding: 2.5rem; margin-bottom: 3rem; }
+        .evidence-title { color: #fff; margin-bottom: 1.5rem; }
+        .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .evidence-card { display: flex; flex-direction: column; gap: 0.6rem; background: #2d2926; border-radius: var(--radius-sm); padding: 1.5rem; text-decoration: none; border-left: 4px solid var(--coral); }
+        .evidence-card:nth-child(2) { border-left-color: var(--teal); }
+        .evidence-card p { color: #fff; font-weight: 600; font-size: 1.05rem; margin: 0; }
+        .evidence-meta { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #a8a29e; }
+        .evidence-link { color: var(--coral); font-weight: 600; font-size: 0.9rem; margin-top: auto; }
+        .guru-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
+        .guru-steps li { border-top: 3px solid var(--coral); padding-top: 1rem; }
+        .guru-steps li:nth-child(2) { border-top-color: var(--teal); }
+        .guru-steps li:nth-child(3) { border-top-color: var(--sage-dark); }
+        .guru-steps span { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone-900); margin-bottom: 0.5rem; }
+        .guru-steps p { margin: 0; font-size: 0.95rem; }
+        @media (max-width: 860px) {
+            .guru-feature, .evidence-grid, .guru-fit-grid { grid-template-columns: 1fr; gap: 1.5rem; }
+            .guru-steps { grid-template-columns: 1fr 1fr; }
+            .evidence { padding: 1.75rem; }
+        }
+        @media (max-width: 520px) { .guru-steps { grid-template-columns: 1fr; } }
         @media (max-width: 600px) {
             .resources-grid { grid-template-columns: 1fr; }
             .apps-grid { grid-template-columns: 1fr; }
@@ -147,6 +185,85 @@
                 </div>
             </a>
 
+        </div>
+    </div>
+</section>
+
+<section class="games-section" id="games">
+    <div class="container">
+        <div class="section-head">
+            <span class="script-tag" style="color:var(--coral-dark);">Built by Fabric · Educational Games</span>
+            <h2>What if the best way to understand manipulation was to experience it?</h2>
+            <p>Guru Simulator is Community Fabric's interactive game series that helps young people recognise manipulation, persuasion and misleading online behaviour. We're building and testing it now with schools and communities.</p>
+        </div>
+
+        <div class="guru-feature">
+            <div class="guru-image"><img src="guru-og.png" alt="Guru Simulator: interactive games about influence, manipulation and the tricks used to grab your attention. Ages 12–17."></div>
+            <div class="guru-text">
+                <span class="eyebrow">Why we're building this</span>
+                <h3>Spot the trick before it's played on you.</h3>
+                <p>Research into prebunking suggests that practising recognising manipulation techniques <em>before</em> encountering them can help build resistance to misinformation and manipulation.</p>
+                <p>Researchers at the University of Cambridge have explored this approach through games including <em>Bad News</em> and <em>Go Viral!</em>, finding that gameplay can improve people's ability to recognise manipulative misinformation.</p>
+                <p>Guru Simulator applies that idea to situations young people actually encounter: influencers, scams, social pressure, viral content and manipulation.</p>
+                <ul class="guru-facts">
+                    <li>Ages 12–17</li>
+                    <li>Make a choice, see the consequence, reflect</li>
+                    <li>Covers influencers, scams, phishing, deepfakes &amp; AI persuasion</li>
+                </ul>
+            </div>
+        </div>
+
+        <div class="guru-fit">
+            <div class="guru-fit-head">
+                <span class="eyebrow">Why it's part of Community Fabric</span>
+                <h3>Division often starts online. So does resilience.</h3>
+                <p>Across the communities we work with, misinformation, scams and online pressure are turning people against each other and leaving young people exposed. Guru Simulator sits alongside our training and digital tools as another way to build trust, critical thinking and connection.</p>
+            </div>
+            <div class="guru-fit-grid">
+                <div class="guru-fit-card">
+                    <div class="icon-badge coral"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M22 10L12 5 2 10l10 5 10-5z"/><path d="M6 12v5c3 2 9 2 12 0v-5"/></svg></div>
+                    <h4>In schools</h4>
+                    <p>Designed for classroom sessions that help pupils spot influencer tactics, scams and misleading content, with space to reflect and discuss.</p>
+                </div>
+                <div class="guru-fit-card">
+                    <div class="icon-badge teal"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
+                    <h4>In communities</h4>
+                    <p>A tool for youth clubs, community groups and local leaders to open conversations about online harm, exploitation and the pressures young people face.</p>
+                </div>
+                <div class="guru-fit-card">
+                    <div class="icon-badge sage"><svg width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
+                    <h4>Alongside our training</h4>
+                    <p>It builds on our Tackling Narratives of Division and Digital Skills training, giving leaders a hands-on way to share what they learn.</p>
+                </div>
+            </div>
+        </div>
+
+        <div class="evidence">
+            <h3 class="evidence-title">The evidence behind it</h3>
+            <div class="evidence-grid">
+                <a class="evidence-card" href="https://doi.org/10.1057/s41599-019-0279-9" target="_blank" rel="noopener">
+                    <span class="evidence-meta">Bad News · University of Cambridge · 2019</span>
+                    <p>Fake news game confers psychological resistance against online misinformation</p>
+                    <span class="evidence-link">Read the research →</span>
+                </a>
+                <a class="evidence-card" href="https://doi.org/10.1177/20539517211013868" target="_blank" rel="noopener">
+                    <span class="evidence-meta">Go Viral! · University of Cambridge · 2021</span>
+                    <p>Towards psychological herd immunity: cross-cultural evidence for two prebunking interventions</p>
+                    <span class="evidence-link">Read the research →</span>
+                </a>
+            </div>
+        </div>
+
+        <ol class="guru-steps">
+            <li><span>01 · The idea</span><p>Games can make digital manipulation something young people can experience and recognise.</p></li>
+            <li><span>02 · The research</span><p>Prebunking research gives us a reason to believe this approach is worth exploring.</p></li>
+            <li><span>03 · Our approach</span><p>We're applying those ideas to the situations young people actually encounter online.</p></li>
+            <li><span>04 · Where it's going</span><p>Developing and testing now, with planned release for schools and educational settings.</p></li>
+        </ol>
+
+        <div class="text-center mt-2">
+            <p>Are you a school, youth group or community organisation interested in piloting Guru Simulator?</p>
+            <a href="get-involved.html#contact" class="btn btn-primary">Talk to Us About a Pilot</a>
         </div>
     </div>
 </section>

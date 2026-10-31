@@ -40,8 +40,15 @@
             color: var(--stone-900);
         }
         .programme-meta strong { font-weight: 700; }
+        .next-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
+        .next-step-card { background: #fff; border: 1px solid var(--stone-200); border-radius: var(--radius); padding: 2.5rem; }
+        .next-step-card h2 { font-size: 1.6rem; }
+        .training-subscribe input { background: #fff; border-color: var(--stone-200); color: var(--stone-900); }
+        .training-subscribe input::placeholder { color: var(--stone-600); }
         @media (max-width: 640px) {
             .programme-card { grid-template-columns: 1fr; padding: 1.75rem; }
+            .next-steps { grid-template-columns: 1fr; }
+            .next-step-card { padding: 1.75rem; }
         }
     </style>
 </head>
@@ -107,10 +114,12 @@
         <p><strong>What you'll learn:</strong> How to listen deeply, build relationships across difference, and organise around shared concerns rather than allowing frustration to be turned against other communities.</p>
         <div class="programme-meta">
             <span><strong>Format:</strong> In-person or online workshops</span>
-            <span><strong>Who leads it:</strong> John Page, Community Organising Lead</span>
-            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+            <span><strong>Next cohort:</strong> Subscribe for dates</span>
         </div>
-        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
+        <div class="cta-row">
+            <a href="#updates" class="btn btn-primary">Get Notified of Dates</a>
+            <a href="get-involved.html#contact" class="btn btn-secondary">Ask About Bespoke Training</a>
+        </div>
     </div>
 </div>
 
@@ -122,11 +131,13 @@
         <p><strong>What it's for:</strong> Anyone organising informally or formally in their community — residents' groups, mutual aid, campaigns, faith groups and local networks.</p>
         <p><strong>What you'll learn:</strong> Core organising skills — one-to-ones, building power, running effective meetings, and turning shared concerns into sustained action.</p>
         <div class="programme-meta">
-            <span><strong>Format:</strong> 5-day intensive or modular</span>
-            <span><strong>Who leads it:</strong> John Page, Community Organising Lead</span>
-            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+            <span><strong>Format:</strong> In-person or online</span>
+            <span><strong>Next cohort:</strong> Subscribe for dates</span>
         </div>
-        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
+        <div class="cta-row">
+            <a href="#updates" class="btn btn-primary">Get Notified of Dates</a>
+            <a href="get-involved.html#contact" class="btn btn-secondary">Ask About Bespoke Training</a>
+        </div>
     </div>
 </div>
 
@@ -138,11 +149,13 @@
         <p><strong>What it's for:</strong> Community leaders, charity directors and volunteers who want space to reflect, solve problems and avoid burnout.</p>
         <p><strong>What you'll learn:</strong> Sustainable leadership practice, strategic thinking, and how to move from ambition to action without losing yourself in the process.</p>
         <div class="programme-meta">
-            <span><strong>Format:</strong> Ongoing monthly modules</span>
-            <span><strong>Who leads it:</strong> Anna Joy Rickard, Leadership Development Lead</span>
-            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+            <span><strong>Format:</strong> One-to-one or group coaching</span>
+            <span><strong>Next cohort:</strong> Subscribe for dates</span>
         </div>
-        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
+        <div class="cta-row">
+            <a href="#updates" class="btn btn-primary">Get Notified of Dates</a>
+            <a href="get-involved.html#contact" class="btn btn-secondary">Ask About Bespoke Training</a>
+        </div>
     </div>
 </div>
 
@@ -154,22 +167,40 @@
         <p><strong>What it's for:</strong> Leaders and volunteers who want to reduce tech friction and use digital tools with confidence and care.</p>
         <p><strong>What you'll learn:</strong> Using social media effectively, using AI ethically, managing people digitally, managing data safely, and building income with tech — including hands-on use of Community Builder, Charity Builder and Policy Finder.</p>
         <div class="programme-meta">
-            <span><strong>Format:</strong> 5-day intensive</span>
-            <span><strong>Who leads it:</strong> Jessie Joe Jacobs, Digital Lead</span>
-            <span><strong>Next cohort:</strong> Contact us for upcoming dates</span>
+            <span><strong>Format:</strong> Hands-on workshops</span>
+            <span><strong>Next cohort:</strong> Subscribe for dates</span>
         </div>
-        <a href="get-involved.html#contact" class="btn btn-primary">Apply Now</a>
+        <div class="cta-row">
+            <a href="#updates" class="btn btn-primary">Get Notified of Dates</a>
+            <a href="get-involved.html#contact" class="btn btn-secondary">Ask About Bespoke Training</a>
+        </div>
     </div>
 </div>
 
 </div>
 </section>
 
-<section class="bg-tint" id="commission">
-    <div class="container text-center" style="max-width:600px;">
-        <h2>Want to commission bespoke training?</h2>
-        <p>We work with networks, funders and organisations to design training tailored to their communities.</p>
-        <a href="get-involved.html#contact" class="btn btn-primary">Get in Touch</a>
+<section class="bg-tint" id="updates">
+    <div class="container">
+        <div class="next-steps">
+            <div class="next-step-card">
+                <span class="eyebrow">Open training</span>
+                <h2>Hear about our next training</h2>
+                <p>We run open sessions throughout the year. Subscribe and we'll let you know when new dates are announced. No spam, just training dates and useful updates.</p>
+                <form class="training-subscribe newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                    <input type="hidden" name="interest" value="Training dates">
+                    <input type="email" name="email" placeholder="Your email" required>
+                    <button type="submit" class="btn btn-primary">Subscribe</button>
+                </form>
+                <p class="form-success">Thanks! We'll be in touch when dates are announced.</p>
+            </div>
+            <div class="next-step-card" id="commission">
+                <span class="eyebrow">Bespoke training</span>
+                <h2>Want training designed for your community?</h2>
+                <p>We work with networks, funders and organisations to design training around their communities, their challenges and their timescales.</p>
+                <a href="get-involved.html#contact" class="btn btn-secondary">Contact Us</a>
+            </div>
+        </div>
     </div>
 </section>
 
