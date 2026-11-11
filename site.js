@@ -4,11 +4,22 @@ document.addEventListener('DOMContentLoaded', function () {
     var hamburger = document.querySelector('.hamburger');
     var mobileMenu = document.querySelector('.mobile-menu');
     if (hamburger && mobileMenu) {
+        var setOpen = function (open) {
+            mobileMenu.classList.toggle('open', open);
+            hamburger.setAttribute('aria-expanded', open ? 'true' : 'false');
+            hamburger.setAttribute('aria-label', open ? 'Close menu' : 'Menu');
+        };
         hamburger.addEventListener('click', function () {
-            mobileMenu.classList.toggle('open');
+            setOpen(!mobileMenu.classList.contains('open'));
         });
         mobileMenu.querySelectorAll('a').forEach(function (link) {
-            link.addEventListener('click', function () { mobileMenu.classList.remove('open'); });
+            link.addEventListener('click', function () { setOpen(false); });
+        });
+        document.addEventListener('keydown', function (e) {
+            if (e.key === 'Escape' && mobileMenu.classList.contains('open')) {
+                setOpen(false);
+                hamburger.focus();
+            }
         });
     }
 

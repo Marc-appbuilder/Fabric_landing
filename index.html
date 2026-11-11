@@ -10,14 +10,14 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
 
 <header class="site-header">
     <nav class="site-nav">
-        <a href="index.html" class="logo"><img src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
+        <a href="index.html" class="logo"><img width="28" height="28" src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
         <ul class="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="training.html">Training &amp; Coaching</a></li>
@@ -26,42 +26,45 @@
             <li><a href="get-involved.html">Get Involved</a></li>
         </ul>
         <div class="nav-cta">
-            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Book a Call</a>
-            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Arrange a Call</a>
+            <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
         <a href="about.html">About</a>
         <a href="training.html">Training &amp; Coaching</a>
         <a href="resources.html">Digital Tools</a>
         <a href="impact.html">Impact &amp; Voice</a>
         <a href="get-involved.html">Get Involved</a>
-        <a href="get-involved.html#book-a-call">Book a Call</a>
+        <a href="get-involved.html#book-a-call">Arrange a Call</a>
     </div>
 </header>
 
-<section class="hero photo-header hero-stack-mobile" style="background-image:url('app-header.jpg');min-height:480px;">
-    <div class="container">
-        <img src="app-header.jpg" alt="" class="mobile-hero-img">
-        <span class="script-tag">Community Fabric CIC</span>
-        <h1>Strengthening social fabric by supporting leaders, enabling action and helping you organise for change.</h1>
-        <p class="subhead">You might be a community organiser, a charity leader, a creative start-up, the person behind the boxing club, a beach clean organiser, or a walking group leader — Community Fabric is for you.</p>
-        <p class="subhead">We support you to support your community, create connections and strengthen society.</p>
-        <div class="cta-row mt-2">
-            <a href="training.html" class="btn btn-primary">Explore Our Training</a>
-            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Book a Call</a>
-            <a href="resources.html" class="btn btn-tertiary">Try Our Tools</a>
+<section class="home-hero" aria-labelledby="home-title">
+    <div class="container home-hero-grid">
+        <div>
+            <span class="eyebrow">Community Fabric CIC</span>
+            <h1 id="home-title">We back the people who <span class="hl">hold communities together.</span></h1>
+            <p class="lead">Training, coaching and practical digital tools for people making a difference in their communities.</p>
+            <div class="cta-row">
+                <a href="training.html" class="btn btn-primary">Explore Our Training</a>
+                <a href="get-involved.html#book-a-call" class="btn btn-secondary">Arrange a Call</a>
+            </div>
+        </div>
+        <div class="home-hero-media">
+            <picture><source srcset="img/app-header-left.webp" type="image/webp"><img src="img/app-header-left.jpg" alt="A large, diverse group of community members cheering together outdoors" width="1400" height="1494" fetchpriority="high" decoding="async"></picture>
+            <span class="beam" aria-hidden="true"></span>
         </div>
     </div>
 </section>
 
-<section class="bg-tint">
+<section>
     <div class="container">
         <div class="section-head">
             <span class="eyebrow">Why This Matters</span>
             <h2>Communities are under strain</h2>
         </div>
-        <p style="max-width:70ch;margin:0 auto 2.5rem;text-align:center;font-size:1.05rem;">Loneliness is rising. Trust is fragile. And yet, in every neighbourhood, there are people who care deeply — community leaders, organisers and volunteers working tirelessly to hold their communities together. But they're often isolated, under-resourced, and overwhelmed.</p>
+        <p style="max-width:68ch;margin:0 auto 3rem;text-align:center;font-size:1.15rem;">Loneliness is rising. Trust is fragile. And yet, in every neighbourhood, there are people who care deeply — community leaders, organisers and volunteers working tirelessly to hold their communities together. But they're often isolated, under-resourced, and overwhelmed.</p>
         <div class="grid-3">
             <div class="gap-card">
                 <div class="gap-number">01</div>
@@ -82,11 +85,11 @@
     </div>
 </section>
 
-<section>
+<section class="band-sand">
     <div class="container">
         <div class="section-head">
             <span class="eyebrow">Our Complete Solution</span>
-            <h2>Your complete grassroots infrastructure</h2>
+            <h2>Practical support for the people who make communities work.</h2>
         </div>
         <div class="grid-3">
             <a href="training.html" class="card">
@@ -117,7 +120,30 @@
     </div>
 </section>
 
-<section class="bg-tint">
+<section class="promo-band" aria-labelledby="promo-title">
+    <div class="container">
+        <div class="promo-grid">
+            <div>
+                <span class="promo-tag">New · Free training for youth workers</span>
+                <h2 id="promo-title">Beyond Division</h2>
+                <p class="strike"><s>Story of them</s><span>Story of us</span></p>
+                <p>Free online training for youth workers in England. Learn to recognise and respond to the misogynist and far-right narratives targeting young men, and help young people build a stronger story of us.</p>
+                <div class="cta-row mt-2">
+                    <a href="beyond-division.html" class="btn btn-primary">Find Out More</a>
+                    <a href="beyond-division.html#dates" class="btn btn-secondary">Book a Free Taster</a>
+                </div>
+            </div>
+            <ul class="promo-facts">
+                <li><b>Free</b><span>Fully funded</span></li>
+                <li><b>Online</b><span>No travel needed</span></li>
+                <li><b>Jan–May</b><span>Three cohorts in 2027</span></li>
+                <li><b>25</b><span>Places per cohort</span></li>
+            </ul>
+        </div>
+    </div>
+</section>
+
+<section>
     <div class="container">
         <div class="section-head">
             <span class="eyebrow">Featured Programs</span>
@@ -125,7 +151,7 @@
         </div>
         <div class="grid-3">
             <div class="program-card">
-                <span class="duration">5 days</span>
+                <span class="duration">In-person or online</span>
                 <h3>Community Organiser Intensive</h3>
                 <p>Includes Community Building + Organising + Digital Skills (Community Builder).</p>
                 <ul>
@@ -134,13 +160,13 @@
                 <a href="training.html" class="btn btn-secondary" style="margin-top:0.5rem;">Learn More</a>
             </div>
             <div class="program-card">
-                <span class="duration">5 days</span>
+                <span class="duration">Hands-on workshops</span>
                 <h3>Using Digital Tools to Support Changemaking</h3>
                 <p>Using social media effectively + using AI ethically + managing people digitally + managing data safely + building income with tech.</p>
                 <a href="training.html#digital-skills" class="btn btn-secondary" style="margin-top:0.5rem;">Learn More</a>
             </div>
             <div class="program-card">
-                <span class="duration">Ongoing — monthly modules</span>
+                <span class="duration">One-to-one or group</span>
                 <h3>Sustainable Nonprofit Leadership</h3>
                 <p>Includes Leadership Coaching + Charity Builder Training + Personal Resilience.</p>
                 <ul>
@@ -152,7 +178,7 @@
     </div>
 </section>
 
-<section>
+<section class="band-sand">
     <div class="container">
         <div class="section-head">
             <span class="eyebrow">From Our Learning</span>
@@ -160,7 +186,7 @@
         </div>
         <div class="grid-3" id="latest-posts">
             <a href="blog/designing-funding-systems.html" class="post-card">
-                <div class="post-card-thumb"><img src="comm10.jpg" alt=""></div>
+                <div class="post-card-thumb"><picture><source srcset="img/comm10.webp" type="image/webp"><img src="img/comm10.jpg" alt="" width="1280" height="807" loading="lazy" decoding="async"></picture></div>
                 <div class="post-card-body">
                     <span class="post-card-tag">Funding</span>
                     <h3>Designing Funding Systems</h3>
@@ -169,7 +195,7 @@
                 </div>
             </a>
             <a href="blog/funders-ai-grant-applications.html" class="post-card">
-                <div class="post-card-thumb"><img src="comm9.jpg" alt=""></div>
+                <div class="post-card-thumb"><picture><source srcset="img/comm9.webp" type="image/webp"><img src="img/comm9.jpg" alt="" width="960" height="1280" loading="lazy" decoding="async"></picture></div>
                 <div class="post-card-body">
                     <span class="post-card-tag teal">Funding</span>
                     <h3>Funders &amp; AI Grant Applications</h3>
@@ -178,7 +204,7 @@
                 </div>
             </a>
             <a href="blog/when-good-leaders-feel-alone.html" class="post-card">
-                <div class="post-card-thumb"><img src="comm7.jpg" alt=""></div>
+                <div class="post-card-thumb"><picture><source srcset="img/comm7.webp" type="image/webp"><img src="img/comm7.jpg" alt="" width="1400" height="788" loading="lazy" decoding="async"></picture></div>
                 <div class="post-card-body">
                     <span class="post-card-tag sage">Leadership</span>
                     <h3>When Good Leaders Feel Alone</h3>
@@ -193,14 +219,14 @@
     </div>
 </section>
 
-<section class="bg-tint">
+<section>
     <div class="container">
         <div class="cta-banner">
             <h2>Ready to get started?</h2>
             <p>Whether you're taking training, using our tools, or partnering with us — let's talk.</p>
             <div class="cta-row">
                 <a href="training.html" class="btn btn-primary">Explore Training Programs</a>
-                <a href="get-involved.html#book-a-call" class="btn btn-secondary" style="border-color:#fff;color:#fff;">Book a Call</a>
+                <a href="get-involved.html#book-a-call" class="btn btn-secondary">Arrange a Call</a>
             </div>
         </div>
     </div>
@@ -226,10 +252,11 @@
                 <h4>Stay in the loop</h4>
                 <p style="color:#a8a29e;font-size:0.9rem;">No spam. Just useful updates.</p>
                 <form class="newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
-                    <input type="email" name="email" placeholder="Your email" required>
+                    <label for="footer-email" class="visually-hidden">Email address for updates</label>
+                    <input type="email" id="footer-email" name="email" placeholder="Your email" autocomplete="email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
-                <p class="form-success">Thanks — you're on the list.</p>
+                <p class="form-success" role="status">Thanks — you're on the list.</p>
                 <p style="color:#a8a29e;font-size:0.85rem;">hello@communityfabric.co</p>
             </div>
         </div>

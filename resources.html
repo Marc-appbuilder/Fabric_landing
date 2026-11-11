@@ -10,71 +10,75 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
-        .apps-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(320px, 1fr)); gap: 2rem; }
-        .app-card { border-radius: 24px; overflow: hidden; box-shadow: 0 8px 32px rgba(0,0,0,0.08); text-decoration: none; display: block; background-size: cover; background-position: center; }
-        .app-card--charity { background-image: linear-gradient(140deg, rgba(244,114,97,0.92) 0%, rgba(230,109,89,0.92) 100%), url('cbuilder1.png'); }
-        .app-card--community { background-image: linear-gradient(140deg, #0d9488 0%, #0b7a70 100%); }
-        .app-card--canewquay { background-image: linear-gradient(140deg, rgba(74,157,127,0.92) 0%, rgba(61,135,105,0.92) 100%), url('can1.png'); }
-        .app-card:hover { transform: translateY(-4px); box-shadow: 0 14px 40px rgba(0,0,0,0.12); }
-        .app-card-inner { padding: 2.5rem; display: flex; flex-direction: column; gap: 1rem; height: 100%; }
+        .apps-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+        .app-card { text-decoration: none; display: block; transition: transform 0.15s ease; }
+        .app-card:hover { transform: translateY(-3px); }
+        .app-card--charity { background: var(--coral); --app-fg: var(--ink); --app-soft: rgba(44,44,42,0.82); --app-line: rgba(44,44,42,0.35); }
+        .app-card--community { background: var(--teal-fill); --app-fg: var(--ink); --app-soft: rgba(58,57,54,0.85); --app-line: rgba(58,57,54,0.35); }
+        .app-card--canewquay { background: var(--ink); --app-fg: var(--cream); --app-soft: var(--on-dark-muted); --app-line: rgba(245,244,239,0.35); }
+        .app-card-inner { padding: 2.25rem; display: flex; flex-direction: column; gap: 1rem; height: 100%; color: var(--app-fg); }
         .app-card-top { display: flex; align-items: center; justify-content: space-between; }
-        .app-icon { width: 52px; height: 52px; border-radius: 14px; display: flex; align-items: center; justify-content: center; background: rgba(255,255,255,0.2); }
-        .app-badge { display: inline-block; padding: 0.25rem 0.85rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; background: rgba(255,255,255,0.2); color: #fff; border: 1px solid rgba(255,255,255,0.35); }
-        .app-name { font-size: 1.5rem; font-weight: 800; color: #fff; margin-top: 0.25rem; }
-        .app-tagline { font-size: 0.95rem; color: rgba(255,255,255,0.85); }
-        .app-features { list-style: none; padding: 0; display: flex; flex-direction: column; gap: 0.5rem; margin: 0.5rem 0; }
-        .app-features li { font-size: 0.875rem; color: rgba(255,255,255,0.85); padding-left: 1.25rem; position: relative; }
-        .app-features li::before { content: '✓'; position: absolute; left: 0; font-weight: 700; }
+        .app-icon { width: 52px; height: 52px; display: flex; align-items: center; justify-content: center; border: 2px solid var(--app-line); }
+        .app-icon svg * { stroke: var(--app-fg); }
+        .app-badge { font-size: 0.75rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--app-fg); border-bottom: 2px solid var(--app-fg); padding-bottom: 2px; }
+        .app-name { font-size: 1.7rem; font-weight: 900; color: var(--app-fg); margin: 0.5rem 0 0; }
+        .app-tagline { font-size: 1rem; color: var(--app-soft); }
+        .app-features { list-style: none; padding: 1rem 0 0; display: flex; flex-direction: column; gap: 0.55rem; margin: auto 0 0; border-top: 1px solid var(--app-line); }
+        .app-features li { font-size: 0.92rem; font-weight: 600; color: var(--app-fg); padding-left: 1.4rem; position: relative; }
+        .app-features li::before { content: '→'; position: absolute; left: 0; font-weight: 900; }
 
-        .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--stone-200); }
-        .category-icon { width: 44px; height: 44px; border-radius: 12px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; }
-        .category-icon.green { background: #eaf6ef; }
-        .category-icon.teal { background: #e6f7f5; }
-        .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.5rem; }
-        .resource-card { background: #fff; border-radius: 16px; padding: 1.75rem; border: 1px solid var(--stone-200); display: flex; flex-direction: column; gap: 1rem; }
-        .resource-card.coming-soon { opacity: 0.65; }
+        .category-header { display: flex; align-items: center; gap: 1rem; margin-bottom: 2rem; padding-bottom: 1.25rem; border-bottom: 2px solid var(--ink); }
+        .category-icon { width: 48px; height: 48px; display: flex; align-items: center; justify-content: center; font-size: 1.3rem; flex-shrink: 0; background: var(--paper); border: 1px solid var(--line); }
+        .resources-grid { display: grid; grid-template-columns: repeat(auto-fill, minmax(280px, 1fr)); gap: 1.25rem; }
+        .resource-card { background: var(--paper); padding: 1.75rem; border: 1px solid var(--line); display: flex; flex-direction: column; gap: 1rem; }
+        .resource-card.coming-soon { background: transparent; border-style: dashed; }
         .resource-card-top { display: flex; align-items: flex-start; justify-content: space-between; gap: 0.75rem; }
-        .resource-type-badge { display: inline-block; padding: 0.2rem 0.75rem; border-radius: 9999px; font-size: 0.72rem; font-weight: 700; text-transform: uppercase; letter-spacing: 0.05em; white-space: nowrap; }
-        .badge-pdf { background: #fff0ee; color: var(--coral-dark); }
-        .badge-link { background: var(--stone-200); color: var(--stone-600); }
-        .resource-card-action { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.875rem; font-weight: 700; color: var(--teal); text-decoration: none; margin-top: auto; padding-top: 0.5rem; border-top: 1px solid var(--stone-200); }
-        .coming-soon-label { font-size: 0.8rem; font-weight: 700; color: var(--stone-600); padding-top: 0.5rem; border-top: 1px solid var(--stone-200); margin-top: auto; }
+        .resource-type-badge { display: inline-block; padding: 0.2rem 0.5rem; font-size: 0.72rem; font-weight: 800; text-transform: uppercase; letter-spacing: 0.08em; white-space: nowrap; }
+        .badge-pdf { background: var(--coral); color: var(--ink); }
+        .badge-link { border: 1px solid var(--muted); color: var(--muted); }
+        .resource-card-action { display: inline-flex; align-items: center; gap: 0.4rem; font-size: 0.92rem; font-weight: 800; color: var(--teal-dark); text-decoration: none; margin-top: auto; padding-top: 0.75rem; border-top: 1px solid var(--line); }
+        .coming-soon-label { font-size: 0.8rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); padding-top: 0.75rem; border-top: 1px dashed var(--line); margin-top: auto; }
         .resource-category { margin-bottom: 4rem; }
-        .games-section { border-top: 1px solid var(--stone-200); }
-        .games-section .section-head { max-width: 720px; }
-        .guru-feature { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; margin-bottom: 3rem; }
-        .guru-image img { border-radius: var(--radius); box-shadow: 0 8px 32px rgba(0,0,0,0.1); }
-        .guru-text h3 { font-size: 1.6rem; }
-        .guru-facts { list-style: none; padding: 0; margin: 0 0 1.5rem; display: flex; flex-wrap: wrap; gap: 0.5rem; }
-        .guru-facts li { background: #eaf6ef; color: var(--stone-900); font-size: 0.85rem; padding: 0.35rem 0.85rem; border-radius: 9999px; }
-        .guru-fit { margin-bottom: 3rem; }
+
+        .games-section { background: var(--paper); }
+        .games-section .section-head { max-width: 760px; }
+        .guru-feature { display: grid; grid-template-columns: 1.05fr 0.95fr; gap: 3rem; align-items: center; margin-bottom: 4rem; }
+        .guru-image img { border: 1px solid var(--line); }
+        .guru-text h3 { font-size: 1.9rem; font-weight: 900; }
+        .guru-facts { list-style: none; padding: 0; margin: 0.5rem 0 0; display: flex; flex-wrap: wrap; gap: 0.5rem; }
+        .guru-facts li { border: 1px solid var(--ink); color: var(--ink); font-size: 0.85rem; font-weight: 600; padding: 0.3rem 0.65rem; }
+        .guru-fit { margin-bottom: 4rem; }
         .guru-fit-head { max-width: 720px; margin-bottom: 1.75rem; }
-        .guru-fit-head h3 { font-size: 1.6rem; }
-        .guru-fit-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 1.25rem; }
-        .guru-fit-card { border-radius: var(--radius); padding: 1.75rem; }
-        .guru-fit-card:nth-child(1) { background: #fff0ee; }
-        .guru-fit-card:nth-child(2) { background: #e6f7f5; }
-        .guru-fit-card:nth-child(3) { background: #eaf6ef; }
-        .guru-fit-card .icon-badge { width: 48px; height: 48px; border-radius: 14px; display: flex; align-items: center; justify-content: center; margin-bottom: 1rem; }
-        .guru-fit-card h4 { font-size: 1.1rem; margin-bottom: 0.4rem; }
-        .guru-fit-card p { margin: 0; font-size: 0.95rem; }
-        .evidence { background: var(--stone-900); border-radius: var(--radius); padding: 2.5rem; margin-bottom: 3rem; }
-        .evidence-title { color: #fff; margin-bottom: 1.5rem; }
+        .guru-fit-head h3 { font-size: clamp(1.7rem, 3vw, 2.3rem); font-weight: 900; }
+        .guru-fit-grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 1.25rem; }
+        .guru-fit-card { padding: 1.75rem; background: var(--cream); border-top: 6px solid var(--coral); }
+        .guru-fit-card:nth-child(2) { border-top-color: var(--ink); }
+        .guru-fit-card:nth-child(3) { border-top-color: var(--teal); }
+        .guru-fit-card .icon-badge { width: 48px; height: 48px; margin-bottom: 1rem; }
+        .guru-fit-card h4 { font-size: 1.2rem; font-weight: 900; margin-bottom: 0.4rem; }
+        .guru-fit-card p { margin: 0; font-size: 0.98rem; }
+        .evidence { background: var(--ink); padding: 2.5rem; margin-bottom: 4rem; }
+        .evidence-title { color: #fff; font-size: 1.6rem; font-weight: 900; margin-bottom: 1.5rem; }
         .evidence-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
-        .evidence-card { display: flex; flex-direction: column; gap: 0.6rem; background: #2d2926; border-radius: var(--radius-sm); padding: 1.5rem; text-decoration: none; border-left: 4px solid var(--coral); }
+        .evidence-card { display: flex; flex-direction: column; gap: 0.6rem; background: #4A4945; padding: 1.5rem; text-decoration: none; border-left: 6px solid var(--coral); }
         .evidence-card:nth-child(2) { border-left-color: var(--teal); }
-        .evidence-card p { color: #fff; font-weight: 600; font-size: 1.05rem; margin: 0; }
-        .evidence-meta { font-size: 0.75rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: #a8a29e; }
-        .evidence-link { color: var(--coral); font-weight: 600; font-size: 0.9rem; margin-top: auto; }
-        .guru-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, 1fr); gap: 1.25rem; }
-        .guru-steps li { border-top: 3px solid var(--coral); padding-top: 1rem; }
-        .guru-steps li:nth-child(2) { border-top-color: var(--teal); }
-        .guru-steps li:nth-child(3) { border-top-color: var(--sage-dark); }
-        .guru-steps span { display: block; font-size: 0.78rem; font-weight: 700; letter-spacing: 0.06em; text-transform: uppercase; color: var(--stone-900); margin-bottom: 0.5rem; }
-        .guru-steps p { margin: 0; font-size: 0.95rem; }
+        .evidence-card:hover { background: #55534F; }
+        .evidence-card p { color: #fff; font-weight: 800; font-size: 1.08rem; margin: 0; line-height: 1.3; }
+        .evidence-meta { font-size: 0.74rem; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; color: #CFCCC3; }
+        .evidence-link { color: #FBB49B; font-weight: 800; font-size: 0.92rem; margin-top: auto; }
+        .guru-steps { list-style: none; padding: 0; margin: 0; display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1.25rem; }
+        .guru-steps li { border-top: 4px solid var(--coral); padding-top: 1rem; }
+        .guru-steps li:nth-child(2) { border-top-color: var(--ink); }
+        .guru-steps li:nth-child(3) { border-top-color: var(--teal); }
+        .guru-steps li:nth-child(4) { border-top-color: var(--violet); }
+        .guru-steps span { display: block; font-size: 0.78rem; font-weight: 800; letter-spacing: 0.1em; text-transform: uppercase; color: var(--ink); margin-bottom: 0.5rem; }
+        .guru-steps p { margin: 0; font-size: 0.98rem; }
+        @media (max-width: 960px) {
+            .apps-grid { grid-template-columns: 1fr; }
+        }
         @media (max-width: 860px) {
             .guru-feature, .evidence-grid, .guru-fit-grid { grid-template-columns: 1fr; gap: 1.5rem; }
             .guru-steps { grid-template-columns: 1fr 1fr; }
@@ -83,8 +87,7 @@
         @media (max-width: 520px) { .guru-steps { grid-template-columns: 1fr; } }
         @media (max-width: 600px) {
             .resources-grid { grid-template-columns: 1fr; }
-            .apps-grid { grid-template-columns: 1fr; }
-            .app-card-inner { padding: 2rem 1.5rem; }
+            .app-card-inner { padding: 1.75rem; }
         }
     </style>
 </head>
@@ -92,7 +95,7 @@
 
 <header class="site-header">
     <nav class="site-nav">
-        <a href="index.html" class="logo"><img src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
+        <a href="index.html" class="logo"><img width="28" height="28" src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
         <ul class="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="training.html">Training &amp; Coaching</a></li>
@@ -101,33 +104,39 @@
             <li><a href="get-involved.html">Get Involved</a></li>
         </ul>
         <div class="nav-cta">
-            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Book a Call</a>
-            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Arrange a Call</a>
+            <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
         <a href="about.html">About</a>
         <a href="training.html">Training &amp; Coaching</a>
         <a href="resources.html">Digital Tools</a>
         <a href="impact.html">Impact &amp; Voice</a>
         <a href="get-involved.html">Get Involved</a>
-        <a href="get-involved.html#book-a-call">Book a Call</a>
+        <a href="get-involved.html#book-a-call">Arrange a Call</a>
     </div>
 </header>
 
-<section class="hero photo-header" style="background-image:url('hands.jpg');">
-    <div class="container text-center">
-        <span class="script-tag">Digital Tools &amp; Resources</span>
-        <h1>Discover tools and resources to make changemaking easier.</h1>
+<section class="page-hero">
+    <div class="container page-hero-grid">
+        <div>
+            <span class="eyebrow">Digital Tools &amp; Resources</span>
+            <h1>Discover tools and resources to make changemaking easier.</h1>
+        </div>
+        <div class="page-hero-media">
+            <picture><source srcset="img/reg.webp" type="image/webp"><img src="img/reg.jpg" alt="A circle of people reaching their hands into the middle together at a community event" width="1600" height="1067" fetchpriority="high" decoding="async"></picture>
+            <span class="beam" aria-hidden="true"></span>
+        </div>
     </div>
 </section>
 
 <section id="tools">
     <div class="container">
         <div class="section-head">
-            <span class="script-tag" style="color:var(--coral-dark);">Built by Fabric</span>
+            <span class="eyebrow">Built by Fabric</span>
             <h2>Our Tools &amp; Apps</h2>
-            <p>Innovative tools to help communities thrive — here's a few of our products.</p>
+            <p>Designed with communities to cut admin, find funding, get seen and make organising easier.</p>
         </div>
         <div class="apps-grid">
 
@@ -192,13 +201,13 @@
 <section class="games-section" id="games">
     <div class="container">
         <div class="section-head">
-            <span class="script-tag" style="color:var(--coral-dark);">Built by Fabric · Educational Games</span>
+            <span class="eyebrow">Built by Fabric · Educational Games</span>
             <h2>What if the best way to understand manipulation was to experience it?</h2>
             <p>Guru Simulator is Community Fabric's interactive game series that helps young people recognise manipulation, persuasion and misleading online behaviour. We're building and testing it now with schools and communities.</p>
         </div>
 
         <div class="guru-feature">
-            <div class="guru-image"><img src="guru-og.png" alt="Guru Simulator: interactive games about influence, manipulation and the tricks used to grab your attention. Ages 12–17."></div>
+            <div class="guru-image"><picture><source srcset="img/guru-og.webp" type="image/webp"><img src="img/guru-og.jpg" alt="Guru Simulator: interactive games about influence, manipulation and the tricks used to grab your attention. Ages 12–17." width="1200" height="630" loading="lazy" decoding="async"></picture></div>
             <div class="guru-text">
                 <span class="eyebrow">Why we're building this</span>
                 <h3>Spot the trick before it's played on you.</h3>
@@ -268,9 +277,9 @@
     </div>
 </section>
 
-<section class="bg-tint" id="guides">
+<section class="band-sand" id="guides">
     <div class="container">
-        <div class="resource-category">
+        <div class="resource-category" style="margin-bottom:0;">
             <div class="category-header">
                 <div class="category-icon green">📄</div>
                 <div>
@@ -306,33 +315,6 @@
             </div>
         </div>
 
-        <div class="resource-category" style="margin-bottom:0;">
-            <div class="category-header">
-                <div class="category-icon teal">🔗</div>
-                <div>
-                    <h2 style="margin:0;">Useful Links</h2>
-                    <p style="margin:0;">Trusted resources from across the sector we think are worth your time</p>
-                </div>
-            </div>
-            <div class="resources-grid">
-                <div class="resource-card coming-soon">
-                    <div class="resource-card-top">
-                        <h3>Sector Tools &amp; Directories</h3>
-                        <span class="resource-type-badge badge-link">Links</span>
-                    </div>
-                    <p>A curated list of the most useful sector resources — funding finders, governance tools, policy banks, and more.</p>
-                    <span class="coming-soon-label">Coming soon</span>
-                </div>
-                <div class="resource-card coming-soon">
-                    <div class="resource-card-top">
-                        <h3>Recommended Reading</h3>
-                        <span class="resource-type-badge badge-link">Links</span>
-                    </div>
-                    <p>Books, articles and reports on community building, social change, and sustainable leadership that we keep coming back to.</p>
-                    <span class="coming-soon-label">Coming soon</span>
-                </div>
-            </div>
-        </div>
     </div>
 </section>
 
@@ -356,10 +338,11 @@
                 <h4>Stay in the loop</h4>
                 <p style="color:#a8a29e;font-size:0.9rem;">No spam. Just useful updates.</p>
                 <form class="newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
-                    <input type="email" name="email" placeholder="Your email" required>
+                    <label for="footer-email" class="visually-hidden">Email address for updates</label>
+                    <input type="email" id="footer-email" name="email" placeholder="Your email" autocomplete="email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
-                <p class="form-success">Thanks — you're on the list.</p>
+                <p class="form-success" role="status">Thanks — you're on the list.</p>
                 <p style="color:#a8a29e;font-size:0.85rem;">hello@communityfabric.co</p>
             </div>
         </div>

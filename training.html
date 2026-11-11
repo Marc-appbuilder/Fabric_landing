@@ -10,43 +10,52 @@
     <link rel="apple-touch-icon" href="apple-touch-icon.png">
     <link rel="manifest" href="site.webmanifest">
     <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=Caveat:wght@500;600;700&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="styles.css">
     <style>
+        .jump-grid { display: grid; grid-template-columns: repeat(4, minmax(0, 1fr)); gap: 1px; background: var(--line); border: 1px solid var(--line); }
+        .jump-grid a { background: var(--paper); padding: 1.4rem 1.25rem; text-decoration: none; color: var(--ink); display: flex; flex-direction: column; gap: 0.4rem; }
+        .jump-grid a:hover { background: var(--cream); }
+        .jump-grid b { font-size: 1.05rem; font-weight: 900; line-height: 1.2; }
+        .jump-grid span { font-size: 0.78rem; font-weight: 800; letter-spacing: 0.12em; text-transform: uppercase; color: var(--coral-text); }
+        .jump-grid a:nth-child(2) span { color: var(--ink); }
+        .jump-grid a:nth-child(3) span { color: var(--teal-dark); }
+        .jump-grid a:nth-child(4) span { color: var(--violet); }
+
         .programme-card {
-            border-radius: var(--radius);
+            background: var(--paper);
+            border: 1px solid var(--line);
+            border-left: 10px solid var(--coral);
             padding: 2.5rem;
-            margin-bottom: 2rem;
+            margin-bottom: 1.5rem;
             display: grid;
-            grid-template-columns: auto 1fr;
-            gap: 1.75rem;
+            grid-template-columns: minmax(0, 0.9fr) minmax(0, 1.1fr);
+            gap: 2.5rem;
+            scroll-margin-top: 90px;
         }
         .programme-card:last-child { margin-bottom: 0; }
-        .programme-card .icon-badge { width: 56px; height: 56px; margin-bottom: 0; }
-        .programme-card:nth-of-type(3n+1) { background: #fff0ee; }
-        .programme-card:nth-of-type(3n+2) { background: #e6f7f5; }
-        .programme-card:nth-of-type(3n) { background: #eaf6ef; }
-        .programme-meta {
-            display: flex;
-            flex-wrap: wrap;
-            gap: 0.6rem;
-            margin: 1.25rem 0 1.5rem;
-        }
-        .programme-meta span {
-            background: rgba(255,255,255,0.7);
-            border-radius: 9999px;
-            padding: 0.4rem 0.9rem;
-            font-size: 0.85rem;
-            color: var(--stone-900);
-        }
-        .programme-meta strong { font-weight: 700; }
-        .next-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.75rem; }
-        .next-step-card { background: #fff; border: 1px solid var(--stone-200); border-radius: var(--radius); padding: 2.5rem; }
-        .next-step-card h2 { font-size: 1.6rem; }
-        .training-subscribe input { background: #fff; border-color: var(--stone-200); color: var(--stone-900); }
-        .training-subscribe input::placeholder { color: var(--stone-600); }
-        @media (max-width: 640px) {
-            .programme-card { grid-template-columns: 1fr; padding: 1.75rem; }
+        .programme-card:nth-of-type(2) { border-left-color: var(--ink); }
+        .programme-card:nth-of-type(3) { border-left-color: var(--teal); }
+        .programme-card:nth-of-type(4) { border-left-color: var(--violet); }
+        .programme-card h2 { font-size: clamp(1.8rem, 3.2vw, 2.5rem); margin-top: 0.75rem; }
+        .programme-card .chip { font-size: 0.8rem; letter-spacing: 0.1em; text-transform: uppercase; }
+        .programme-card:nth-of-type(4) .chip { background: var(--violet); color: #fff; }
+        .programme-detail p { font-size: 1.02rem; }
+        .programme-detail p strong { display: block; font-size: 0.78rem; letter-spacing: 0.12em; text-transform: uppercase; margin-bottom: 0.2rem; }
+        .programme-meta { display: flex; flex-wrap: wrap; gap: 0.5rem; margin: 1.5rem 0; }
+        .programme-meta span { border: 1px solid var(--ink); padding: 0.35rem 0.7rem; font-size: 0.88rem; color: var(--ink); }
+        .programme-meta strong { font-weight: 800; }
+
+        .next-steps { display: grid; grid-template-columns: 1fr 1fr; gap: 1.25rem; }
+        .next-step-card { background: var(--paper); border: 1px solid var(--line); padding: 2.5rem; border-top: 6px solid var(--teal); }
+        .next-step-card + .next-step-card { border-top-color: var(--coral); }
+        .next-step-card h2 { font-size: 1.8rem; }
+        .training-subscribe input { background: var(--paper); border-color: var(--ink); color: var(--ink); }
+        .training-subscribe input::placeholder { color: var(--muted); }
+
+        @media (max-width: 860px) {
+            .jump-grid { grid-template-columns: repeat(2, minmax(0, 1fr)); }
+            .programme-card { grid-template-columns: 1fr; gap: 0.5rem; padding: 1.75rem; }
             .next-steps { grid-template-columns: 1fr; }
             .next-step-card { padding: 1.75rem; }
         }
@@ -56,7 +65,7 @@
 
 <header class="site-header">
     <nav class="site-nav">
-        <a href="index.html" class="logo"><img src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
+        <a href="index.html" class="logo"><img width="28" height="28" src="yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
         <ul class="nav-links">
             <li><a href="about.html">About</a></li>
             <li><a href="training.html" class="active">Training &amp; Coaching</a></li>
@@ -65,53 +74,84 @@
             <li><a href="get-involved.html">Get Involved</a></li>
         </ul>
         <div class="nav-cta">
-            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Book a Call</a>
-            <button class="hamburger" aria-label="Menu"><span></span><span></span><span></span></button>
+            <a href="get-involved.html#book-a-call" class="btn btn-secondary">Arrange a Call</a>
+            <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
         </div>
     </nav>
-    <div class="mobile-menu">
+    <div class="mobile-menu" id="mobile-menu">
         <a href="about.html">About</a>
         <a href="training.html">Training &amp; Coaching</a>
         <a href="resources.html">Digital Tools</a>
         <a href="impact.html">Impact &amp; Voice</a>
         <a href="get-involved.html">Get Involved</a>
-        <a href="get-involved.html#book-a-call">Book a Call</a>
+        <a href="get-involved.html#book-a-call">Arrange a Call</a>
     </div>
 </header>
 
-<section class="hero photo-header training-hero-photo" style="background-image:url('picbox2.jpg');background-position:center 15%;">
-    <div class="container">
-        <span class="script-tag">Training &amp; Coaching</span>
-        <h1>Leadership. Coaching. Peer Support.</h1>
-        <p class="subhead">We develop grassroots leaders through practical training, ongoing coaching, and peer support networks.</p>
-        <div class="cta-row mt-2">
-            <a href="get-involved.html#book-a-call" class="btn btn-primary">Book a Call</a>
+<section class="page-hero">
+    <div class="container page-hero-grid">
+        <div>
+            <span class="eyebrow">Training &amp; Coaching</span>
+            <h1>Leadership. Coaching. Peer Support.</h1>
+            <p class="subhead">We develop grassroots leaders through practical training, ongoing coaching, and peer support networks.</p>
+            <div class="cta-row mt-2">
+            <a href="get-involved.html#book-a-call" class="btn btn-primary">Arrange a Call</a>
             <a href="#commission" class="btn btn-secondary">Commission Training</a>
+            </div>
+        </div>
+        <div class="page-hero-media">
+            <picture><source srcset="img/picbox2.webp" type="image/webp"><img src="img/picbox2.jpg" alt="A coach holding pads for a young boxer in a community gym" width="1600" height="1067" fetchpriority="high" decoding="async"></picture>
+            <span class="beam" aria-hidden="true"></span>
         </div>
     </div>
 </section>
 
-<section class="bg-tint" style="padding-bottom:1rem;">
+<section class="promo-band" aria-labelledby="promo-title">
     <div class="container">
-        <div class="grid-3">
-            <a href="#division" class="card"><h3>Tackling Narratives of Division</h3><span class="card-link">Jump to programme →</span></a>
-            <a href="#organising" class="card"><h3>Community Organising Training</h3><span class="card-link">Jump to programme →</span></a>
-            <a href="#coaching" class="card"><h3>Leadership Coaching &amp; Training</h3><span class="card-link">Jump to programme →</span></a>
-            <a href="#digital-skills" class="card"><h3>Digital Skills Training</h3><span class="card-link">Jump to programme →</span></a>
+        <div class="promo-grid">
+            <div>
+                <span class="promo-tag">Now booking · Free for youth workers</span>
+                <h2 id="promo-title">Beyond Division</h2>
+                <p class="strike"><s>Story of them</s><span>Story of us</span></p>
+                <p>Our funded programme for youth workers in England, applying our Tackling Narratives of Division approach to the misogynist and far-right narratives targeting young men.</p>
+                <div class="cta-row mt-2">
+                    <a href="beyond-division.html" class="btn btn-primary">Find Out More</a>
+                    <a href="beyond-division.html#register" class="btn btn-secondary">Register Your Place</a>
+                </div>
+            </div>
+            <ul class="promo-facts">
+                <li><b>Free</b><span>Fully funded</span></li>
+                <li><b>Online</b><span>No travel needed</span></li>
+                <li><b>Jan–May</b><span>Three cohorts in 2027</span></li>
+                <li><b>25</b><span>Places per cohort</span></li>
+            </ul>
         </div>
     </div>
 </section>
 
-<section>
+<section class="section-compact" style="padding-bottom:0;">
+    <div class="container">
+        <nav class="jump-grid" aria-label="Programmes">
+            <a href="#division"><span>Programme 01</span><b>Tackling Narratives of Division</b></a>
+            <a href="#organising"><span>Programme 02</span><b>Community Organising Training</b></a>
+            <a href="#coaching"><span>Programme 03</span><b>Leadership Coaching &amp; Training</b></a>
+            <a href="#digital-skills"><span>Programme 04</span><b>Digital Skills Training</b></a>
+        </nav>
+    </div>
+</section>
+
+<section style="padding-top:2.5rem;">
 <div class="container">
 
 <div class="programme-card" id="division">
-    <div class="icon-badge coral"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 11.5a8.38 8.38 0 0 1-.9 3.8 8.5 8.5 0 0 1-7.6 4.7 8.38 8.38 0 0 1-3.8-.9L3 21l1.9-5.7a8.38 8.38 0 0 1-.9-3.8 8.5 8.5 0 0 1 4.7-7.6 8.38 8.38 0 0 1 3.8-.9h.5a8.48 8.48 0 0 1 8 8v.5z"/></svg></div>
     <div>
-        <span class="eyebrow">Programme</span>
+        <span class="chip coral">Programme 01</span>
         <h2>Tackling Narratives of Division</h2>
+    </div>
+    <div class="programme-detail">
         <p><strong>What it's for:</strong> Community leaders and organisers working in places where mistrust, misinformation or division are making it harder to bring people together.</p>
         <p><strong>What you'll learn:</strong> How to listen deeply, build relationships across difference, and organise around shared concerns rather than allowing frustration to be turned against other communities.</p>
+        <p><a href="beyond-division.html" class="card-link">Now running free for youth workers as Beyond Division →</a></p>
         <div class="programme-meta">
             <span><strong>Format:</strong> In-person or online workshops</span>
             <span><strong>Next cohort:</strong> Subscribe for dates</span>
@@ -124,10 +164,11 @@
 </div>
 
 <div class="programme-card" id="organising">
-    <div class="icon-badge teal"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M17 21v-2a4 4 0 0 0-4-4H5a4 4 0 0 0-4 4v2"/><circle cx="9" cy="7" r="4"/><path d="M23 21v-2a4 4 0 0 0-3-3.87"/><path d="M16 3.13a4 4 0 0 1 0 7.75"/></svg></div>
     <div>
-        <span class="eyebrow">Programme</span>
+        <span class="chip ink">Programme 02</span>
         <h2>Community Organising Training</h2>
+    </div>
+    <div class="programme-detail">
         <p><strong>What it's for:</strong> Anyone organising informally or formally in their community — residents' groups, mutual aid, campaigns, faith groups and local networks.</p>
         <p><strong>What you'll learn:</strong> Core organising skills — one-to-ones, building power, running effective meetings, and turning shared concerns into sustained action.</p>
         <div class="programme-meta">
@@ -142,10 +183,11 @@
 </div>
 
 <div class="programme-card" id="coaching">
-    <div class="icon-badge sage"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="10"/><path d="M16.24 7.76l-2.12 6.36-6.36 2.12 2.12-6.36 6.36-2.12z"/></svg></div>
     <div>
-        <span class="eyebrow">Programme</span>
+        <span class="chip teal">Programme 03</span>
         <h2>Leadership Coaching &amp; Training</h2>
+    </div>
+    <div class="programme-detail">
         <p><strong>What it's for:</strong> Community leaders, charity directors and volunteers who want space to reflect, solve problems and avoid burnout.</p>
         <p><strong>What you'll learn:</strong> Sustainable leadership practice, strategic thinking, and how to move from ambition to action without losing yourself in the process.</p>
         <div class="programme-meta">
@@ -160,10 +202,11 @@
 </div>
 
 <div class="programme-card" id="digital-skills">
-    <div class="icon-badge coral"><svg width="26" height="26" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><path d="M8 21h8M12 17v4"/></svg></div>
     <div>
-        <span class="eyebrow">Programme</span>
+        <span class="chip ink">Programme 04</span>
         <h2>Digital Skills Training</h2>
+    </div>
+    <div class="programme-detail">
         <p><strong>What it's for:</strong> Leaders and volunteers who want to reduce tech friction and use digital tools with confidence and care.</p>
         <p><strong>What you'll learn:</strong> Using social media effectively, using AI ethically, managing people digitally, managing data safely, and building income with tech — including hands-on use of Community Builder, Charity Builder and Policy Finder.</p>
         <div class="programme-meta">
@@ -180,7 +223,7 @@
 </div>
 </section>
 
-<section class="bg-tint" id="updates">
+<section class="band-sand" id="updates">
     <div class="container">
         <div class="next-steps">
             <div class="next-step-card">
@@ -189,10 +232,11 @@
                 <p>We run open sessions throughout the year. Subscribe and we'll let you know when new dates are announced. No spam, just training dates and useful updates.</p>
                 <form class="training-subscribe newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
                     <input type="hidden" name="interest" value="Training dates">
-                    <input type="email" name="email" placeholder="Your email" required>
+                    <label for="training-email" class="visually-hidden">Email address for training dates</label>
+                    <input type="email" id="training-email" name="email" placeholder="Your email" autocomplete="email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
-                <p class="form-success">Thanks! We'll be in touch when dates are announced.</p>
+                <p class="form-success" role="status">Thanks! We'll be in touch when dates are announced.</p>
             </div>
             <div class="next-step-card" id="commission">
                 <span class="eyebrow">Bespoke training</span>
@@ -224,10 +268,11 @@
                 <h4>Stay in the loop</h4>
                 <p style="color:#a8a29e;font-size:0.9rem;">No spam. Just useful updates.</p>
                 <form class="newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
-                    <input type="email" name="email" placeholder="Your email" required>
+                    <label for="footer-email" class="visually-hidden">Email address for updates</label>
+                    <input type="email" id="footer-email" name="email" placeholder="Your email" autocomplete="email" required>
                     <button type="submit" class="btn btn-primary">Subscribe</button>
                 </form>
-                <p class="form-success">Thanks — you're on the list.</p>
+                <p class="form-success" role="status">Thanks — you're on the list.</p>
                 <p style="color:#a8a29e;font-size:0.85rem;">hello@communityfabric.co</p>
             </div>
         </div>
