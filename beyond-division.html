@@ -114,15 +114,21 @@
 .cohort li:last-child{border-bottom:0}
 .cohort li em{font-style:normal;font-size:12px;letter-spacing:.08em;text-transform:uppercase;color:var(--muted);padding-top:3px}
 .note{margin-top:18px;color:#D9D7CF;font-size:15px}
-.tasters{margin-top:44px;display:grid;grid-template-columns:minmax(0,.8fr) minmax(0,1.2fr);gap:32px;align-items:start}
-.tasters h3{font-size:26px;font-weight:900}
-.tasters p{color:#D9D7CF;margin-top:10px;font-size:15.5px}
-.tbl{overflow-x:auto}
-.bd table{width:100%;border-collapse:collapse;font-variant-numeric:tabular-nums;font-size:15px}
-.bd td{padding:11px 10px;border-bottom:1px solid #55534F;white-space:nowrap}
-.bd td:first-child{font-weight:800;white-space:normal}
-.eve{display:inline-block;background:var(--coral);color:var(--ink);font-size:12px;font-weight:800;padding:2px 7px;margin-left:6px}
-@media (max-width:860px){.cohorts{grid-template-columns:minmax(0,1fr)}.tasters{grid-template-columns:minmax(0,1fr)}}
+.cohort header .region{font-size:15px;font-weight:800}
+.cohort header small{font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;opacity:.85}
+.panel{border:2px solid #55534F;padding:28px;display:grid;grid-template-columns:minmax(0,1.2fr) minmax(0,.8fr);gap:28px;align-items:center}
+.panel h3{font-size:clamp(24px,2.6vw,30px);font-weight:900;margin-top:12px}
+.panel p{color:#D9D7CF;margin-top:10px;font-size:15.5px;max-width:52ch}
+.panel .when{display:flex;flex-direction:column;gap:6px;align-items:flex-start}
+.panel .when b{font-size:21px;font-weight:900;color:var(--cream)}
+.panel .when span{font-size:15px;font-weight:700;color:#E9E7E0}
+.panel .when .bd-btn{margin-top:10px}
+.tag{display:inline-block;font-size:12px;font-weight:800;letter-spacing:.12em;text-transform:uppercase;padding:4px 9px}
+.tag.coral{background:var(--coral);color:var(--ink)}
+.tag.teal{background:var(--teal-bg);color:var(--ink)}
+.taster{margin-top:28px;margin-bottom:56px}
+.ttt{margin-top:44px}
+@media (max-width:860px){.cohorts{grid-template-columns:minmax(0,1fr)}.panel{grid-template-columns:minmax(0,1fr)}}
 
 /* managers */
 .managers .in{display:grid;grid-template-columns:minmax(0,1fr) minmax(0,1fr);gap:48px}
@@ -252,31 +258,39 @@
 <section class="band dark" id="dates" aria-labelledby="dates-title">
   <div class="in">
     <p class="kicker">Dates</p>
-    <h2 id="dates-title" style="margin-top:14px">Choose your cohort</h2>
+    <div class="panel taster">
+      <div>
+        <span class="tag coral">Start here</span>
+        <h3>Free online taster</h3>
+        <p>Not sure yet? Get a feel for the approach in a 90-minute taster, open to youth workers and managers from every region.</p>
+      </div>
+      <div class="when">
+        <b>Thursday 10 December 2026</b>
+        <span>10:00 – 11:30 · online</span>
+        <a class="bd-btn" href="https://buytickets.at/communityfabriccic/2524579" target="_blank" rel="noopener">Book your free taster</a>
+      </div>
+    </div>
+    <h2 id="dates-title">Choose your cohort</h2>
     <p class="lead" style="margin-top:14px;color:#E9E7E0">Each cohort meets online for three half days. Please choose one you can attend in full.</p>
     <div class="cohorts">
-      <article class="cohort"><header style="background:var(--teal-bg);color:var(--ink)"><b>Cohort 1</b><span>Wednesday mornings · 9:30 – 13:00</span></header>
+      <article class="cohort"><header style="background:var(--teal-bg);color:var(--ink)"><small>Cohort 1</small><b>North</b><span class="region">North East, North West &amp; Yorkshire</span><span>Wednesday mornings · 9:30 – 13:00</span></header>
         <ol><li><em>Part 1</em>Wed 20 January 2027</li><li><em>Part 2</em>Wed 3 February 2027</li><li><em>Part 3</em>Wed 24 February 2027</li></ol></article>
-      <article class="cohort"><header style="background:#55534F"><b>Cohort 2</b><span>Tuesday afternoons · 13:00 – 16:30</span></header>
+      <article class="cohort"><header style="background:#55534F"><small>Cohort 2</small><b>London &amp; South East</b><span>Tuesday afternoons · 13:00 – 16:30</span></header>
         <ol><li><em>Part 1</em>Tue 9 March 2027</li><li><em>Part 2</em>Tue 23 March 2027</li><li><em>Part 3</em>Tue 13 April 2027</li></ol></article>
-      <article class="cohort"><header style="background:var(--violet)"><b>Cohort 3</b><span>Wednesday mornings · 9:30 – 13:00</span></header>
+      <article class="cohort"><header style="background:var(--violet)"><small>Cohort 3</small><b>Midlands &amp; South West</b><span>Wednesday mornings · 9:30 – 13:00</span></header>
         <ol><li><em>Part 1</em>Wed 21 April 2027</li><li><em>Part 2</em>Wed 5 May 2027</li><li><em>Part 3</em>Wed 19 May 2027</li></ol></article>
     </div>
-    <div class="tasters">
+    <p class="note"><strong style="color:var(--cream)">Can't make your regional cohort?</strong> Don't worry, just book onto the next available one.</p>
+    <div class="panel ttt">
       <div>
-        <h3>Not sure yet? Try a taster</h3>
-        <p>Free one-hour online taster sessions in December, one for each region. Choose yours to book a free place.</p>
+        <span class="tag teal">After the training</span>
+        <h3>Train the trainer</h3>
+        <p>A full day for youth workers who have completed one of the cohorts, to help you deliver the Beyond Division approach in your own organisation and network.</p>
       </div>
-      <div class="tbl">
-        <table>
-          <tbody>
-            <tr><td><a href="https://buytickets.at/communityfabriccic/2524575" target="_blank" rel="noopener" style="color:#8FDCD3">North East &amp; Yorkshire</a></td><td>Tue 1 Dec 2026</td><td>10:00 – 11:00</td></tr>
-            <tr><td><a href="https://buytickets.at/communityfabriccic/2524576" target="_blank" rel="noopener" style="color:#8FDCD3">North West</a></td><td>Thu 3 Dec 2026</td><td>10:00 – 11:00</td></tr>
-            <tr><td><a href="https://buytickets.at/communityfabriccic/2524577" target="_blank" rel="noopener" style="color:#8FDCD3">South West</a></td><td>Tue 8 Dec 2026</td><td>10:00 – 11:00</td></tr>
-            <tr><td><a href="https://buytickets.at/communityfabriccic/2524578" target="_blank" rel="noopener" style="color:#8FDCD3">London</a></td><td>Wed 9 Dec 2026</td><td>18:30 – 19:30<span class="eve">Evening</span></td></tr>
-            <tr><td><a href="https://buytickets.at/communityfabriccic/2524579" target="_blank" rel="noopener" style="color:#8FDCD3">Midlands</a></td><td>Thu 10 Dec 2026</td><td>10:00 – 11:00</td></tr>
-          </tbody>
-        </table>
+      <div class="when">
+        <b>Wednesday 26 May 2027</b>
+        <span>9:30 – 16:30 · online · one full day</span>
+        <span>We'll invite everyone who completes the training.</span>
       </div>
     </div>
   </div>
