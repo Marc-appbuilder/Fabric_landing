@@ -1,0 +1,443 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Who’s Preparing Our Communities? — Community Fabric CIC</title>
+    <meta name="description" content="We’re preparing our organisations and households for more challenging times. How much thought are we giving to preparing our communities?">
+    <link rel="icon" type="image/svg+xml" href="../favicon.svg">
+    <link rel="icon" type="image/png" sizes="96x96" href="../favicon-96x96.png">
+    <link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+    <link rel="icon" type="image/x-icon" href="../favicon.ico">
+    <link rel="manifest" href="../site.webmanifest">
+    <link href="https://fonts.googleapis.com/css2?family=Archivo:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../styles.css">
+    <style>
+        /* ── Post Hero ── */
+        .post-hero {
+            padding: 8rem 2rem 5rem;
+            background: linear-gradient(160deg, #f0f9f4 0%, #fafaf9 60%, #fff5f3 100%);
+            text-align: center;
+        }
+
+        .post-breadcrumb {
+            display: flex;
+            align-items: center;
+            gap: 0.5rem;
+            justify-content: center;
+            margin-bottom: 2rem;
+            font-size: 0.875rem;
+            color: var(--stone-600);
+        }
+        .post-breadcrumb a {
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 500;
+        }
+        .post-breadcrumb a:hover { text-decoration: underline; }
+
+        .post-tag {
+            display: inline-block;
+            padding: 0.35rem 1rem;
+            background: var(--sage-green);
+            color: var(--stone-900);
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 600;
+            margin-bottom: 1.5rem;
+            text-transform: uppercase;
+            letter-spacing: 0.06em;
+        }
+
+        .post-hero h1 {
+            font-size: clamp(2rem, 5vw, 3.5rem);
+            font-weight: 800;
+            color: var(--stone-900);
+            line-height: 1.2;
+            max-width: 780px;
+            margin: 0 auto 1.5rem;
+        }
+
+        .post-meta {
+            display: flex;
+            align-items: center;
+            gap: 1.5rem;
+            justify-content: center;
+            color: var(--stone-600);
+            font-size: 0.875rem;
+            flex-wrap: wrap;
+        }
+
+        /* ── Featured Image ── */
+        .post-featured-image {
+            max-width: 860px;
+            margin: -2rem auto 0;
+            padding: 0 2rem;
+        }
+        .post-featured-image img {
+            width: 100%;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 16px;
+            box-shadow: 0 20px 60px rgba(0,0,0,0.12);
+            display: block;
+        }
+        @media (max-width: 768px) {
+            .post-featured-image img { height: 240px; border-radius: 12px; }
+        }
+
+        /* ── Article Body ── */
+        .article-wrapper {
+            max-width: 720px;
+            margin: 0 auto;
+            padding: 4rem 2rem 6rem;
+        }
+
+        .article-intro {
+            font-size: 1.15rem;
+            line-height: 1.9;
+            color: var(--stone-600);
+            margin-bottom: 3rem;
+            font-weight: 300;
+            border-left: 4px solid var(--sage-green);
+            padding-left: 1.5rem;
+        }
+
+        .article-body p {
+            font-size: 1.05rem;
+            line-height: 1.85;
+            color: var(--stone-900);
+            margin-bottom: 1.5rem;
+        }
+
+        .article-body h2 {
+            font-size: 1.4rem;
+            font-weight: 700;
+            color: var(--stone-900);
+            margin: 3rem 0 1.25rem;
+            line-height: 1.3;
+        }
+        .article-body h2::before {
+            content: '';
+            display: block;
+            width: 36px;
+            height: 3px;
+            background: var(--coral);
+            margin-bottom: 1rem;
+            border-radius: 2px;
+        }
+
+        .article-body blockquote {
+            background: white;
+            border-left: 4px solid var(--teal);
+            border-radius: 0 12px 12px 0;
+            padding: 1.5rem 2rem;
+            margin: 2rem 0;
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--stone-900);
+            box-shadow: 0 4px 20px rgba(0,0,0,0.05);
+            font-style: italic;
+        }
+
+        .article-body ul {
+            margin: 1rem 0 1.75rem 0;
+            list-style: none;
+        }
+        .article-body ul li {
+            font-size: 1.05rem;
+            line-height: 1.8;
+            color: var(--stone-900);
+            margin-bottom: 0.5rem;
+            padding-left: 1.5rem;
+            position: relative;
+        }
+        .article-body ul li::before {
+            content: '→';
+            position: absolute;
+            left: 0;
+            color: var(--teal);
+            font-weight: 600;
+        }
+
+        .pull-quote {
+            font-family: 'Caveat', cursive;
+            font-size: 2rem;
+            font-weight: 600;
+            color: var(--coral);
+            text-align: center;
+            padding: 2rem 1rem;
+            margin: 2.5rem 0;
+            line-height: 1.4;
+            border-top: 1px solid var(--stone-200);
+            border-bottom: 1px solid var(--stone-200);
+        }
+
+        .closing-box {
+            background: linear-gradient(135deg, #f0f9f4 0%, #e8f5ee 100%);
+            border-radius: 20px;
+            padding: 2.5rem;
+            margin: 3rem 0;
+            text-align: center;
+        }
+        .closing-box .label {
+            font-family: 'Caveat', cursive;
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--teal);
+            margin-bottom: 1.25rem;
+            display: block;
+        }
+        .closing-box p {
+            font-size: 1.1rem;
+            line-height: 1.8;
+            color: var(--stone-900);
+            margin-bottom: 0 !important;
+        }
+
+        /* ── Article Footer ── */
+        .article-footer {
+            border-top: 1px solid var(--stone-200);
+            padding-top: 2.5rem;
+            margin-top: 3rem;
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 1.5rem;
+        }
+
+        .article-tags {
+            display: flex;
+            gap: 0.6rem;
+            flex-wrap: wrap;
+        }
+        .article-tag {
+            padding: 0.3rem 0.9rem;
+            background: var(--stone-200);
+            color: var(--stone-600);
+            border-radius: 9999px;
+            font-size: 0.78rem;
+            font-weight: 500;
+        }
+
+        .back-to-blog {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+            color: var(--teal);
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.95rem;
+            transition: gap 0.2s;
+            white-space: nowrap;
+        }
+        .back-to-blog:hover { gap: 0.85rem; }
+
+        /* ── Site Footer ── */
+        .site-footer {
+            background: var(--stone-900);
+            color: rgba(255,255,255,0.5);
+            text-align: center;
+            padding: 3rem 2rem;
+            font-size: 0.875rem;
+        }
+        .site-footer a {
+            color: rgba(255,255,255,0.7);
+            text-decoration: none;
+        }
+        .site-footer a:hover { color: white; }
+
+        @media (max-width: 600px) {
+            .article-footer {
+                flex-direction: column;
+                align-items: flex-start;
+            }
+            .pull-quote { font-size: 1.6rem; }
+            .closing-box { padding: 2rem 1.5rem; }
+        }
+    </style>
+<style>
+        /* Design-system overrides — keep posts in line with the shared look */
+        .post-hero { background: var(--cream); padding-top: 4.5rem; padding-bottom: 3rem; }
+        .post-hero h1 { font-weight: 900; letter-spacing: -0.03em; line-height: 1.02; }
+        .post-breadcrumb a { color: var(--teal-dark); font-weight: 700; }
+        .post-tag { background: var(--coral); color: var(--ink); border-radius: 0; font-weight: 800; letter-spacing: 0.08em; text-transform: uppercase; }
+        .post-featured-image img { border-radius: 0 !important; box-shadow: none !important; }
+        .article-intro { font-weight: 400; color: var(--ink-soft); }
+        .article-body h2 { font-weight: 900; letter-spacing: -0.02em; }
+        .article-body h2::before { border-radius: 0; height: 6px; }
+        .article-body blockquote { border-radius: 0; background: var(--paper); }
+        .article-body ul li::before { color: var(--teal-dark); }
+        .pull-quote { font-family: var(--font-heading); font-size: clamp(1.5rem, 3vw, 2rem); font-weight: 900; letter-spacing: -0.02em; line-height: 1.15; color: var(--ink); text-align: left; border: 0; border-left: 8px solid var(--coral); padding: 0.25rem 0 0.25rem 1.5rem; }
+        .closing-box { background: var(--ink); border-radius: 0; }
+        .closing-box .label, .part-divider span { font-family: var(--font-heading); font-size: 0.8rem; font-weight: 800; letter-spacing: 0.14em; text-transform: uppercase; }
+        .closing-box .label { color: var(--mint); }
+        .part-divider span { color: var(--coral-text); }
+        .closing-box p { color: var(--cream); }
+        .article-tag { border-radius: 0; background: transparent; border: 1px solid var(--muted); }
+        .back-to-blog { color: var(--teal-dark); }
+        /* Portrait poster image: show it whole rather than cropping */
+        .post-featured-image.poster { max-width: 560px; }
+        .post-featured-image.poster img { height: auto; }
+    </style>
+</head>
+<body>
+
+    <header class="site-header">
+        <nav class="site-nav">
+            <a href="../index.html" class="logo"><img width="28" height="28" src="../yarn-motif.svg" alt="" class="yarn-motif" style="width:28px;height:28px;">Community Fabric</a>
+            <ul class="nav-links">
+                <li><a href="../about.html">About</a></li>
+                <li><a href="../training.html">Training &amp; Coaching</a></li>
+                <li><a href="../resources.html">Digital Tools</a></li>
+                <li><a href="../impact.html">Impact &amp; Voice</a></li>
+                <li><a href="../get-involved.html">Get Involved</a></li>
+            </ul>
+            <div class="nav-cta">
+                <a href="../get-involved.html#book-a-call" class="btn btn-secondary">Arrange a Call</a>
+                <button class="hamburger" type="button" aria-label="Menu" aria-expanded="false" aria-controls="mobile-menu"><span></span><span></span><span></span></button>
+            </div>
+        </nav>
+        <div class="mobile-menu" id="mobile-menu">
+            <a href="../about.html">About</a>
+            <a href="../training.html">Training &amp; Coaching</a>
+            <a href="../resources.html">Digital Tools</a>
+            <a href="../impact.html">Impact &amp; Voice</a>
+            <a href="../get-involved.html">Get Involved</a>
+            <a href="../get-involved.html#book-a-call">Arrange a Call</a>
+        </div>
+    </header>
+
+        <!-- Post Hero -->
+    <div class="post-hero">
+        <div class="post-breadcrumb">
+            <a href="../blog.html">Blog</a>
+            <span>›</span>
+            <span>Community</span>
+        </div>
+        <span class="post-tag">Community</span>
+        <h1>Who’s Preparing Our Communities?</h1>
+        <div class="post-meta">
+            <span>26 November 2026</span>
+            <span>·</span>
+            <span>4 min read</span>
+        </div>
+    </div>
+
+    <!-- Featured Image -->
+    <div class="post-featured-image poster">
+        <img src="../img/blog4.jpg" alt="Newspaper clippings: ‘Households encouraged to take small, simple steps to stay prepared in an emergency’ (GOV.UK) and ‘Can you survive 72 hours? The EU wants you to prepare an emergency plan’ (Euronews), above the words ‘We’re being told to prepare. Who’s preparing our communities?’" width="1122" height="1402" decoding="async">
+    </div>
+
+    <!-- Article -->
+    <div class="article-wrapper">
+
+        <p class="article-intro">
+            Over recent months, through our work with charities and community organisations at Community Fabric, we’ve noticed something interesting. Conversations around organisational resilience, business continuity and disaster recovery are taking on a slightly different tone. People are revisiting their policies, thinking about prolonged power outages, investing in power banks, portable Starlink systems and alternative ways of keeping their organisations operational should something significant happen.
+        </p>
+
+        <div class="article-body">
+
+            <p>It’s got me thinking. Whilst we are preparing our organisations and, increasingly, our households for more challenging times, how much thought are we giving to preparing our communities?</p>
+
+            <p>What would happen if tomorrow we woke up and the internet was down, our mobile phones stopped working, we couldn’t access our money and we had no idea when the electricity would come back on? How would we communicate with one another? How would we identify those most in need? Where would people go for information, warmth, food or help?</p>
+
+            <h2>Have we forgotten what Covid taught us?</h2>
+
+            <p>One of the most remarkable things about the pandemic was how quickly ordinary people mobilised. Within days, neighbours were organising shopping deliveries, community groups were distributing food, volunteers were collecting prescriptions and people were checking in on elderly residents they had barely spoken to before.</p>
+
+            <p>Years of working in communities has taught me the importance of relationships, local knowledge and trust. During Covid, we saw the value of these things in a way we perhaps hadn’t fully appreciated before.</p>
+
+            <p>But we also had the benefit of technology. We had WhatsApp groups, Facebook pages, online banking, video calls and access to information. Much of our ability to organise and respond relied on digital infrastructure continuing to work.</p>
+
+            <p>What would our response have looked like without it?</p>
+
+            <h2>What would community prepping look like?</h2>
+
+            <p>I’m increasingly interested in what it would mean to take preparedness seriously at a neighbourhood, village or town level.</p>
+
+            <p>For me, some of the questions we should be asking include:</p>
+
+            <ul>
+                <li>Do we know who the most vulnerable people in our neighbourhoods are and have we agreed how to support them?</li>
+                <li>Do we have community buildings equipped to operate during prolonged power outages?</li>
+                <li>Do we know what skills, equipment and resources exist within our communities?</li>
+                <li>Do we have alternative ways of communicating if our digital networks fail?</li>
+                <li>How resilient are our local food, water and energy supplies?</li>
+                <li>Do our community organisations have shared emergency plans, or are we all developing them in isolation?</li>
+                <li>Do we have enough people trained in first aid, emergency response and practical community support?</li>
+            </ul>
+
+            <p>None of this requires us to become alarmist or to live in fear of what might happen. In fact, much of what we would need to do to prepare for a crisis would make our communities better places to live today.</p>
+
+            <p>Stronger relationships, more connected neighbourhoods, better local food systems, greater energy independence and a thriving network of community organisations are things worth investing in regardless of what the future holds.</p>
+
+            <p>There is also an interesting challenge for us at Community Fabric. As an organisation investing in technology to strengthen community action, we need to think equally hard about how communities function without it. How do we ensure the local knowledge, relationships and networks we help build remain accessible when technology fails?</p>
+
+            <p>I don’t think we should wait for another national crisis before we start having these conversations. Nor should we assume responsibility for preparedness sits entirely with government, emergency services or individual households.</p>
+
+            <p>There is an important role for charities, community organisations, local councils, businesses and residents to play together.</p>
+
+            <div class="pull-quote">Perhaps it’s time we started developing community resilience plans with the same seriousness we give to our organisational disaster recovery plans.</div>
+
+            <p>By all means, buy the power bank, invest in alternative energy and put some extra food in the cupboard. But also get to know your neighbours, invest in your local community and find out how you might help one another when things get difficult.</p>
+
+            <div class="closing-box">
+                <span class="label">Over to you</span>
+                <p>I would love to hear from communities already thinking about this. What are you doing to prepare, what have you learnt, and what do you think we should be doing collectively?</p>
+            </div>
+
+        </div>
+
+        <div class="article-footer">
+            <div class="article-tags">
+                <span class="article-tag">Community</span>
+                <span class="article-tag">Resilience</span>
+                <span class="article-tag">Preparedness</span>
+                <span class="article-tag">Charities</span>
+            </div>
+            <a href="../blog.html" class="back-to-blog">← Back to Blog</a>
+        </div>
+
+    </div>
+
+    <footer class="site-footer">
+        <div class="container">
+            <div class="footer-grid">
+                <div>
+                    <div class="footer-logo">Community Fabric</div>
+                    <p style="color:#a8a29e;font-size:0.9rem;max-width:32ch;">Strengthening the social fabric of communities by supporting leaders, enabling action and organising for change.</p>
+                </div>
+                <div>
+                    <h4>Quick Links</h4>
+                    <ul>
+                        <li><a href="../training.html">Training</a></li>
+                        <li><a href="../resources.html">Tools</a></li>
+                        <li><a href="../resources.html#guides">Resources</a></li>
+                        <li><a href="../blog.html">Blog</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4>Stay in the loop</h4>
+                    <p style="color:#a8a29e;font-size:0.9rem;">No spam. Just useful updates.</p>
+                    <form class="newsletter-form" action="https://formspree.io/f/mpqjjjvd" method="POST">
+                        <label for="footer-email" class="visually-hidden">Email address for updates</label>
+                        <input type="email" id="footer-email" name="email" placeholder="Your email" autocomplete="email" required>
+                        <button type="submit" class="btn btn-primary">Subscribe</button>
+                    </form>
+                    <p class="form-success" role="status">Thanks — you're on the list.</p>
+                    <p style="color:#a8a29e;font-size:0.85rem;">hello@communityfabric.co</p>
+                </div>
+            </div>
+            <div class="footer-bottom">
+                <span>© 2026 Community Fabric CIC. Building stronger communities together.</span>
+                <span>COMMUNITY FABRIC CIC · Company No. 17326106 · Private Limited by Guarantee · Registered in England &amp; Wales · 7 Riversdale, Wadebridge, PL27 7NP</span>
+            </div>
+        </div>
+    </footer>
+
+    <script src="../site.js"></script>
+
+</body>
+</html>
